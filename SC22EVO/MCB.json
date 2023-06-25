@@ -1083,7 +1083,7 @@
         "ReadyToDriveControl": {
             "id": 38,
             "length": 1,
-            "description": "Ready To Drive control message"
+            "description": "Ready To Drive control message",
             "sender": "dash",
             "signals": {
                 "ReadyToDriveEnStatus": {
