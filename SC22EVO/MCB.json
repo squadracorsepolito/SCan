@@ -100,6 +100,7 @@
                     "offset": 0,
                     "min": 0,
                     "max": 30.0,
+                    "unit": "V",
                     "description": "Shutdown line voltage level post precharge resistor of shutdown line",
                     "receivers": [ "dspace" ]
                 },
@@ -122,12 +123,13 @@
                     "offset": 0,
                     "min": 0,
                     "max": 30.0,
+                    "unit": "V",
                     "description": "Shutdown line voltage level post delay capacitors of shutdown line",
                     "receivers": [ "dspace" ]
                 }
             }
         },
-        "TlbBatIntSig": {
+        "TlbBatIntrnlFunc": {
             "id": 70,
             "description": "tlb battery internal functions",
             "length": 8,
