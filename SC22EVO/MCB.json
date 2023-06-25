@@ -358,184 +358,275 @@
             }
         },
 
-        "BMSLV_BatteryPackGeneral": {
+        "LvBatteryPackGeneralData": {
             "id": 258,
+            "description": "General data about the low voltage battery pack",
             "length": 4,
-            "sender": "Vector__XXX",
+            "sender": "bms_lv",
             "signals": {
-                "Current_Sensor_Voltage": {
+                "HallCurrentSensorRawValue": {
                     "start_bit": 0,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.076,
                     "offset": 0,
                     "min": 0,
-                    "max": 4980.66
+                    "max": 4980.66,
+                    "unit" : "V",
+                    "receivers" : [ "dspace" ],
+                    "description": "Hall Current Sensor Raw Value (Volts)"
                 },
-                "LV_Total_Voltage_mV": {
+                "LvBatteryPackTotalVoltage": {
                     "start_bit": 16,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.267,
                     "offset": 14000,
                     "min": 14000,
-                    "max": 31497.8
+                    "max": 31497.8,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Low Voltage Battery Pack total voltage at terminal ends (millivolts)"
                 }
             }
         },
-        "BMSLV_CellVoltage1": {
+        "LvBatteryPackCellsVoltage1": {
             "id": 256,
             "length": 8,
-            "sender": "Vector__XXX",
+            "description" : "Low Voltage Battery Pack, Battery Cells Voltage message 1",
+            "sender": "bms_lv",
             "signals": {
-                "Cell_1_Voltage_mV": {
+                "Cell1Voltage": {
                     "start_bit": 0,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell1 Voltage (milliVolts)"
                 },
-                "Cell_2_Voltage_mV": {
+                "Cell2Voltage": {
                     "start_bit": 16,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell2 Voltage (milliVolts)"
                 },
-                "Cell_3_Voltage_mV": {
+                "Cell3Voltage": {
                     "start_bit": 32,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell3 Voltage (milliVolts)"
                 },
-                "Cell_4_Voltage_mV": {
+                "Cell4Voltage": {
                     "start_bit": 48,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell4 Voltage (milliVolts)"
                 }
             }
         },
-        "BMSLV_CellVoltage2": {
+        "LvBatteryPackCellsVoltage2": {
             "id": 257,
             "length": 6,
-            "sender": "Vector__XXX",
+            "description" : "Low Voltage Battery Pack, Battery Cells Voltage message 2",
+            "sender": "bms_lv",
             "signals": {
-                "Cell_5_Voltage_mV": {
+                "Cell5Voltage": {
                     "start_bit": 0,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell5 Voltage (milliVolts)"
                 },
-                "Cell_6_Voltage_mV": {
+                "Cell6Voltage": {
                     "start_bit": 16,
                     "size": 16,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 0.038,
                     "offset": 2000,
                     "min": 2000,
-                    "max": 4490.33
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell6 Voltage (milliVolts)"
                 },
-                "Cell_7_Voltage_mV": {
+                "Cell7Voltage": {
                     "start_bit": 32,
                     "size": 16,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 0.038,
+                    "offset": 2000,
+                    "min": 2000,
+                    "max": 4490.33,
+                    "unit" : "mV",
+                    "receivers" : [ "dspace" ],
+                    "description": "Battery Cell7 Voltage (milliVolts)"
                 }
             }
         },
-        "BMSLV_Status": {
+        "BmsLvStatus": {
             "id": 259,
             "length": 2,
-            "sender": "Vector__XXX",
+            "description": "Status form BMS-LV ECU",
+            "sender": "bms_lv",
             "signals": {
-                "BMSLV_StatusMessage": {
+                "BmsLvStatusMessage": {
                     "start_bit": 1,
                     "size": 8,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 255,
+                    "receivers" : [ "dspace" ],
+                    "description": "BMS LV Status message bitset"
                 },
-                "isRelayOpen": {
+                "LvRlyClsd": {
                     "start_bit": 0,
                     "size": 1,
-                    "signed": true,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 1
+                    "max": 1,
+                    "receivers" : [ "dspace" ],
+                    "description": "Low Voltage Relay Closed status"
                 }
             }
         },
-        "BMSLV_Temp": {
+        "LvBatteryPackCellsTemp": {
             "id": 261,
             "length": 8,
-            "sender": "Vector__XXX",
+            "description" : "Low Voltage Battery Pack, Battery Cells Voltage message 2",
+            "sender": "bms_lv",
             "signals": {
-                "NTC1_Resistance": {
+                "Ntc1Resistance": {
                     "start_bit": 1,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC1 Resistance - monitor of Cell1 temperature"
                 },
-                "NTC2_Resistance": {
+                "Ntc2Resistance": {
                     "start_bit": 11,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC2 Resistance - monitor of Cell2 temperature"
                 },
-                "NTC3_Resistance": {
+                "Ntc3Resistance": {
                     "start_bit": 21,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC3 Resistance - monitor of Cell3 temperature"
                 },
-                "NTC4_Resistance": {
+                "Ntc4Resistance": {
                     "start_bit": 31,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC4 Resistance - monitor of Cell4 temperature"
                 },
-                "NTC5_Resistance": {
+                "Ntc5Resistance": {
                     "start_bit": 41,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC5 Resistance - monitor of Cell5 temperature"
                 },
-                "NTC6_Resistance": {
+                "Ntc6Resistance": {
                     "start_bit": 54,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 31.25,
                     "offset": 1000,
                     "min": 1000,
-                    "max": 32968.8
+                    "max": 32968.8,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC6 Resistance - monitor of Cell6 temperature"
                 },
-                "NTC_isFirstMessage": {
+                "isFirstMessage": {
                     "start_bit": 0,
                     "size": 1,
+                    "signed": false,
+                    "big_endian": false,
                     "signed": true,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 1
+                    "max": 1,
+                    "receivers" : [ "dspace" ],
+                    "description": "First time sending this message flag"
                 }
             }
         },
