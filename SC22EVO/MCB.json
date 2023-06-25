@@ -51,10 +51,10 @@
     },
     "signal_attributes": {},
     "messages": {
-        "ShtdwnLineStatus": {
+        "ShtdwnLineMidSecStatus": {
             "id": 6,
-            "description": "shutdown line status",
-            "length": 3,
+            "description": "shutdown line middle section status",
+            "length": 2,
             "sender": "tlb_bat",
             "signals": {
                 "ShtdwnActiveLvlMidSecIn": {
@@ -103,9 +103,17 @@
                     "unit": "V",
                     "description": "Shutdown line voltage level post precharge resistor of shutdown line",
                     "receivers": [ "dspace" ]
-                },
+                }
+            }
+        },
+        "ShtdwnLineFinSecStatus": {
+            "id": 7,
+            "description": "shutdown line final section status",
+            "length": 2,
+            "sender": "tlb_bat",
+            "signals": {
                 "ShtdwnActiveLvlFinSecIn": {
-                    "start_bit": 14,
+                    "start_bit": 0,
                     "size": 2,
                     "signed": false,
                     "big_endian": false,
@@ -117,7 +125,7 @@
                     "receivers": [ "dspace" ]
                 },
                 "ShtdwnVoltageLvlPostDlyCaps": {
-                    "start_bit": 16,
+                    "start_bit": 2,
                     "size": 8,
                     "scale": 0.119,
                     "offset": 0,
@@ -633,7 +641,8 @@
         "Sens_Front_1": {
             "id": 5,
             "length": 8,
-            "sender": "Vector__XXX",
+            "sender": "sens_front",
+            "description": "",
             "signals": {
                 "Brake_Straingauge_Voltage_mV": {
                     "start_bit": 48,
@@ -739,58 +748,89 @@
                 }
             }
         },
-        "Sens_Front_NTC": {
+        "FrontNtcsTemperature": {
             "id": 1024,
             "length": 8,
-            "sender": "Vector__XXX",
+            "sender": "sens_front",
+            "description" : "Temperatures of NTCs in the front of the car",
             "signals": {
-                "NTC_2_Resistance": {
-                    "start_bit": 10,
-                    "size": 10,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1023
-                },
-                "NTC_3_Resistance": {
-                    "start_bit": 20,
-                    "size": 10,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1023
-                },
-                "NTC_4_Resistance": {
-                    "start_bit": 30,
-                    "size": 10,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1023
-                },
-                "NTC_Spare1_Resistance": {
-                    "start_bit": 40,
-                    "size": 10,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1023
-                },
-                "NTC_Spare2_Resistance": {
-                    "start_bit": 50,
-                    "size": 10,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1023
-                },
-                "NTC__Resistance": {
+                "Ntc1Resistance": {
                     "start_bit": 0,
                     "size": 10,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 1023
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC1 Resistance"
+                },
+                "Ntc2Resistance": {
+                    "start_bit": 10,
+                    "size": 10,
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC2 Resistance"
+                },
+                "Ntc3Resistance": {
+                    "start_bit": 20,
+                    "size": 10,
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC3 Resistance"
+                },
+                "Ntc4Resistance": {
+                    "start_bit": 30,
+                    "size": 10,
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "NTC4 Resistance"
+                },
+                "Ntc1SpareResistance": {
+                    "start_bit": 40,
+                    "size": 10,
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "Ntc1Spare Resistance"
+                },
+                "Ntc2SpareResistance": {
+                    "start_bit": 50,
+                    "size": 10,
+                    "signed": false,
+                    "big_endian": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1023,
+                    "unit" : "Ohm",
+                    "receivers" : [ "dspace" ],
+                    "description": "Ntc2Spare Resistance"
                 }
             }
         },
@@ -985,32 +1025,27 @@
                 }
             }
         },
-        "Sens_Rear_ShutdownStatus": {
+        "ShtdwnLineInitSecStatus": {
             "id": 48,
-            "length": 1,
-            "sender": "Vector__XXX",
+            "length": 2,
+            "sender": "sens_rear",
+            "description": "shutdown line initial section status",
             "signals": {
-                "isBSPDinError": {
-                    "start_bit": 4,
-                    "size": 1,
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
                 "isShutClosed_postBSPD": {
                     "start_bit": 0,
-                    "size": 1,
-                    "signed": true,
+                    "size": 2,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 1
+                    "max": 1,
+                    "description": "Shutdown line active level @ middle section input",
+                    "receivers": [ "dspace" ]
                 },
-                "isShutClosed_postInvFR": {
-                    "start_bit": 3,
-                    "size": 1,
+                "isShutClosed_preFunghi": {
+                    "start_bit": 2,
+                    "size": 2,
                     "signed": true,
                     "scale": 1,
                     "offset": 0,
@@ -1018,18 +1053,26 @@
                     "max": 1
                 },
                 "isShutClosed_postInvMono": {
-                    "start_bit": 2,
-                    "size": 1,
+                    "start_bit": 4,
+                    "size": 2,
                     "signed": true,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
                     "max": 1
                 },
-                "isShutClosed_preFunghi": {
-                    "start_bit": 1,
-                    "size": 1,
+                "isShutClosed_postInvFR": {
+                    "start_bit": 6,
+                    "size": 2,
                     "signed": true,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "isBSPDinError": {
+                    "start_bit": 8,
+                    "size": 2,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
