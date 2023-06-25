@@ -1080,18 +1080,20 @@
                 }
             }
         },
-        "Steering_RTD": {
+        "ReadyToDriveControl": {
             "id": 38,
             "length": 1,
-            "sender": "Vector__XXX",
+            "description": "Ready To Drive control message"
+            "sender": "dash",
             "signals": {
-                "RTD_CMD": {
+                "ReadyToDriveEnStatus": {
                     "start_bit": 0,
-                    "size": 8,
+                    "size": 2,
+                    "signed": false,
+                    "big_endian": false,
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
                 }
             }
         },
