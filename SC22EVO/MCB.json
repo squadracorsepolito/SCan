@@ -1,6 +1,5 @@
 {
 	"version": "0.1",
-	"baudrate": 1000000,
 	"nodes": {
         "bms_lv": {
             "description": "battery-management-system low-voltage"
