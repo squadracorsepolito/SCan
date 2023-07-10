@@ -104,21 +104,21 @@
 [END_MSG]
 
 [START_MSG] BMSLV_Temp1,260,8,6,0,S,bms_lv
-[START_SIGNALS] NTC1_Resistance,10,1,1,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC2_Resistance,10,2,3,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC3_Resistance,10,3,5,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC4_Resistance,10,4,7,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC5_Resistance,10,6,1,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC6_Resistance,10,7,6,U,1023,0,1,1000,31.25,,,dspace
+[START_SIGNALS] NTC1_Resistance,10,1,1,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC2_Resistance,10,2,3,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC3_Resistance,10,3,5,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC4_Resistance,10,4,7,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC5_Resistance,10,6,1,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC6_Resistance,10,7,6,U,1023,0,1,1000,31.25,Ohm,,dspace
 [END_MSG]
 
 [START_MSG] BMSLV_Temp2,261,8,6,0,S,bms_lv
-[START_SIGNALS] NTC1_Resistance,10,1,1,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC2_Resistance,10,2,3,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC3_Resistance,10,3,5,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC4_Resistance,10,4,7,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC5_Resistance,10,6,1,U,1023,0,1,1000,31.25,,,dspace
-[START_SIGNALS] NTC6_Resistance,10,7,6,U,1023,0,1,1000,31.25,,,dspace
+[START_SIGNALS] NTC1_Resistance,10,1,1,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC2_Resistance,10,2,3,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC3_Resistance,10,3,5,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC4_Resistance,10,4,7,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC5_Resistance,10,6,1,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC6_Resistance,10,7,6,U,1023,0,1,1000,31.25,Ohm,,dspace
 [END_MSG]
 
 [START_MSG] Sens_Front_3,288,8,4,0,S,sens_front
@@ -142,21 +142,21 @@
 [END_MSG]
 
 [START_MSG] Sens_Front_NTC,1024,8,6,0,S,sens_front
-[START_SIGNALS] NTC__Resistance,10,1,0,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_2_Resistance,10,2,2,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_3_Resistance,10,3,4,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_4_Resistance,10,4,6,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_Spare1_Resistance,10,6,0,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_Spare2_Resistance,10,7,2,U,1023,0,1,0,1,,,dspace
+[START_SIGNALS] NTC_1_Resistance,10,1,0,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_2_Resistance,10,2,2,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_3_Resistance,10,3,4,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_4_Resistance,10,4,6,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_Spare1_Resistance,10,6,0,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_Spare2_Resistance,10,7,2,U,1023,0,1,1000,31.25,Ohm,,dspace
 [END_MSG]
 
 [START_MSG] Sens_Rear_NTC,1025,8,6,0,S,sens_rear
-[START_SIGNALS] NTC_1_Resistance,10,1,0,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_2_Resistance,10,2,2,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_3_Resistance,10,3,4,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_4_Resistance,10,4,6,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_5_Resistance,10,6,0,U,1023,0,1,0,1,,,dspace
-[START_SIGNALS] NTC_6_Resistance,10,7,2,U,1023,0,1,0,1,,,dspace
+[START_SIGNALS] NTC_1_Resistance,10,1,0,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_2_Resistance,10,2,2,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_3_Resistance,10,3,4,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_4_Resistance,10,4,6,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_5_Resistance,10,6,0,U,1023,0,1,1000,31.25,Ohm,,dspace
+[START_SIGNALS] NTC_6_Resistance,10,7,2,U,1023,0,1,1000,31.25,Ohm,,dspace
 [END_MSG]
 
 [START_MSG] Sens_Rear_2,1026,4,2,0,S,sens_rear
