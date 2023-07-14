@@ -94,7 +94,7 @@
 [END_MSG]
 
 [START_MSG] BMSLV_BatteryPackGeneral,258,4,2,0,S,bms_lv
-[START_SIGNALS] Current_Sensor_Voltage_mA,16,1,0,U,33276.9,-32258.1,1,20000,0.62,,,dspace
+[START_SIGNALS] Current_Sensor_mV,16,1,0,U,65535,0,1,0,0.076,,,dspace
 [START_SIGNALS] LV_Total_Voltage_mV,16,3,0,U,65535,0,1,14000,0.267,,,dspace
 [END_MSG]
 
