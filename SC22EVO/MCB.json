@@ -46,14 +46,14 @@
             "length": 4,
             "sender": "bms_lv",
             "signals": {
-                "Current_Sensor_Voltage": {
+                "Current_Sensor_Voltage_mA": {
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
-                    "scale": 0.00062,
-                    "offset": 20,
-                    "min": -20,
-                    "max": 20.6317,
+                    "scale": 0.62,
+                    "offset": 20000,
+                    "min": -20000,
+                    "max": 20631.7,
                     "receivers": [ "dspace" ]
                 },
                 "LV_Total_Voltage_mV": {
