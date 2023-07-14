@@ -53,7 +53,7 @@ ID,Frame Name,Cycle Time [ms],Launch Type,Launch Parameter,Signal Byte No.,Signa
 101h,BMSLV_CellVoltage2,0,,,1,0,Cell_5_Voltage_mV,,16,2000.000, ,i,u,,r,,,,s,0..2490.33,0.038 -,,,
 101h,BMSLV_CellVoltage2,0,,,3,0,Cell_6_Voltage_mV,,16,2000.000, ,i,u,,r,,,,s,0..2490.33,0.038 -,,,
 101h,BMSLV_CellVoltage2,0,,,5,0,Cell_7_Voltage_mV,,16,2000.000, ,i,u,,r,,,,s,0..2490.33,0.038 -,,,
-102h,BMSLV_BatteryPackGeneral,0,,,1,0,Current_Sensor_Voltage,,16,0.000, ,i,u,,r,,,,s,0..4980.66,0.076 -,,,
+102h,BMSLV_BatteryPackGeneral,0,,,1,0,Current_Sensor_Voltage,,16,20.00000, ,i,u,,r,,,,s,-20..20.6317,0.00062 -,,,
 102h,BMSLV_BatteryPackGeneral,0,,,3,0,LV_Total_Voltage_mV,,16,14000.000, ,i,u,,r,,,,s,0..17497.8,0.267 -,,,
 103h,BMSLV_Status,0,,,1,0,isRelayOpen,,1,0, ,i,s,,r,,,,s,0..1,,,,
 103h,BMSLV_Status,0,,,1,1,BMSLV_StatusMessage,,8,0, ,i,u,,r,,,,s,0..255,,,,
