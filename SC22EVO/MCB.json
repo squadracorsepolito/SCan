@@ -50,10 +50,10 @@
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
-                    "scale": 0.076,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 4980.66,
+                    "scale": 0.00062,
+                    "offset": 20,
+                    "min": -20,
+                    "max": 20.6317,
                     "receivers": [ "dspace" ]
                 },
                 "LV_Total_Voltage_mV": {
