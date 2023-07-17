@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 22
+[NUMBER_OF_MESSAGES] 23
 [START_MSG] Sens_Front_1,5,8,4,0,S,sens_front
 [START_SIGNALS] Throttle_0_Voltage_mV,16,1,0,U,65535,0,1,0,1,,,dspace
 [START_SIGNALS] Throttle_1_Voltage_mV,16,3,0,U,65535,0,1,0,1,,,dspace
@@ -78,6 +78,11 @@
 [START_SIGNALS] isShutClosed_postInertia,1,1,1,I,1,0,1,0,1,,,dspace
 [START_SIGNALS] isShutClosed_postBOTS,1,1,2,I,1,0,1,0,1,,,dspace
 [START_SIGNALS] isShutClosed_postCockpit,1,1,3,I,1,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] BMSLV_RelayOverride,255,2,2,0,S,dspace
+[START_SIGNALS] password,15,1,0,U,65535,0,1,0,1,,,bmslv
+[START_SIGNALS] close_relay,1,2,7,U,1,0,1,0,1,,,bmslv
 [END_MSG]
 
 [START_MSG] BMSLV_CellVoltage1,256,8,4,0,S,bms_lv
@@ -171,7 +176,7 @@
 [START_SIGNALS] RearRight_ON,1,1,3,I,1,0,1,0,1,,,dspace
 [END_MSG]
 
-[NODE] sens_front,dspace,sens_rear,tlb_bat,dash,bms_lv
+[NODE] sens_front,dspace,sens_rear,tlb_bat,dash,bmslv,bms_lv
 [START_DESC]
 
 [START_DESC_MSG]
@@ -184,6 +189,7 @@
 38 S "";
 48 S "";
 49 S "";
+255 S "";
 256 S "";
 257 S "";
 258 S "";
