@@ -98,9 +98,10 @@
 [START_SIGNALS] Cell_7_Voltage_mV,16,5,0,U,65535,0,1,2000,0.038,,,dspace
 [END_MSG]
 
-[START_MSG] BMSLV_BatteryPackGeneral,258,4,2,0,S,bms_lv
+[START_MSG] BMSLV_BatteryPackGeneral,258,6,3,0,S,bms_lv
 [START_SIGNALS] Current_Sensor_mV,16,1,0,U,65535,0,1,0,0.076,,,dspace
 [START_SIGNALS] LV_Total_Voltage_mV,16,3,0,U,65535,0,1,14000,0.267,,,dspace
+[START_SIGNALS] LV_Total_Voltage_Sum_mV,16,5,0,U,65535,0,1,14000,0.267,,,dspace
 [END_MSG]
 
 [START_MSG] BMSLV_Status,259,2,2,0,S,bms_lv
