@@ -43,7 +43,7 @@
     "messages": {
         "BMSLV_BatteryPackGeneral": {
             "id": 258,
-            "length": 4,
+            "length": 6,
             "sender": "bms_lv",
             "signals": {
                 "Current_Sensor_mV": {
