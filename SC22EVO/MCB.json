@@ -65,6 +65,16 @@
                     "min": 0,
                     "max": 17497.845,
                     "receivers": [ "dspace" ]
+                },
+                "LV_Total_Voltage_Sum_mV": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "scale": 0.267,
+                    "offset": 14000,
+                    "min": 0,
+                    "max": 17497.845,
+                    "receivers": [ "dspace" ]
                 }
             }
         },
