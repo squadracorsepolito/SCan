@@ -209,7 +209,7 @@
         },
         "BMSLV_Status": {
             "id": 259,
-            "length": 3,
+            "length": 4,
             "sender": "bms_lv",
             "signals": {
                 "isRelayOpen": {
@@ -377,7 +377,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell1_OT": {
+                "temp1_OT": {
                     "start_bit": 15,
                     "size": 1,
                     "endianness": "little",
@@ -388,7 +388,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell2_OT": {
+                "temp2_OT": {
                     "start_bit": 16,
                     "size": 1,
                     "endianness": "little",
@@ -399,7 +399,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell3_OT": {
+                "temp3_OT": {
                     "start_bit": 17,
                     "size": 1,
                     "endianness": "little",
@@ -410,7 +410,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell4_OT": {
+                "temp4_OT": {
                     "start_bit": 18,
                     "size": 1,
                     "endianness": "little",
@@ -421,7 +421,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell5_OT": {
+                "temp5_OT": {
                     "start_bit": 19,
                     "size": 1,
                     "endianness": "little",
@@ -432,7 +432,7 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell6_OT": {
+                "temp6_OT": {
                     "start_bit": 20,
                     "size": 1,
                     "endianness": "little",
@@ -443,8 +443,63 @@
                     "max": 1,
                     "receivers": [ "dspace" ]
                 },
-                "cell7_OT": {
+                "temp7_OT": {
                     "start_bit": 21,
+                    "size": 1,
+                    "endianness": "little",
+                    "signed": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1,
+                    "receivers": [ "dspace" ]
+                },
+                "temp8_OT": {
+                    "start_bit": 22,
+                    "size": 1,
+                    "endianness": "little",
+                    "signed": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1,
+                    "receivers": [ "dspace" ]
+                },
+                "temp9_OT": {
+                    "start_bit": 23,
+                    "size": 1,
+                    "endianness": "little",
+                    "signed": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1,
+                    "receivers": [ "dspace" ]
+                },
+                "temp10_OT": {
+                    "start_bit": 24,
+                    "size": 1,
+                    "endianness": "little",
+                    "signed": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1,
+                    "receivers": [ "dspace" ]
+                },
+                "temp11_OT": {
+                    "start_bit": 25,
+                    "size": 1,
+                    "endianness": "little",
+                    "signed": false,
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1,
+                    "receivers": [ "dspace" ]
+                },
+                "temp12_OT": {
+                    "start_bit": 26,
                     "size": 1,
                     "endianness": "little",
                     "signed": false,
