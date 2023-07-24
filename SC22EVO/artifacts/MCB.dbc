@@ -32,7 +32,7 @@ NS_ :
 
 BS_ :
 
-BU_ : sens_rear tlb_bat bms_lv dash dspace sens_front
+BU_ : bms_lv dash dspace sens_front sens_rear tlb_bat
 
 BO_ 5 Sens_Front_1: 8 sens_front
 	SG_ Throttle_0_Voltage_mV : 0|16@1+ (1,0) [0|65535] "" dspace
@@ -79,6 +79,24 @@ BO_ 19 TLB_Battery_TSALStatus: 3 tlb_bat
 	SG_ Imp_isRelayPrechargeImp_Present : 14|1@1+ (1,0) [0|1] "" dspace
 	SG_ Imp_isDCBusVoltageImp_Present : 15|1@1+ (1,0) [0|1] "" dspace
 	SG_ Imp_isAnyImp_Latched : 16|1@1+ (1,0) [0|1] "" dspace
+
+BO_ 20 BMSLV_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
+
+BO_ 21 Sens_Front_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
+
+BO_ 22 Sens_Rear_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
+
+BO_ 23 Steering_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
+
+BO_ 24 TLB_Battery_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
+
+BO_ 25 dSpaxe_Helo: 8 bms_lv
+	SG_ time : 0|64@1+ (1,0) [0|18446744073709552000] "" dspace
 
 BO_ 37 dSpace_RTD_ACK: 1 dspace
 	SG_ RTD_FSM_STATE : 0|8@1- (1,0) [-1|6] "" dash
@@ -182,12 +200,12 @@ BO_ 1280 Steering_MotorControl_Debug: 1 dash
 	SG_ RearLeft_ON : 2|1@1- (1,0) [0|1] "" dspace
 	SG_ RearRight_ON : 3|1@1- (1,0) [0|1] "" dspace
 
-CM_ BU_ bms_lv "battery-management-system low-voltage";
-CM_ BU_ dash "dashboard ECU";
 CM_ BU_ dspace "automotive ECU";
 CM_ BU_ sens_front "sensorboard front ECU";
 CM_ BU_ sens_rear "sensorboard rear ECU";
 CM_ BU_ tlb_bat "tsal-latch-board battery ECU";
+CM_ BU_ bms_lv "battery-management-system low-voltage";
+CM_ BU_ dash "dashboard ECU";
 
 BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
 BA_DEF_DEF_ "GenSigStartValue" 0;

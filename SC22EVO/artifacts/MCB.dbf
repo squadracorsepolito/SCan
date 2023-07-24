@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 23
+[NUMBER_OF_MESSAGES] 29
 [START_MSG] Sens_Front_1,5,8,4,0,S,sens_front
 [START_SIGNALS] Throttle_0_Voltage_mV,16,1,0,U,65535,0,1,0,1,,,dspace
 [START_SIGNALS] Throttle_1_Voltage_mV,16,3,0,U,65535,0,1,0,1,,,dspace
@@ -55,6 +55,30 @@
 [START_SIGNALS] Imp_isRelayPrechargeImp_Present,1,2,6,U,1,0,1,0,1,,,dspace
 [START_SIGNALS] Imp_isDCBusVoltageImp_Present,1,2,7,U,1,0,1,0,1,,,dspace
 [START_SIGNALS] Imp_isAnyImp_Latched,1,3,0,U,1,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] BMSLV_Helo,20,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] Sens_Front_Helo,21,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] Sens_Rear_Helo,22,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] Steering_Helo,23,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] TLB_Battery_Helo,24,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
+[END_MSG]
+
+[START_MSG] dSpaxe_Helo,25,8,1,0,S,bms_lv
+[START_SIGNALS] time,64,1,0,U,1.84467e+19,0,1,0,1,,,dspace
 [END_MSG]
 
 [START_MSG] dSpace_RTD_ACK,37,1,1,0,S,dspace
@@ -177,7 +201,7 @@
 [START_SIGNALS] RearRight_ON,1,1,3,I,1,0,1,0,1,,,dspace
 [END_MSG]
 
-[NODE] sens_front,dspace,sens_rear,tlb_bat,dash,bmslv,bms_lv
+[NODE] sens_front,dspace,sens_rear,tlb_bat,bms_lv,dash,bmslv
 [START_DESC]
 
 [START_DESC_MSG]
@@ -186,6 +210,12 @@
 17 S "";
 18 S "";
 19 S "";
+20 S "";
+21 S "";
+22 S "";
+23 S "";
+24 S "";
+25 S "";
 37 S "";
 38 S "";
 48 S "";
