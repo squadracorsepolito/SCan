@@ -299,7 +299,7 @@
                     "min": 0,
                     "max": 1,
                     "receivers": [ "dspace" ]
-                },,
+                },
                 "cell1_UV": {
                     "start_bit": 8,
                     "size": 1,
@@ -376,7 +376,7 @@
                     "min": 0,
                     "max": 1,
                     "receivers": [ "dspace" ]
-                },,
+                },
                 "cell1_OT": {
                     "start_bit": 15,
                     "size": 1,
