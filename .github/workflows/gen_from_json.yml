@@ -54,6 +54,7 @@ jobs:
           file=$(basename $path)
           lcPath=${path,,}
           lcFile=$(basename $lcPath)
+          echo "FILENAME=$(echo $file)" >> $GITHUB_ENV
           echo "DBC_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).dbc" >> $GITHUB_ENV
           echo "C_FILE=$(echo $lcFile).c" >> $GITHUB_ENV
           echo "H_FILE=$(echo $lcFile).h" >> $GITHUB_ENV
@@ -114,8 +115,9 @@ jobs:
         env:
           REPO: self
           BRANCH: build
-          FOLDER: ${{ env.ARTIFACT_DIR }}
+          FOLDER: ${{ env.ARTIFACT_DIR }}/${{ env.DBC_FILE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_DIR: ${{ env.JSON_FILES_DIR }}/artifacts
           SKIP_EMPTY_COMMITS: true
           MESSAGE: generated from ${{ matrix.json-file }} at {sha}
+          CLEAR_GLOBS_FILE: "!**/*"
