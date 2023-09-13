@@ -1,6 +1,6 @@
 {
 	"version": "created by canmatrix",
-	"baudrate": 1000000,
+	"baudrate": 0,
 	"nodes": {
 		"Charger": {
 			"attributes": {
