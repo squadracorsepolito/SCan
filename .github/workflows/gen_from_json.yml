@@ -115,7 +115,7 @@ jobs:
         env:
           REPO: self
           BRANCH: build
-          FOLDER: ${{ env.ARTIFACT_DIR }}/${{ env.DBC_FILE }}
+          FOLDER: ${{ env.ARTIFACT_DIR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_DIR: ${{ env.JSON_FILES_DIR }}/artifacts/${{ env.FILENAME }}
           SKIP_EMPTY_COMMITS: true
