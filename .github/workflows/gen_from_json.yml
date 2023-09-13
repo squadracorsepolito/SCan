@@ -120,4 +120,4 @@ jobs:
           TARGET_DIR: ${{ env.JSON_FILES_DIR }}/artifacts
           SKIP_EMPTY_COMMITS: true
           MESSAGE: generated from ${{ matrix.json-file }} at {sha}
-          CLEAR_GLOBS_FILE: "!**/*"
+          CLEAR_GLOBS_FILE: ".clear-target-files"
