@@ -50,7 +50,7 @@ jobs:
         run: |
           mkdir -p ${{ env.ARTIFACT_DIR }}
           mkdir -p ${{ env.ARTIFACT_DIR }}/c_source
-          path=$(echo ${{ matrix.json-file }} | cut -d. -f1)
+          path=$(echo ${{ matrix.json-file }})
           file=$(basename $path)
           lcPath=${path,,}
           lcFile=$(basename $lcPath)
@@ -61,7 +61,10 @@ jobs:
           echo "DBF_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).dbf" >> $GITHUB_ENV
           echo "XLSX_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).xlsx" >> $GITHUB_ENV
           echo "CSV_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).csv" >> $GITHUB_ENV
-          
+
+      - name: Print dir
+        run: ls -R
+        
       - name: Download latest jsodbc release
         uses: robinraju/release-downloader@v1.8
         with:
