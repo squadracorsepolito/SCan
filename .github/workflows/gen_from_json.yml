@@ -50,7 +50,7 @@ jobs:
         run: |
           mkdir -p ${{ env.ARTIFACT_DIR }}
           mkdir -p ${{ env.ARTIFACT_DIR }}/c_source
-          path=$(echo ${{ matrix.json-file }})
+          path=$(echo ${{ matrix.json-file }} | cut -d. -f2)
           file=$(basename $path)
           lcPath=${path,,}
           lcFile=$(basename $lcPath)
