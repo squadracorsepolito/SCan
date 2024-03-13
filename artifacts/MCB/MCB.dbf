@@ -230,34 +230,34 @@
 [START_DESC]
 
 [START_DESC_MSG]
-5 S "(period: 10 ms)";
-16 S "(period: 10 ms)";
-17 S "(period: 10 ms)";
-18 S "(period: 100 ms)";
-19 S "(period: 100 ms)";
+5 S "";
+16 S "";
+17 S "";
+18 S "";
+19 S "";
 20 S "";
 21 S "";
-22 S "(period: 10 ms)";
+22 S "";
 23 S "";
 24 S "";
 25 S "";
 37 S "";
-38 S "(period: 500 ms)";
-48 S "(period: 10 ms)";
-49 S "(period: 10 ms)";
+38 S "";
+48 S "";
+49 S "";
 255 S "";
-256 S "(period: 100 ms)";
-257 S "(period: 100 ms)";
-258 S "(period: 100 ms)";
-259 S "(period: 100 ms)";
-260 S "(period: 2000 ms)";
-261 S "(period: 2000 ms)";
-288 S "(period: 10 ms)";
-289 S "(period: 10 ms)";
+256 S "";
+257 S "";
+258 S "";
+259 S "";
+260 S "";
+261 S "";
+288 S "";
+289 S "";
 512 S "";
-1024 S "(period: 10 ms)";
-1025 S "(period: 10 ms)";
-1026 S "(period: 10 ms)";
+1024 S "";
+1025 S "";
+1026 S "";
 1280 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
