@@ -55,7 +55,7 @@ jobs:
           lcPath=${path,,}
           lcFile=$(basename $lcPath)
           dir=$(dirname $path)
-          echo "OUT_DIR=$(echo $dir | cut -c 3-)" >> $GITHUB_ENV
+          echo "OUT_DIR=$(echo $dir | cut -c 2-)" >> $GITHUB_ENV
           echo "FILENAME=$(echo $file)" >> $GITHUB_ENV
           echo "DBC_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).dbc" >> $GITHUB_ENV
           echo "C_FILE=$(echo $lcFile).c" >> $GITHUB_ENV
