@@ -17,7 +17,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Select JSON files
         id: set-matrix
         run: echo "matrix=$(find $JSON_FILES_DIR | egrep '\.json$' | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
@@ -25,7 +25,7 @@ jobs:
   sync-branch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Merge master into build
         uses: devmasx/merge-branch@master
@@ -44,7 +44,7 @@ jobs:
       matrix:
         json-file: ${{ fromJson(needs.list-json-files.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
           
       - name: Get filenames
         run: |
