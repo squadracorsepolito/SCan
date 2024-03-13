@@ -65,7 +65,7 @@ jobs:
           echo "CSV_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).csv" >> $GITHUB_ENV
         
       - name: Download latest jsodbc release
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1.9
         with:
           repository: "squadracorsepolito/jsondbc"
           latest: true
@@ -74,13 +74,13 @@ jobs:
           out-file-path: "jsondbc"
           
       - name: Setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       
       - name: Cache pip packages
         id: pip-cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-python${{ env.PYTHON_VERSION }}
