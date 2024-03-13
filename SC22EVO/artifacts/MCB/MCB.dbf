@@ -272,9 +272,12 @@
 [START_PARAM_NODE]
 [END_PARAM_NODE]
 [START_PARAM_MSG]
+"GenMsgCycleTime",INT,0,1000
+"GenMsgSendType",ENUM,"NoMsgSendType","Cyclic","IfActive","cyclicIfActive","NotUsed"
 [END_PARAM_MSG]
 [START_PARAM_SIG]
 "GenSigStartValue",FLOAT,0,100000000000,0
+"GenSigSendType",ENUM,"NoSigSendType","Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NotUsed",NoSigSendType
 [END_PARAM_SIG]
 [START_PARAM_VAL]
 [START_PARAM_NODE_VAL]
