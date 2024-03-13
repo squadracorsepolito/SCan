@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Select JSON files
         id: set-matrix
-        run: echo "matrix=$(ls *.json | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
+        run: echo "matrix=$(ls -R | egrep '\.json$' | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
           
   sync-branch:
     runs-on: ubuntu-latest
@@ -117,6 +117,6 @@ jobs:
           BRANCH: build
           FOLDER: ${{ env.ARTIFACT_DIR }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_DIR: artifacts/${{ env.FILENAME }}
+          TARGET_DIR: ${{ env.JSON_FILES_DIR }}/artifacts/${{ env.FILENAME }}
           SKIP_EMPTY_COMMITS: true
           MESSAGE: generated from ${{ matrix.json-file }} at {sha}
