@@ -1,1673 +1,2926 @@
 {
-    "version": "0.1",
-    "nodes": {
-        "bms_lv": {
-            "description": "battery-management-system low-voltage"
-        },
-        "dash": {
-            "description": "dashboard ECU"
-        },
-        "dspace": {
-            "description": "automotive ECU"
-        },
-        "sens_front": {
-            "description": "sensorboard front ECU"
-        },
-        "sens_rear": {
-            "description": "sensorboard rear ECU"
-        },
-        "tlb_bat": {
-            "description": "tsal-latch-board battery ECU"
-        }
-    },
-    "general_attributes": {},
-    "node_attributes": {},
-    "message_attributes": {
-        "MsgPeriodMS": {
-            "int": {
-                "default": 0,
-                "from": 0,
-                "to": 65535
-            }
-        }
-    },
-    "signal_attributes": {
-        "GenSigStartValue": {
-            "float": {
-                "default": 0,
-                "from": 0,
-                "to": 100000000000
-            }
-        }
-    },
-    "messages": {
-        "BMSLV_Helo": {
-            "id": 20,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 0,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "BMSLV_BatteryPackGeneral": {
-            "id": 258,
-            "length": 6,
-            "sender": "bms_lv",
-            "period_ms" : 100,
-            "signals": {
-                "Current_Sensor_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.076,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 4980.66,
-                    "receivers": [ "dspace" ]
-                },
-                "LV_Total_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.267,
-                    "offset": 14000,
-                    "min": 0,
-                    "max": 17497.845,
-                    "receivers": [ "dspace" ]
-                },
-                "LV_Total_Voltage_Sum_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.267,
-                    "offset": 14000,
-                    "min": 0,
-                    "max": 17497.845,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "BMSLV_RelayOverride": {
-            "id": 255,
-            "length": 2,
-            "sender": "dspace",
-            "period_ms" : 0,
-            "signals": {
-                "password": {
-                    "start_bit": 0,
-                    "size": 15,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": ["bms_lv"]
-                },
-                "close_relay": {
-                    "start_bit": 15,
-                    "size": 1,
-                    "signed": false,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": ["bms_lv"]
-                }
-            }
-        },
-        "BMSLV_CellVoltage1": {
-            "id": 256,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 100,
-            "signals": {
-                "Cell_1_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                },
-                "Cell_2_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                },
-                "Cell_3_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                },
-                "Cell_4_Voltage_mV": {
-                    "start_bit": 48,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "BMSLV_CellVoltage2": {
-            "id": 257,
-            "length": 6,
-            "sender": "bms_lv",
-            "period_ms" : 100,
-            "signals": {
-                "Cell_5_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                },
-                "Cell_6_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                },
-                "Cell_7_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 0.038,
-                    "offset": 2000,
-                    "min": 0,
-                    "max": 2490.33,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "BMSLV_Status": {
-            "id": 259,
-            "length": 4,
-            "sender": "bms_lv",
-            "period_ms" : 100,
-            "signals": {
-                "isRelayOpen": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell1_OV": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell2_OV": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell3_OV": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell4_OV": {
-                    "start_bit": 4,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell5_OV": {
-                    "start_bit": 5,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell6_OV": {
-                    "start_bit": 6,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell7_OV": {
-                    "start_bit": 7,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell1_UV": {
-                    "start_bit": 8,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell2_UV": {
-                    "start_bit": 9,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell3_UV": {
-                    "start_bit": 10,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell4_UV": {
-                    "start_bit": 11,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell5_UV": {
-                    "start_bit": 12,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell6_UV": {
-                    "start_bit": 13,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "cell7_UV": {
-                    "start_bit": 14,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp1_OT": {
-                    "start_bit": 15,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp2_OT": {
-                    "start_bit": 16,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp3_OT": {
-                    "start_bit": 17,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp4_OT": {
-                    "start_bit": 18,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp5_OT": {
-                    "start_bit": 19,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp6_OT": {
-                    "start_bit": 20,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp7_OT": {
-                    "start_bit": 21,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp8_OT": {
-                    "start_bit": 22,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp9_OT": {
-                    "start_bit": 23,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp10_OT": {
-                    "start_bit": 24,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp11_OT": {
-                    "start_bit": 25,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "temp12_OT": {
-                    "start_bit": 26,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": false,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "BMSLV_Temp1": {
-            "id": 260,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 2000,
-            "signals": {
-                "NTC1_Resistance": {
-                    "start_bit": 1,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC2_Resistance": {
-                    "start_bit": 11,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC3_Resistance": {
-                    "start_bit": 21,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC4_Resistance": {
-                    "start_bit": 31,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC5_Resistance": {
-                    "start_bit": 41,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC6_Resistance": {
-                    "start_bit": 54,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "BMSLV_Temp2": {
-            "id": 261,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 2000,
-            "signals": {
-                "NTC1_Resistance": {
-                    "start_bit": 1,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC2_Resistance": {
-                    "start_bit": 11,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC3_Resistance": {
-                    "start_bit": 21,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC4_Resistance": {
-                    "start_bit": 31,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC5_Resistance": {
-                    "start_bit": 41,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC6_Resistance": {
-                    "start_bit": 54,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Front_Helo": {
-            "id": 21,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 0,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "Sens_Front_1": {
-            "id": 5,
-            "length": 8,
-            "sender": "sens_front",
-            "period_ms" : 10,
-            "signals": {
-                "Brake_Straingauge_Voltage_mV": {
-                    "start_bit": 48,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Steering_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Throttle_0_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Throttle_1_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Front_2": {
-            "id": 16,
-            "length": 6,
-            "sender": "sens_front",
-            "period_ms" : 10,
-            "signals": {
-                "BrakePressure_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Pot_FL_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Pot_FR_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Front_3": {
-            "id": 288,
-            "length": 8,
-            "sender": "sens_front",
-            "period_ms" : 10,
-            "signals": {
-                "Straingauge_PushFL_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_PushFR_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_TieFL_Voltage_mV": {
-                    "start_bit": 48,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_TieFR_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Front_NTC": {
-            "id": 1024,
-            "length": 8,
-            "sender": "sens_front",
-            "period_ms" : 10,
-            "signals": {
-                "NTC_1_Resistance": {
-                    "start_bit": 0,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_2_Resistance": {
-                    "start_bit": 10,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_3_Resistance": {
-                    "start_bit": 20,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_4_Resistance": {
-                    "start_bit": 30,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_Spare1_Resistance": {
-                    "start_bit": 40,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_Spare2_Resistance": {
-                    "start_bit": 50,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Front_ShutdownStatus": {
-            "id": 49,
-            "length": 1,
-            "sender": "sens_front",
-            "period_ms" : 10,
-            "signals": {
-                "isShutClosed_postBOTS": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postCockpit": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postInertia": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_preInertia": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Rear_Helo": {
-            "id": 22,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 10,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "Sens_Rear_1": {
-            "id": 17,
-            "length": 6,
-            "sender": "sens_rear",
-            "period_ms" : 10,
-            "signals": {
-                "BrakePressure_Rear_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Pot_RL_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Pot_RR_Voltage_RR": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Rear_2": {
-            "id": 1026,
-            "length": 4,
-            "sender": "sens_rear",
-            "period_ms" : 10,
-            "signals": {
-                "CoolingPressure_DX_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "CoolingPressure_SX_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Rear_3": {
-            "id": 289,
-            "length": 8,
-            "sender": "sens_rear",
-            "period_ms" : 10,
-            "signals": {
-                "Straingauge_PushRL_Voltage_mV": {
-                    "start_bit": 32,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_PushRR_Voltage_mV": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_TieRL_Voltage_mV": {
-                    "start_bit": 48,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                },
-                "Straingauge_TieRR_Voltage_mV": {
-                    "start_bit": 16,
-                    "size": 16,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 65535,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Rear_NTC": {
-            "id": 1025,
-            "length": 8,
-            "sender": "sens_rear",
-            "period_ms" : 10,
-            "signals": {
-                "NTC_1_Resistance": {
-                    "start_bit": 0,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_2_Resistance": {
-                    "start_bit": 10,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_3_Resistance": {
-                    "start_bit": 20,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_4_Resistance": {
-                    "start_bit": 30,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_5_Resistance": {
-                    "start_bit": 40,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                },
-                "NTC_6_Resistance": {
-                    "start_bit": 50,
-                    "size": 10,
-                    "endianness": "little",
-                    "scale": 31.25,
-                    "offset": 1000,
-                    "min": 0,
-                    "max": 31968.75,
-                    "unit" : "Ohm",
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Sens_Rear_ShutdownStatus": {
-            "id": 48,
-            "length": 1,
-            "sender": "sens_rear",
-            "period_ms" : 10,
-            "signals": {
-                "isBSPDinError": {
-                    "start_bit": 4,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postBSPD": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postInvFR": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postInvMono": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_preFunghi": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Steering_Helo": {
-            "id": 23,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 0,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "Steering_MotorControl_Debug": {
-            "id": 1280,
-            "length": 1,
-            "sender": "dash",
-            "signals": {
-                "FrontLeft_ON": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "FrontRight_ON": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "RearLeft_ON": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "RearRight_ON": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "Steering_RTD": {
-            "id": 38,
-            "length": 1,
-            "sender": "dash",
-            "period_ms": 500,
-            "signals": {
-                "RTD_CMD": {
-                    "start_bit": 0,
-                    "size": 8,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 255,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "TLB_Battery_Helo": {
-            "id": 24,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 0,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "TLB_Battery_ShutStatus": {
-            "id": 18,
-            "length": 3,
-            "sender": "tlb_bat",
-            "period_ms" : 100,
-            "signals": {
-                "ShutdownADC_AIRsOpeningDelayCaps": {
-                    "start_bit": 16,
-                    "size": 8,
-                    "endianness": "little",
-                    "unit": "V",
-                    "scale": 0.117,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 255,
-                    "receivers": [ "dspace" ]
-                },
-                "ShutdownADC_postSDPrechargeRelay": {
-                    "start_bit": 8,
-                    "size": 8,
-                    "endianness": "little",
-                    "unit": "V",
-                    "scale": 0.117,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 255,
-                    "receivers": [ "dspace" ]
-                },
-                "isAMSErrorLatched": {
-                    "start_bit": 4,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isIMDErrorLatched": {
-                    "start_bit": 5,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isSdPrchRlyClosed": {
-                    "start_bit": 6,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postAMSLatch": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_postIMDLatch": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutClosed_preAMS_IMD_Latch": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "isShutdownClosed_preTLBBattFinal": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "TLB_Battery_TSALStatus": {
-            "id": 19,
-            "length": 3,
-            "sender": "tlb_bat",
-            "period_ms" : 100,
-            "signals": {
-                "Imp_isAIRNegImp_Present": {
-                    "start_bit": 13,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "Imp_isAIRPosImp_Present": {
-                    "start_bit": 12,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "Imp_isAnyImp_Latched": {
-                    "start_bit": 16,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "Imp_isAnyImp_Present": {
-                    "start_bit": 11,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "Imp_isDCBusVoltageImp_Present": {
-                    "start_bit": 15,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "Imp_isRelayPrechargeImp_Present": {
-                    "start_bit": 14,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "IntentionalState_AIRNeg": {
-                    "start_bit": 6,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "IntentionalState_AIRPos": {
-                    "start_bit": 5,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "IntentionalState_RelayPrecharge": {
-                    "start_bit": 7,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "SCS_Short2GND_AirNeg": {
-                    "start_bit": 9,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "SCS_Short2GND_AirPos": {
-                    "start_bit": 8,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "SCS_isAnyShort2GND_Present": {
-                    "start_bit": 10,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "TSAL_IsAIRNegClosed": {
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "TSAL_IsRelayPrechargeClosed": {
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "TSAL_isAIRPosClosed": {
-                    "start_bit": 1,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "TSAL_isDCBusOver60V": {
-                    "start_bit": 4,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                },
-                "TSAL_isGreenON": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dspace" ]
-                }
-            }
-        },
-        "dSpaxe_Helo": {
-            "id": 25,
-            "length": 8,
-            "sender": "bms_lv",
-            "period_ms" : 0,
-            "signals": {
-                "time": {
-                    "start_bit": 0,
-                    "size": 64,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 18446744073709551615,
-                    "receivers": ["dspace"]
-                }
-            }
-        },
-        "dSpace_PeripheralsCTRL": {
-            "id": 512,
-            "length": 3,
-            "sender": "dspace",
-            "signals": {
-                "BattHVFan_CTRL": {
-                    "start_bit": 16,
-                    "size": 8,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 255,
-                    "receivers": [ "dash" ]
-                },
-                "BrakeLightON_CTRL": {
-                    "start_bit": 0,
-                    "size": 1,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1,
-                    "receivers": [ "dash" ]
-                },
-                "RadFAN_PWM_CTRL": {
-                    "start_bit": 8,
-                    "size": 8,
-                    "endianness": "little",
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 255,
-                    "receivers": [ "dash" ]
-                }
-            }
-        },
-        "dSpace_RTD_ACK": {
-            "id": 37,
-            "length": 1,
-            "sender": "dspace",
-            "signals": {
-                "RTD_FSM_STATE": {
-                    "start_bit": 0,
-                    "size": 8,
-                    "endianness": "little",
-                    "signed": true,
-                    "scale": 1,
-                    "offset": 0,
-                    "min": -1,
-                    "max": 6,
-                    "receivers": [ "dash" ]
-                }
-            }
-        }
-    }
+	"version": "_",
+	"nodes": {
+		"BMS_LV": {
+			"description": "Battery-Management-System Low-Voltage ECU."
+		},
+		"DASH": {
+			"description": "Dashboard ECU."
+		},
+		"DIAG_TOOL": {
+			"description": "Diagnostic tool."
+		},
+		"DSPACE": {
+			"description": "An automotive ECU."
+		},
+		"EXTRA_NODE": {
+			"description": "Extra CAN BUS-Nodes not permanent or temporary"
+		},
+		"SB_FRONT": {
+			"description": "Sensorboard front ECU."
+		},
+		"SB_REAR": {
+			"description": "Sensorboard rear ECU."
+		},
+		"SCANNER": {
+			"description": "Can Logger ECU"
+		},
+		"TLB_BAT": {
+			"description": "TSAL-latch-board battery ECU."
+		},
+		"TPMS": {
+			"description": "Tire pressure monitoring system."
+		}
+	},
+	"general_attributes": {},
+	"node_attributes": {},
+	"message_attributes": {},
+	"signal_attributes": {},
+	"messages": {
+		"DIAG_TOOL_xcpTxBMS_LV": {
+			"message-id_dec": 40,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"BMS_LV"
+					]
+				}
+			}
+		},
+		"DIAG_TOOL_xcpTxDASH": {
+			"message-id_dec": 41,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DASH"
+					]
+				}
+			}
+		},
+		"DIAG_TOOL_xcpTxSB_REAR": {
+			"message-id_dec": 42,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"SB_REAR"
+					]
+				}
+			}
+		},
+		"DIAG_TOOL_xcpTxSB_FRONT": {
+			"message-id_dec": 43,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"SB_FRONT"
+					]
+				}
+			}
+		},
+		"DIAG_TOOL_xcpTxSCANNER": {
+			"message-id_dec": 44,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"SCANNER"
+					]
+				}
+			}
+		},
+		"DIAG_TOOL_xcpTxTLB_BAT": {
+			"message-id_dec": 45,
+			"length": 8,
+			"sender": "DIAG_TOOL",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"TLB_BAT"
+					]
+				}
+			}
+		},
+		"BMS_LV_xcpTx": {
+			"message-id_dec": 70,
+			"length": 3,
+			"sender": "BMS_LV",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"BMS_LV_hello": {
+			"message-id_dec": 100,
+			"length": 3,
+			"sender": "BMS_LV",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"BMS_LV_lvBatGeneral": {
+			"message-id_dec": 20,
+			"id": 258,
+			"length": 6,
+			"sender": "BMS_LV",
+            "cycle_time" : 100,
+			"send_type": "cyclic",
+			"signals": {
+				"LV_BAT_currentSensVoltage": {
+					"description": "The voltage returned by the current sensor of the LV battery expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.076,
+					"offset": 0,
+					"min": 0,
+					"max": 4980.66
+				},
+				"LV_BAT_summedVoltage": {
+					"description": "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.267,
+					"offset": 14000,
+					"min": 0,
+					"max": 17497.845
+				},
+				"LV_BAT_voltage": {
+					"description": "The total read voltage of the LV battery pack expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.267,
+					"offset": 14000,
+					"min": 0,
+					"max": 17497.845
+				}
+			}
+		},
+		"BMS_LV_lvCellNTCResistance0": {
+			"message-id_dec": 101,
+			"id": 260,
+			"length": 8,
+			"sender": "BMS_LV",
+            "cycle_time" : 2000,
+			"send_type": "cyclic",
+			"signals": {
+				"LV_CELL_NTC_00_resistance": {
+					"description": "The resistance of the NTC #0 in the battery pack expressed in Ohm.",
+					"start_bit": 0,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_01_resistance": {
+					"description": "The resistance of the NTC #1 in the battery pack expressed in Ohm.",
+					"start_bit": 10,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_02_resistance": {
+					"description": "The resistance of the NTC #2 in the battery pack expressed in Ohm.",
+					"start_bit": 20,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_03_resistance": {
+					"description": "The resistance of the NTC #3 in the battery pack expressed in Ohm.",
+					"start_bit": 30,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_04_resistance": {
+					"description": "The resistance of the NTC #4 in the battery pack expressed in Ohm.",
+					"start_bit": 40,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_05_resistance": {
+					"description": "The resistance of the NTC #5 in the battery pack expressed in Ohm.",
+					"start_bit": 50,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				}
+			}
+		},
+		"BMS_LV_lvCellNTCResistance1": {
+			"message-id_dec": 101,
+			"id": 261,
+			"length": 8,
+			"sender": "BMS_LV",
+            "cycle_time" : 2000,
+			"send_type" : "cyclic",
+			"signals": {
+				"LV_CELL_NTC_06_resistance": {
+					"description": "The resistance of the NTC #6 in the battery pack expressed in Ohm.",
+					"start_bit": 0,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_07_resistance": {
+					"description": "The resistance of the NTC #7 in the battery pack expressed in Ohm.",
+					"start_bit": 10,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_08_resistance": {
+					"description": "The resistance of the NTC #8 in the battery pack expressed in Ohm.",
+					"start_bit": 20,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_09_resistance": {
+					"description": "The resistance of the NTC #9 in the battery pack expressed in Ohm.",
+					"start_bit": 30,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_10_resistance": {
+					"description": "The resistance of the NTC #10 in the battery pack expressed in Ohm.",
+					"start_bit": 40,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"LV_CELL_NTC_11_resistance": {
+					"description": "The resistance of the NTC #11 in the battery pack expressed in Ohm.",
+					"start_bit": 50,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				}
+			}
+		},
+		"BMS_LV_cellsStatus": {
+			"id": 75,
+			"length": 5,
+			"sender": "BMS_LV",
+			"cycle_time": 100,
+			"send_type": "cyclic",
+			"signals": {
+				"LV_CELL_0_isOV": {
+					"description": "States whether the LV cell #0 is in overvoltage.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_0_isUV": {
+					"description": "States whether the LV cell #0 is in undervoltage.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_1_isOV": {
+					"description": "States whether the LV cell #1 is in overvoltage.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_1_isUV": {
+					"description": "States whether the LV cell #1 is in undervoltage.",
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_2_isOV": {
+					"description": "States whether the LV cell #2 is in overvoltage.",
+					"start_bit": 4,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_2_isUV": {
+					"description": "States whether the LV cell #2 is in undervoltage.",
+					"start_bit": 5,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_3_isOV": {
+					"description": "States whether the LV cell #3 is in overvoltage.",
+					"start_bit": 6,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_3_isUV": {
+					"description": "States whether the LV cell #3 is in undervoltage.",
+					"start_bit": 7,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_4_isOV": {
+					"description": "States whether the LV cell #4 is in overvoltage.",
+					"start_bit": 8,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_4_isUV": {
+					"description": "States whether the LV cell #4 is in undervoltage.",
+					"start_bit": 9,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_5_isOV": {
+					"description": "States whether the LV cell #5 is in overvoltage.",
+					"start_bit": 10,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_5_isUV": {
+					"description": "States whether the LV cell #5 is in undervoltage.",
+					"start_bit": 11,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_6_isOV": {
+					"description": "States whether the LV cell #6 is in overvoltage.",
+					"start_bit": 12,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_6_isUV": {
+					"description": "States whether the LV cell #6 is in undervoltage.",
+					"start_bit": 13,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_00_isOT": {
+					"description": "States whether the LV cell temperature sensor #0 (NTC) detects an over temperature.",
+					"start_bit": 14,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_01_isOT": {
+					"description": "States whether the LV cell temperature sensor #1 (NTC) detects an over temperature.",
+					"start_bit": 15,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_02_isOT": {
+					"description": "States whether the LV cell temperature sensor #2 (NTC) detects an over temperature.",
+					"start_bit": 16,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_03_isOT": {
+					"description": "States whether the LV cell temperature sensor #3 (NTC) detects an over temperature.",
+					"start_bit": 17,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_04_isOT": {
+					"description": "States whether the LV cell temperature sensor #4 (NTC) detects an over temperature.",
+					"start_bit": 18,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_05_isOT": {
+					"description": "States whether the LV cell temperature sensor #5 (NTC) detects an over temperature.",
+					"start_bit": 19,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_06_isOT": {
+					"description": "States whether the LV cell temperature sensor #6 (NTC) detects an over temperature.",
+					"start_bit": 20,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_07_isOT": {
+					"description": "States whether the LV cell temperature sensor #7 (NTC) detects an over temperature.",
+					"start_bit": 21,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_08_isOT": {
+					"description": "States whether the LV cell temperature sensor #8 (NTC) detects an over temperature.",
+					"start_bit": 22,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_09_isOT": {
+					"description": "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature.",
+					"start_bit": 23,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_10_isOT": {
+					"description": "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature.",
+					"start_bit": 24,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_CELL_NTC_11_isOT": {
+					"description": "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature.",
+					"start_bit": 25,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+			}
+		},
+		"BMS_LV_status":{
+			"message-id_dec": 76,
+			"id": 256,
+			"length": 8,
+			"sender": "BMS_LV",
+            "cycle_time" : 500,
+			"send_type" : "cyclic",
+			"signals": {
+				"LV_RELAY_isClosed": {
+					"description": "States whether the LV relay is closed.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"LV_RELAY_isRelayOverrideOn": {
+					"description": "States whether the LV relay override is enabled.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"BMS_LV_lvCellVoltage0": {
+			"message-id_dec": 77,
+			"id": 256,
+			"length": 8,
+			"sender": "BMS_LV",
+            "cycle_time" : 100,
+			"send_type" : "cyclic",
+			"signals": {
+				"LV_CELL_0_voltage": {
+					"description": "The voltage of the LV cell #0 expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				},
+				"LV_CELL_1_voltage": {
+					"description": "The voltage of the LV cell #1 expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				},
+				"LV_CELL_2_voltage": {
+					"description": "The voltage of the LV cell #2 expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				},
+				"LV_CELL_3_voltage": {
+					"description": "The voltage of the LV cell #3 expressed in mV.",
+					"start_bit": 48,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				}
+			}
+		},
+		"BMS_LV_lvCellVoltage1": {
+			"message-id_dec": 78,
+			"id": 257,
+			"length": 6,
+			"sender": "BMS_LV",
+            "cycle_time" : 100,
+			"send_type": "cyclic",
+			"signals": {
+				"LV_CELL_4_voltage": {
+					"description": "The voltage of the LV cell #4 expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				},
+				"LV_CELL_5_voltage": {
+					"description": "The voltage of the LV cell #4 expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				},
+				"LV_CELL_6_voltage": {
+					"description": "The voltage of the LV cell #4 expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 0.038,
+					"offset": 2000,
+					"min": 0,
+					"max": 2490.33
+				}
+			}
+		},
+		"DASH_xcpTx": {
+			"message-id_dec": 70,
+			"length": 8,
+			"sender": "DASH",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"DASH_appsRangeLimits": {
+			"message-id_dec": 105,
+			"id": 1300,
+			"length": 8,
+			"sender": "DASH",
+			"send_type": "ifActive",
+			"signals": {
+				"APPS_0_voltageRangeMax": {
+					"description": "APPS channel #0 maximum range expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"APPS_0_voltageRangeMin": {
+					"description": "APPS channel #0 minimum range expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"APPS_1_voltageRangeMax": {
+					"description": "APPS channel #1 maximum range expressed in mV.",
+					"start_bit": 48,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"APPS_1_voltageRangeMin": {
+					"description": "APPS channel #1 minimum range expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				}
+			}
+		},
+		"DASH_hmiDevicesState": {
+			"message-id_dec": 22,
+			"id": 38,
+			"length": 2,
+			"sender": "DASH",
+			"cycle_time": 500,
+			"send_type" : "cyclic",
+			"signals": {
+				"BTN_RTD_isPressed": {
+					"description": "Ready To Drive Button pressed.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"BTN_1_isPressed": {
+					"description": "Steering wheel Button #1 is pressed.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"BTN_2_isPressed": {
+					"description": "Steering wheel Button #2 is pressed.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"BTN_3_isPressed": {
+					"description": "Steering wheel Button #3 is pressed.",
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"BTN_4_isPressed": {
+					"description": "Steering wheel Button #4 is pressed.",
+					"start_bit": 4,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"ROT_SW_1_state": {
+					"description": "Rotary Switch 1 state",
+					"start_bit": 8,
+					"size": 4,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 9
+				},
+				"ROT_SW_2_state": {
+					"description": "Rotary Switch 2 state",
+					"start_bit": 11,
+					"size": 4,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 9
+				}
+			}
+		},
+		"DASH_hello": {
+			"message-id_dec": 100,
+			"id": 23,
+			"length": 3,
+			"sender": "DASH",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"DASH_carCommands": {
+			"message-id_dec":106,
+			"id": 255,
+			"length": 2,
+			"sender": "DASH",
+			"send_type": "ifActive",
+			"signals": {
+				"BMS_LV_diagPWD": {
+					"description": "The password to enter diagnostic mode of the BMS_LV.",
+					"start_bit": 0,
+					"size": 15,
+					"endianness": "little",
+					"receivers": [
+						"BMS_LV"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 32768
+				},
+				"LV_RELAY_forcedState": {
+					"description": "The command to force the LV relay open (0) or closed (1).",
+					"start_bit": 15,
+					"size": 1,
+					"endianness": "little",
+					"unit": "closed",
+					"receivers": [
+						"BMS_LV"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"DASH_peripheralsStatus": {
+			"id": 519,
+			"length": 1,
+			"sender": "DASH",
+			"signals": {
+				"TSAC_FAN_pwmStatus": {
+					"description": "The percentage of the duty cycle of the TSAC fan.",
+					"start_bit": 0,
+					"size": 4,
+					"endianness": "little",
+					"unit": "%",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 10
+				}
+			}
+		},
+		"DASH_rotarySwitchState": {
+			"id": 1301,
+			"length": 1,
+			"sender": "DASH",
+			"signals": {
+				"ROT_SWITCH_0_position": {
+					"description": "The position (0-10) of the rotary switch #0 of the dashboard.",
+					"start_bit": 0,
+					"size": 4,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 10
+				},
+				"ROT_SWITCH_1_position": {
+					"description": "The position (0-10) of the rotary switch #1 of the dashboard.",
+					"start_bit": 4,
+					"size": 4,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 10
+				}
+			}
+		},
+		"DSPACE_datetime": {
+			"id": 39,
+			"length": 5,
+			"sender": "DSPACE",
+			"signals": {
+				"DATETIME_day": {
+					"description": "The current day of the month, from 1 to 31.",
+					"start_bit": 12,
+					"size": 5,
+					"endianness": "little",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 1,
+					"max": 31
+				},
+				"DATETIME_hours": {
+					"description": "The current hours of the day.",
+					"start_bit": 17,
+					"size": 5,
+					"endianness": "little",
+					"unit": "h",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 23
+				},
+				"DATETIME_minutes": {
+					"description": "The current minutes of the hour.",
+					"start_bit": 22,
+					"size": 6,
+					"endianness": "little",
+					"unit": "min",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 59
+				},
+				"DATETIME_month": {
+					"description": "The current month of the year (0 = January, 11 = December).",
+					"start_bit": 8,
+					"size": 4,
+					"endianness": "little",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 11
+				},
+				"DATETIME_seconds": {
+					"description": "The current seconds of the minute.",
+					"start_bit": 28,
+					"size": 6,
+					"endianness": "little",
+					"unit": "sec",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 59
+				},
+				"DATETIME_year": {
+					"description": "The current year expressed as an offset from 1970.",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DASH",
+						" SB_FRONT",
+						" SB_REAR",
+						"SCANNER",
+						" TLB_BAT"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"DSPACE_hello": {
+			"message-id_dec": 100,
+			"id": 25,
+			"length": 3,
+			"sender": "DSPACE",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"DSPACE_motorStatus": {
+			"id": 1280,
+			"length": 1,
+			"sender": "DSPACE",
+			"signals": {
+				"MOTOR_FL_isON": {
+					"description": "States whether the front left motor is ON.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"MOTOR_FR_isON": {
+					"description": "States whether the front right motor is ON.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"MOTOR_RL_isON": {
+					"description": "States whether the rear left motor is ON.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"MOTOR_RR_isON": {
+					"description": "States whether the rear right motor is ON.",
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"DSPACE_peripheralsCTRL": {
+			"id": 512,
+			"length": 2,
+			"sender": "DSPACE",
+			"signals": {
+				"BRAKE_LIGHT_activeCMD": {
+					"description": "The command to turn on the brake light (1 active).",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DASH",
+						" SB_REAR",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"RAD_FAN_pwmCtrl": {
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"unit": "%",
+					"receivers": [
+						"DASH",
+						" SB_REAR",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"DSPACE_status": {
+			"id": 37,
+			"length": 1,
+			"sender": "DSPACE",
+			"signals": {
+				"DSPACE_FSM_state": {
+					"description": "The state of the dspace RTD state machine. 0 = Idle (waiting for push); 1 = Precharge (1st push); 2 = TS ON; 3 = RTD requested (2nd push); 4 = RTD\\n5 = Turn OFF; -1 = Reboot/discharge",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"signed": true,
+					"receivers": [
+						"DASH",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": -1,
+					"max": 6
+				}
+			}
+		},
+		"SB_FRONT_xcpTx": {
+			"message-id_dec": 70,
+			"length": 8,
+			"sender": "SB_FRONT",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"SB_FRONT_analog": {
+			"id": 5,
+			"length": 8,
+			"sender": "SB_FRONT",
+			"signals": {
+				"APPS_0_voltage": {
+					"description": "The voltage of the APPS #0 expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"APPS_1_voltage": {
+					"description": "The voltage of the APPS #1 expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"BRAKE_PRESS_FRONT_voltage": {
+					"description": "The voltage of the front brake pressure sensor expressed in mV.",
+					"start_bit": 48,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"STEERING_RME_voltage": {
+					"description": "The voltage of the steering RME (rotary magnetic encoder) sensor expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				}
+			}
+		},
+		"SB_FRONT_hello": {
+			"message-id_dec": 100,
+			"id": 21,
+			"length": 3,
+			"sender": "SB_FRONT",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"SB_FRONT_ntcResistance": {
+			"id": 1024,
+			"length": 8,
+			"sender": "SB_FRONT",
+			"signals": {
+				"COLDPLATE_L_NTC_resistance": {
+					"description": "The resistance of the left coldplate NTC expressed in Ohm.",
+					"start_bit": 20,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"COLDPLATE_R_NTC_resistance": {
+					"description": "The resistance of the right coldplate NTC expressed in Ohm.",
+					"start_bit": 30,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"JACKET_FL_NTC_resistance": {
+					"description": "The resistance of the front left jacket NTC expressed in Ohm.",
+					"start_bit": 0,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"JACKET_FR_NTC_resistance": {
+					"description": "The resistance of the front right jacket NTC expressed in Ohm.",
+					"start_bit": 10,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"SPARE_NTC_0_resistance": {
+					"description": "The resistance of the spare NTC #0 expressed in Ohm.",
+					"start_bit": 40,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"SPARE_NTC_1_resistance": {
+					"description": "The resistance of the spare NTC #1 expressed in Ohm.",
+					"start_bit": 50,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				}
+			}
+		},
+		"SB_FRONT_potentiometer": {
+			"id": 16,
+			"length": 4,
+			"sender": "SB_FRONT",
+			"signals": {
+				"LPPS_DAMPER_FL_voltage": {
+					"description": "The voltage of the linear potentiometer position sensor on the front left damper expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"LPPS_DAMPER_FR_voltage": {
+					"description": "The voltage of the linear potentiometer position sensor on the front right damper expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				}
+			}
+		},
+		"SB_FRONT_sdcStatus": {
+			"id": 49,
+			"length": 1,
+			"sender": "SB_FRONT",
+			"signals": {
+				"SDC_POST_BOTS_isActive": {
+					"description": "States whether the SDC post BOTS is active.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_POST_CP_PUSH_BTN_isActive": {
+					"description": "States whether the SDC post cockpit push button is active.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_POST_INERTIA_isActive": {
+					"description": "States whether the SDC post inertia switch is active.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"SB_REAR_xcpTx": {
+			"message-id_dec": 70,
+			"length": 8,
+			"sender": "SB_REAR",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"SB_REAR_analog": {
+			"id": 1026,
+			"length": 6,
+			"sender": "SB_REAR",
+			"signals": {
+				"BRAKE_PRESS_REAR_voltage": {
+					"description": "The voltage of the rear brake pressure sensor expressed in mV.",
+					"start_bit": 32,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"COOL_PRESS_LEFT_voltage": {
+					"description": "The voltage of the left cooling pressure sensor expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"COOL_PRESS_RIGHT_voltage": {
+					"description": "The voltage of the right cooling pressure sensor expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				}
+			}
+		},
+		"SB_REAR_dischargeStatus": {
+			"id": 50,
+			"length": 1,
+			"sender": "SB_REAR",
+			"signals": {
+				"DISCHARGE_isOpen": {
+					"description": "States whether the discharge is open.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"SB_REAR_hello": {
+			"message-id_dec": 100,
+			"id": 22,
+			"length": 3,
+			"sender": "SB_REAR",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"SB_REAR_ntcResistance": {
+			"id": 1025,
+			"length": 8,
+			"sender": "SB_REAR",
+			"signals": {
+				"JACKET_RL_NTC_resistance": {
+					"description": "The resistance of the rear left jacket NTC expressed in Ohm.",
+					"start_bit": 0,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"JACKET_RR_NTC_resistance": {
+					"description": "The resistance of the rear right jacket NTC expressed in Ohm.",
+					"start_bit": 10,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"RAD_RL_IN_NTC_resistance": {
+					"description": "The resistance of the rear left IN radiator NTC expressed in Ohm.",
+					"start_bit": 20,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"RAD_RL_OUT_NTC_resistance": {
+					"description": "The resistance of the rear left OUT radiator NTC expressed in Ohm.",
+					"start_bit": 30,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"RAD_RR_IN_NTC_resistance": {
+					"description": "The resistance of the rear right IN radiator NTC expressed in Ohm.",
+					"start_bit": 40,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				},
+				"RAD_RR_OUT_NTC_resistance": {
+					"description": "The resistance of the rear right OUT radiator NTC expressed in Ohm.",
+					"start_bit": 50,
+					"size": 10,
+					"endianness": "little",
+					"unit": "Ohm",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 31.25,
+					"offset": 1000,
+					"min": 0,
+					"max": 31968.75
+				}
+			}
+		},
+		"SB_REAR_potentiometer": {
+			"id": 17,
+			"length": 4,
+			"sender": "SB_REAR",
+			"signals": {
+				"LPPS_DAMPER_RL_voltage": {
+					"description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.",
+					"start_bit": 0,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				},
+				"LPPS_DAMPER_RR_voltage": {
+					"description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.",
+					"start_bit": 16,
+					"size": 16,
+					"endianness": "little",
+					"unit": "mV",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 65535
+				}
+			}
+		},
+		"SB_REAR_sdcStatus": {
+			"id": 48,
+			"length": 1,
+			"sender": "SB_REAR",
+			"signals": {
+				"BSPD_hasError": {
+					"description": "States whether the BSPD has an error.",
+					"start_bit": 4,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_POST_BSPD_isClosed": {
+					"description": "States whether the SDC post BSPD is closed.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_POST_DC_BUS_isClosed": {
+					"description": "States whether the SDC post DC bus (inverter mono) is closed.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_POST_INV_FR_isClosed": {
+					"description": "States whether the SDC post inverter front right is closed.",
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_PRE_PUSH_BTNS_isClosed": {
+					"description": "States whether the SDC per push buttons (hoop right/left) is closed.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"SCANNER_xcpTx": {
+			"message-id_dec": 70,
+			"length": 8,
+			"sender": "SCANNER",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"TLB_BAT_xcpTx": {
+			"message-id_dec": 70,
+			"length": 8,
+			"sender": "TLB_BAT",
+			"send_type" : "cyclicIfActive",
+			"signals" : {
+				"xcp_payload":{
+					"description": "xcp payload data",
+					"start_bit": 0,
+					"size": 64,
+					"endianness": "little",
+					"receivers": [
+						"DIAG_TOOL"
+					]
+				}
+			}
+		},
+		"TLB_BAT_hello": {
+			"message-id_dec": 100,
+			"id": 24,
+			"length": 3,
+			"sender": "TLB_BAT",
+			"send_type": "ifActive",
+			"signals": {
+				"FW_majorVersion": {
+					"description": "firmware major version number",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_minorVersion": {
+					"description": "firmware minor version number",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"FW_patchVersion": {
+					"description": "firmware patch version number",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				}
+			}
+		},
+		"TLB_BAT_sdcStatus": {
+			"id": 18,
+			"length": 3,
+			"sender": "TLB_BAT",
+			"signals": {
+				"SDC_POST_AMS_IMD_RELAY_isActive": {
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_TSAC_FINAL_IN_isActive": {
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_TSAC_INIT_IN_isActive": {
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SDC_TSAC_INIT_OUT_isActive": {
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"TLB_BAT_status": {
+			"id": 19,
+			"length": 3,
+			"sender": "TLB_BAT",
+			"signals": {
+				"AIR_NEG_IMP_isPresent": {
+					"description": "States whether an implausibility from the negative AIR is present.",
+					"start_bit": 13,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"AIR_NEG_isClosed": {
+					"description": "States whether the negative AIR is closed.",
+					"start_bit": 2,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"AIR_POS_IMP_isPresent": {
+					"description": "States whether an implausibility from the positive AIR is present.",
+					"start_bit": 12,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"AIR_POS_isClosed": {
+					"description": "States whether the positive AIR is closed.",
+					"start_bit": 1,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"ANY_IMP_isLatched": {
+					"description": "States whether any implausibility is latched.",
+					"start_bit": 16,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"ANY_IMP_isPresent": {
+					"description": "States whether any implausibility is present.",
+					"start_bit": 11,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"DC_BUS_IMP_isPresent": {
+					"description": "States whether an implausibility from the DC bus is present.",
+					"start_bit": 15,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"DC_BUS_isOver60V": {
+					"description": "States whether the DC bus volatge is over 60V.",
+					"start_bit": 4,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"IntentionalState_AIRNeg": {
+					"start_bit": 6,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"IntentionalState_AIRPos": {
+					"start_bit": 5,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"IntentionalState_RelayPrecharge": {
+					"start_bit": 7,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"PRECHARGE_RLY_IMP_isPresent": {
+					"description": "States whether an implausibility from the precharge relay is present.",
+					"start_bit": 14,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"PRECHARGE_RLY_isClosed": {
+					"description": "States whether the precharge relay is closed.",
+					"start_bit": 3,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SCS_Short2GND_AirNeg": {
+					"start_bit": 9,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SCS_Short2GND_AirPos": {
+					"start_bit": 8,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"SCS_isAnyShort2GND_Present": {
+					"start_bit": 10,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				},
+				"TSAL_isGreen": {
+					"description": "States whether the TSAL is green.",
+					"start_bit": 0,
+					"size": 1,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 1
+				}
+			}
+		},
+		"TPMS_front": {
+			"id": 1816,
+			"length": 8,
+			"sender": "TPMS",
+			"signals": {
+				"TIRE_FL_pressure": {
+					"description": "The pressure of the front left tire.",
+					"start_bit": 24,
+					"size": 8,
+					"endianness": "little",
+					"unit": "mB",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 1,
+					"max": 254
+				},
+				"TIRE_FL_sensID": {
+					"description": "The sensor id of the front left tire.",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_FL_status": {
+					"description": "The status the front left tire.",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_FL_temperature": {
+					"description": "The temperature of the front left tire.",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"unit": "degC",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 10,
+					"max": 170
+				},
+				"TIRE_FR_pressure": {
+					"description": "The pressure of the front right tire.",
+					"start_bit": 56,
+					"size": 8,
+					"endianness": "little",
+					"unit": "mB",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 1,
+					"max": 254
+				},
+				"TIRE_FR_sensID": {
+					"description": "The sensor id of the front right tire.",
+					"start_bit": 32,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_FR_status": {
+					"description": "The status the front right tire.",
+					"start_bit": 40,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_FR_temperature": {
+					"description": "The temperature of the front right tire.",
+					"start_bit": 48,
+					"size": 8,
+					"endianness": "little",
+					"unit": "degC",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 10,
+					"max": 170
+				}
+			}
+		},
+		"TPMS_rear": {
+			"id": 1832,
+			"length": 8,
+			"sender": "TPMS",
+			"signals": {
+				"TIRE_RL_pressure": {
+					"description": "The pressure of the rear left tire.",
+					"start_bit": 24,
+					"size": 8,
+					"endianness": "little",
+					"unit": "mB",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 1,
+					"max": 254
+				},
+				"TIRE_RL_sensID": {
+					"description": "The sensor id of the rear left tire.",
+					"start_bit": 0,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_RL_status": {
+					"description": "The status the rear left tire.",
+					"start_bit": 8,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_RL_temperature": {
+					"description": "The temperature of the rear left tire.",
+					"start_bit": 16,
+					"size": 8,
+					"endianness": "little",
+					"unit": "degC",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 10,
+					"max": 170
+				},
+				"TIRE_RR_pressure": {
+					"description": "The pressure of the rear right tire.",
+					"start_bit": 56,
+					"size": 8,
+					"endianness": "little",
+					"unit": "mB",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 1,
+					"max": 254
+				},
+				"TIRE_RR_sensID": {
+					"description": "The sensor id of the rear right tire.",
+					"start_bit": 32,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_RR_status": {
+					"description": "The status the rear right tire.",
+					"start_bit": 40,
+					"size": 8,
+					"endianness": "little",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"TIRE_RR_temperature": {
+					"description": "The temperature of the rear right tire.",
+					"start_bit": 48,
+					"size": 8,
+					"endianness": "little",
+					"unit": "degC",
+					"receivers": [
+						"DSPACE",
+						"SCANNER"
+					],
+					"scale": 1,
+					"offset": 0,
+					"min": 10,
+					"max": 170
+				}
+			}
+		},
+		"unknown_ir": {
+			"id": 1800,
+			"length": 8,
+			"sender": "EXTRA_NODE",
+			"signals": {}
+		}
+	},
+	"signal_enums": null
 }
