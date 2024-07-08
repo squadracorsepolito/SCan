@@ -40,6 +40,19 @@
     "message_attributes": {},
     "signal_attributes": {},
     "signal_enums": {
+        "ecu_id_Enum":{
+            "TLB_BAT": 1,
+            "SB_FRONT": 2,
+            "SB_REAR": 3,
+            "BMS_LV": 4,
+            "DASH": 5,
+            "DIAG_TOOL": 6,
+            "DSPACE": 7,
+            "EXTRA_NODE": 8,
+            "SCANNER": 9,
+            "TPMS": 10,
+            "IMU": 11
+        },
         "dspaceMainFsmStates_Enum": {
             "IDLE": 0,
             "PRECHARGE": 1,
