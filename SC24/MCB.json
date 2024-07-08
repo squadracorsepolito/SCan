@@ -40,7 +40,7 @@
     "message_attributes": {},
     "signal_attributes": {},
     "signal_enums": {
-        "ecu_id_Enum":{
+        "ecu_id_Enum": {
             "TLB_BAT": 1,
             "SB_FRONT": 2,
             "SB_REAR": 3,
@@ -517,6 +517,7 @@
             }
         },
         "BMS_LV__cellsStatus": {
+            "message-id_dec": 75,
             "id": 75,
             "length": 5,
             "sender": "BMS_LV",
@@ -1362,7 +1363,7 @@
         "DSPACE__timeAndDate": {
             "message-id_dec": 0,
             "id": 39,
-            "length": 5,
+            "length": 6,
             "sender": "DSPACE",
             "cycle_time": 10,
             "send_type": "Cyclic",
@@ -1548,7 +1549,7 @@
             }
         },
         "DSPACE__fsmStates": {
-            "message-id_dec": 25,
+            "message-id_dec": 74,
             "id": 37,
             "length": 5,
             "sender": "DSPACE",
@@ -1628,6 +1629,7 @@
             }
         },
         "DSPACE_peripheralsCTRL": {
+            "message-id_dec": 25,
             "id": 512,
             "length": 3,
             "sender": "DSPACE",
@@ -2192,6 +2194,7 @@
         },
         "SB_REAR__xcpTx": {
             "message-id_dec": 70,
+            "id":2030,
             "length": 8,
             "sender": "SB_REAR",
             "send_type": "cyclicIfActive",
@@ -2560,7 +2563,6 @@
         "SCANNER__xcpTx": {
             "message-id_dec": 70,
             "id": 2046,
-            "id":69,
             "length": 8,
             "sender": "SCANNER",
             "send_type": "cyclicIfActive",
@@ -3082,7 +3084,7 @@
             }
         },
         "TPMS__rearWheelsPressure": {
-            "message-id_dec": 71,
+            "message-id_dec": 81,
             "id": 1832,
             "length": 8,
             "sender": "TPMS",
@@ -3206,11 +3208,190 @@
                 }
             }
         },
-        "unknown_ir": {
-            "id": 1800,
+        "SBG_ECAN_MSG_GPS2_HDT": {
+            "id": 393,
             "length": 8,
-            "sender": "EXTRA_NODE",
-            "signals": {}
+            "sender": "IMU",
+            "signals": {
+                "PITCH": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                },
+                "PITCH_ACC": {
+                    "start_bit": 48,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 655.35
+                },
+                "TRUE_HEADING": {
+                    "start_bit": 0,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 655.35
+                },
+                "TRUE_HEADING_ACC": {
+                    "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 655.35
+                }
+            }
+        },
+        "SBG_ECAN_MSG_GPS2_HDT_INFO": {
+            "id": 392,
+            "length": 6,
+            "sender": "IMU",
+            "signals": {
+                "STATUS": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
+                },
+                "TIME_STAMP": {
+                    "start_bit": 0,
+                    "size": 32,
+                    "endianness": "little",
+                    "unit": "usec",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 4294970000
+                }
+            }
+        },
+        "SBG_ECAN_MSG_GPS2_POS": {
+            "id": 389,
+            "length": 8,
+            "sender": "IMU",
+            "signals": {
+                "LATITUDE": {
+                    "start_bit": 0,
+                    "size": 32,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1e-7,
+                    "offset": 0,
+                    "min": -214.7483648,
+                    "max": 214.7483647
+                },
+                "LONGITUDE": {
+                    "start_bit": 32,
+                    "size": 32,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "deg",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1e-7,
+                    "offset": 0,
+                    "min": -214.7483648,
+                    "max": 214.7483647
+                }
+            }
+        },
+        "SBG_ECAN_MSG_GPS2_POS_INFO": {
+            "id": 388,
+            "length": 8,
+            "sender": "IMU",
+            "signals": {
+                "STATUS": {
+                    "start_bit": 32,
+                    "size": 32,
+                    "endianness": "little",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 4294970000
+                },
+                "TIME_STAMP": {
+                    "start_bit": 0,
+                    "size": 32,
+                    "endianness": "little",
+                    "unit": "usec",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 4294970000
+                }
+            }
+        },
+        "SBG_ECAN_MSG_EVENT_INFO_A": {
+            "id": 512,
+            "length": 8,
+            "sender": "IMU",
+            "signals": {
+                "STATUS": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
+                },
+                "TIME_STAMP": {
+                    "start_bit": 0,
+                    "size": 32,
+                    "endianness": "little",
+                    "unit": "usec",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 4294970000
+                }
+            }
         }
     }
 }

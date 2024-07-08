@@ -15,7 +15,7 @@ Below values are in base 10
 - Message IDs: 20-39 [20] 
     - 20: BMS_LV-batGeneral
     - 22: DASH_hmiDevicesState
-    - 25: DSPACE_fsmStates
+    - 25: DSPACE_peripheralsCTRL
     - 26: SB_REAR_dischargeStatus
 ```
 ### Mid Priority high speed (1-50ms)
@@ -32,6 +32,7 @@ Below values are in base 10
 ```
 - Message IDs: 70-99 [30] 
     - 70: [all-ecus]_xcpTx
+    - 74: DSPACE_fsmStates
     - 75: BMS_LV-cellsStatus
     - 76: BMS_LV-status
     - 77-78: BMS_LV-cellVolt0/1
