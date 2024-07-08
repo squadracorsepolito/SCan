@@ -893,7 +893,7 @@
         "BMS_LV__status": {
             "message-id_dec": 76,
             "id": 1220,
-            "length": 8,
+            "length": 1,
             "sender": "BMS_LV",
             "cycle_time": 500,
             "send_type": "Cyclic",
@@ -1692,6 +1692,10 @@
             "sender": "DSPACE",
             "cycle_time": 200,
             "send_type": "Cyclic",
+            "receivers": [
+                "DASH",
+                "SCANNER"
+            ],
             "signals": {
                 "LED_1_red": {
                     "description": "The red channel of LED #1 of the dashboard.",
@@ -1822,6 +1826,10 @@
             "sender": "DSPACE",
             "cycle_time": 200,
             "send_type": "Cyclic",
+            "receivers": [
+                "DASH",
+                "SCANNER"
+            ],
             "signals": {
                 "LED_1_color": {
                     "description": "Dashboard LED #1 color control.",
@@ -2578,7 +2586,7 @@
                 }
             }
         },
-        "TLB_BAT_xcpTx": {
+        "TLB_BAT__xcpTx": {
             "message-id_dec": 70,
             "id": 1121,
             "length": 8,
@@ -2596,7 +2604,7 @@
                 }
             }
         },
-        "TLB_BAT_hello": {
+        "TLB_BAT__hello": {
             "message-id_dec": 100,
             "id": 1601,
             "length": 3,
@@ -2738,7 +2746,7 @@
                 }
             }
         },
-        "TLB_BAT_signalsStatus": {
+        "TLB_BAT__signalsStatus": {
             "message-id_dec": 4,
             "id": 65,
             "length": 4,
