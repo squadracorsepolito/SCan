@@ -500,7 +500,7 @@
 
 [START_MSG] HVB_RX_Insulation,521,8,2,0,S,HVB
 [START_SIGNALS] HVB_stResIsol,8,2,0,U,255,0,0,0,1,,,Charger,VCU
-[VALUE_DESCRIPTION] "STOPPED",0
+[VALUE_DESCRIPTION] "ERROR",0
 [VALUE_DESCRIPTION] "OK",1
 [VALUE_DESCRIPTION] "UNDERVOLTAGE",2
 [VALUE_DESCRIPTION] "SPEEDSTART",3
@@ -1082,11 +1082,11 @@
 "Quantisierung",STRING
 [END_PARAM_MSG]
 [START_PARAM_SIG]
-"GenSigSendType",ENUM,"NoSigSendType","Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NotUsed",NoSigSendType
 "GenSigStartValue",FLOAT,0,100000000000,0
 "NWM_WakeupAllowed",ENUM,"no","yes",no
 "AttributSignalTest",INT,1,100,2
 "GenSigInactiveValue",INT,0,100000,0
+"GenSigSendType",ENUM,"NoSigSendType","Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NotUsed",NoSigSendType
 [END_PARAM_SIG]
 [START_PARAM_VAL]
 [START_PARAM_NODE_VAL]
