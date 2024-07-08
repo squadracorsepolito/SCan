@@ -4,7 +4,7 @@ Below values are in base 10
 ### High Priority high speed (1-50ms) 
 ```
 - Message IDs: 0-19 [20]
-    - 0: DSPACE-date_time
+    - 1: DSPACE-date_time
     - 4: TLB_BAT_signalsStatus
     - 5: SB_FRONT_analogDevices
     - 6: SB_REAR_analogDevices
@@ -24,7 +24,7 @@ Below values are in base 10
     - 40-45: DIAG_TOOL_xcpTx[all ecus]
     - 46: TLB_BAT_sdcSensingStatus
     - 47: SB_REAR_sdcSensingStatus
-    - 50: SB_FRONT_sdcSensingStatus
+    - 48: SB_FRONT_sdcSensingStatus
     - 50: SB_FRONT_potentiometer
     - 51: SB_REAR_potentiometer
 ```
