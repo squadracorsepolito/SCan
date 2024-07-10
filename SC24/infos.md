@@ -47,7 +47,7 @@ Below values are in base 10
 ```
 ### Low Priority
 ```
-- Message IDs: 100-127 [27] 
+- Message IDs: 100-127 [27] (exclude 112)
     - 100: [all-ecus]_hello
     - 101-102: BMS_LV_ntcResistance0/1
     - 103: SB_FRONT-ntcResistance
