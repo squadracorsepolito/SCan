@@ -3504,6 +3504,7 @@
             }
         },
         "NLG5_ACT_I": {
+            "message-id_dec": 97,
             "id": 1553,
             "length": 8,
             "sender": "BRUSA",
@@ -3569,6 +3570,7 @@
             }
         },
         "NLG5_ACT_II": {
+            "message-id_dec": 97,
             "id": 1554,
             "length": 8,
             "sender": "BRUSA",
@@ -3648,6 +3650,7 @@
             }
         },
         "NLG5_CTL": {
+            "message-id_dec": 97,
             "id": 1560,
             "length": 7,
             "cycle_time": 100,
@@ -3756,6 +3759,7 @@
             }
         },
         "NLG5_DIAG_RX": {
+            "message-id_dec": 113,
             "id": 1816,
             "length": 8,
             "signals": {
@@ -3776,6 +3780,7 @@
             }
         },
         "NLG5_DIAG_TX": {
+            "message-id_dec": 113,
             "id": 1818,
             "length": 8,
             "sender": "BRUSA",
@@ -3797,6 +3802,7 @@
             }
         },
         "NLG5_ERR": {
+            "message-id_dec": 97,
             "id": 1556,
             "length": 5,
             "sender": "BRUSA",
@@ -4280,6 +4286,7 @@
             }
         },
         "NLG5_ST": {
+            "message-id_dec": 97,
             "id": 1552,
             "length": 4,
             "sender": "BRUSA",
@@ -4613,6 +4620,7 @@
             }
         },
         "NLG5_TEMP": {
+            "message-id_dec": 97,
             "id": 1555,
             "length": 8,
             "sender": "BRUSA",
