@@ -279,26 +279,30 @@
 [START_SIGNALS] TSAC_FAN_pwmDutyCycleStatus,4,1,0,U,10,0,1,0,1,%,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] TPMS__frontWheelsPressure,1290,8,8,0,S,TPMS
-[START_SIGNALS] TIRE_FL_sensID,8,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FL_status,8,2,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FL_temperature,8,3,0,U,170,10,1,0,1,degC,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FL_pressure,8,4,0,U,254,1,1,0,1,mB,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FR_sensID,8,5,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FR_status,8,6,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FR_temperature,8,7,0,U,170,10,1,0,1,degC,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_FR_pressure,8,8,0,U,254,1,1,0,1,mB,,DSPACE,SCANNER
+[START_MSG] TPMS__frontWheelsPressure,1290,8,10,0,S,TPMS
+[START_SIGNALS] TIRE_FL_sensID,8,1,0,U,255,1,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FL_statusIsSpinning,1,2,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FL_statusIsVbattNotOk,1,2,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FL_temperature,8,3,0,U,170,10,1,-50,1,degC,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FL_pressure,8,4,0,U,18.5354,0.0729741,1,-0.7035,13.7035,mB,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FR_sensID,8,5,0,U,255,1,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FR_statusIsSpinning,1,6,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FR_statusIsVbattNotOk,1,6,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FR_temperature,8,7,0,U,170,10,1,-50,1,degC,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_FR_pressure,8,8,0,U,18.5354,0.0729741,1,-0.7035,13.7035,mB,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] TPMS__rearWheelsPressure,1306,8,8,0,S,TPMS
-[START_SIGNALS] TIRE_RL_sensID,8,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RL_status,8,2,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RL_temperature,8,3,0,U,170,10,1,0,1,degC,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RL_pressure,8,4,0,U,254,1,1,0,1,mB,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RR_sensID,8,5,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RR_status,8,6,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RR_temperature,8,7,0,U,170,10,1,0,1,degC,,DSPACE,SCANNER
-[START_SIGNALS] TIRE_RR_pressure,8,8,0,U,254,1,1,0,1,mB,,DSPACE,SCANNER
+[START_MSG] TPMS__rearWheelsPressure,1306,8,10,0,S,TPMS
+[START_SIGNALS] TIRE_RL_sensID,8,1,0,U,255,1,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RL_statusIsSpinning,1,2,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RL_statusIsVbattNotOk,1,2,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RL_temperature,8,3,0,U,170,10,1,-50,1,degC,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RL_pressure,8,4,0,U,18.5354,0.0729741,1,-0.7035,13.7035,mB,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RR_sensID,8,5,0,U,255,1,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RR_statusIsSpinning,1,6,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RR_statusIsVbattNotOk,1,6,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RR_temperature,8,7,0,U,170,10,1,-50,1,degC,,DSPACE,SCANNER
+[START_SIGNALS] TIRE_RR_pressure,8,8,0,U,18.5354,0.0729741,1,-0.7035,13.7035,mB,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] NLG5_ST,1552,4,25,0,S,BRUSA
@@ -625,68 +629,68 @@
 [START_DESC_NODE]
 [END_DESC_NODE]
 [START_DESC_SIG]
-23 S DATETIME_year "Current year expressed as an offset from 1970.";
-23 S DATETIME_month "Current month of the year (1 = January, 12 = December).";
-23 S DATETIME_day "Current day of the month, from 1 to 31.";
+23 S DATETIME_year "Current year expressed as an offset from 1970";
+23 S DATETIME_month "Current month of the year (1 = January, 12 = December)";
+23 S DATETIME_day "Current day of the month, from 1 to 31";
 23 S DATETIME_hours "Current hours of the day (1-24)";
-23 S DATETIME_minutes "Current minutes of the hour.";
-23 S DATETIME_seconds "Current seconds of the minute.";
-23 S DATETIME_houndresOfASeconds "Current tens of the second.";
-65 S AIR_POS_cmd_isActive "Status of the Positive AIR command.";
-65 S AIR_POS_isClosed "Status of the Positive AIR mechanical state.";
-65 S AIR_NEG_cmd_isActive "Status of the Negative AIR command.";
-65 S AIR_NEG_isClosed "Status of the Negative AIR mechanical state.";
-65 S DCBUS_PRECH_RLY_cmd_isActive "Status of the DCBUS Precharge Relay command.";
-65 S DCBUS_PRECH_RLY_isClosed "Status of the DCBUS Precharge Relay mechanical state.";
-65 S AMS_errIsActive "States whether the AMS error is active.";
-65 S IMD_errIsActive "States whether the IMD error is active.";
-65 S TSAL_green_isActive "States whether the TSAL green signal is active.";
-65 S DCBUS_isOver60V "States whether the DC BUS volatge is over 60V.";
-65 S IMP_any_isActive "States whether any implausibility is active.";
-65 S IMP_HV_Relays_Signals_isActive "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active.";
-65 S IMP_AIRs_Signals_isActive "States whether an implausibility on AIRs (NEG,POS) signals is active.";
-65 S AIR_POS_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR POS mechanical state signal is active.";
-65 S AIR_NEG_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR NEG mechanical state signal is active.";
-82 S APPS_0_voltage "The voltage of the APPS #0 expressed in mV.";
-82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV.";
-82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV.";
-82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV.";
-99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV.";
-99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV.";
-99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV.";
-115 S DISCHARGE_isOpen "States whether the discharge is open.";
-115 S BSPD_hasError "States whether the BSPD has an error.";
-324 S LV_BAT_currentSensVoltage "The voltage returned by the current sensor of the LV battery expressed in mV.";
-324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV.";
-324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV.";
-357 S BTN_RTD_isPressed "Ready To Drive Button pressed.";
-357 S BTN_1_isPressed "Steering wheel Button #1 is pressed.";
-357 S BTN_2_isPressed "Steering wheel Button #2 is pressed.";
-357 S BTN_3_isPressed "Steering wheel Button #3 is pressed.";
-357 S BTN_4_isPressed "Steering wheel Button #4 is pressed.";
+23 S DATETIME_minutes "Current minutes of the hour";
+23 S DATETIME_seconds "Current seconds of the minute";
+23 S DATETIME_houndresOfASeconds "Current tens of the second";
+65 S AIR_POS_cmd_isActive "Status of the Positive AIR command";
+65 S AIR_POS_isClosed "Status of the Positive AIR mechanical state";
+65 S AIR_NEG_cmd_isActive "Status of the Negative AIR command";
+65 S AIR_NEG_isClosed "Status of the Negative AIR mechanical state";
+65 S DCBUS_PRECH_RLY_cmd_isActive "Status of the DCBUS Precharge Relay command";
+65 S DCBUS_PRECH_RLY_isClosed "Status of the DCBUS Precharge Relay mechanical state";
+65 S AMS_errIsActive "States whether the AMS error is active";
+65 S IMD_errIsActive "States whether the IMD error is active";
+65 S TSAL_green_isActive "States whether the TSAL green signal is active";
+65 S DCBUS_isOver60V "States whether the DC BUS volatge is over 60V";
+65 S IMP_any_isActive "States whether any implausibility is active";
+65 S IMP_HV_Relays_Signals_isActive "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active";
+65 S IMP_AIRs_Signals_isActive "States whether an implausibility on AIRs (NEG,POS) signals is active";
+65 S AIR_POS_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR POS mechanical state signal is active";
+65 S AIR_NEG_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR NEG mechanical state signal is active";
+82 S APPS_0_voltage "The voltage of the APPS #0 expressed in mV";
+82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
+82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
+82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
+99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
+99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
+99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
+115 S DISCHARGE_isOpen "States whether the discharge is open";
+115 S BSPD_hasError "States whether the BSPD has an error";
+324 S LV_BAT_currentSensVoltage "The voltage returned by the current sensor of the LV battery expressed in mV";
+324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV";
+324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV";
+357 S BTN_RTD_isPressed "Ready To Drive Button pressed";
+357 S BTN_1_isPressed "Steering wheel Button #1 is pressed";
+357 S BTN_2_isPressed "Steering wheel Button #2 is pressed";
+357 S BTN_3_isPressed "Steering wheel Button #3 is pressed";
+357 S BTN_4_isPressed "Steering wheel Button #4 is pressed";
 357 S ROT_SW_1_state "Rotary Switch 1 state";
 357 S ROT_SW_2_state "Rotary Switch 2 state";
-407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active).";
-407 S RAD_FAN_pwmDutyCicleCtrl "PWM duty cycle percentage for Radiator Fans control.";
-407 S COOL_PUMPS_speedCtrl "Speed percentage for Cooling Pumps control.";
+407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
+407 S RAD_FAN_pwmDutyCicleCtrl "PWM duty cycle percentage for Radiator Fans control";
+407 S COOL_PUMPS_speedCtrl "Speed percentage for Cooling Pumps control";
 646 S xcp_payload "xcp payload data";
 662 S xcp_payload "xcp payload data";
 678 S xcp_payload "xcp payload data";
 694 S xcp_payload "xcp payload data";
 710 S xcp_payload "xcp payload data";
 726 S xcp_payload "xcp payload data";
-737 S SDC_PRCH_RLY_isClosed "States whether the SDC precharge relay is closed.";
-755 S SDC_POST_BSPD_isClosed "States whether the SDC post BSPD is closed.";
-755 S SDC_PRE_PUSH_BTNS_isClosed "States whether the SDC per push buttons (hoop right/left) is closed.";
-755 S SDC_POST_DC_BUS_isClosed "States whether the SDC post DC bus (inverter mono) is closed.";
-755 S SDC_POST_INV_FR_isClosed "States whether the SDC post inverter front right is closed.";
-770 S SDC_POST_INERTIA_isActive "States whether the SDC post inertia switch is active.";
-770 S SDC_POST_BOTS_isActive "States whether the SDC post BOTS is active.";
-770 S SDC_POST_CP_PUSH_BTN_isActive "States whether the SDC post cockpit push button is active.";
-802 S LPPS_DAMPER_FL_voltage "The voltage of the linear potentiometer position sensor on the front left damper expressed in mV.";
-802 S LPPS_DAMPER_FR_voltage "The voltage of the linear potentiometer position sensor on the front right damper expressed in mV.";
-819 S LPPS_DAMPER_RL_voltage "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.";
-819 S LPPS_DAMPER_RR_voltage "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.";
+737 S SDC_PRCH_RLY_isClosed "States whether the SDC precharge relay is closed";
+755 S SDC_POST_BSPD_isClosed "States whether the SDC post BSPD is closed";
+755 S SDC_PRE_PUSH_BTNS_isClosed "States whether the SDC per push buttons (hoop right/left) is closed";
+755 S SDC_POST_DC_BUS_isClosed "States whether the SDC post DC bus (inverter mono) is closed";
+755 S SDC_POST_INV_FR_isClosed "States whether the SDC post inverter front right is closed";
+770 S SDC_POST_INERTIA_isActive "States whether the SDC post inertia switch is active";
+770 S SDC_POST_BOTS_isActive "States whether the SDC post BOTS is active";
+770 S SDC_POST_CP_PUSH_BTN_isActive "States whether the SDC post cockpit push button is active";
+802 S LPPS_DAMPER_FL_voltage "The voltage of the linear potentiometer position sensor on the front left damper expressed in mV";
+802 S LPPS_DAMPER_FR_voltage "The voltage of the linear potentiometer position sensor on the front right damper expressed in mV";
+819 S LPPS_DAMPER_RL_voltage "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV";
+819 S LPPS_DAMPER_RR_voltage "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV";
 1121 S xcp_payload "xcp payload data";
 1122 S xcp_payload "xcp payload data";
 1123 S xcp_payload "xcp payload data";
@@ -694,63 +698,67 @@
 1125 S xcp_payload "xcp payload data";
 1129 S xcp_payload "xcp payload data";
 1175 S HVBAT_soc "HV Battery State Of Charge percentage";
-1191 S DSPACE_main_FSM_State "The state of the main/RTD FSM of dspace.";
-1191 S DSPACE_amkInvFL_FSM_State "The state of the AMK Inverter Front Left FSM of dspace.";
-1191 S DSPACE_amkInvFR_FSM_State "The state of the AMK Inverter Front Right FSM of dspace.";
-1191 S DSPACE_amkInvRL_FSM_State "The state of the AMK Inverter Rear Left FSM of dspace.";
-1191 S DSPACE_amkInvRR_FSM_State "The state of the AMK Inverter Rear Right FSM of dspace.";
-1204 S LV_CELL_0_isOV "States whether the LV cell #0 is in overvoltage.";
-1204 S LV_CELL_0_isUV "States whether the LV cell #0 is in undervoltage.";
-1204 S LV_CELL_1_isOV "States whether the LV cell #1 is in overvoltage.";
-1204 S LV_CELL_1_isUV "States whether the LV cell #1 is in undervoltage.";
-1204 S LV_CELL_2_isOV "States whether the LV cell #2 is in overvoltage.";
-1204 S LV_CELL_2_isUV "States whether the LV cell #2 is in undervoltage.";
-1204 S LV_CELL_3_isOV "States whether the LV cell #3 is in overvoltage.";
-1204 S LV_CELL_3_isUV "States whether the LV cell #3 is in undervoltage.";
-1204 S LV_CELL_4_isOV "States whether the LV cell #4 is in overvoltage.";
-1204 S LV_CELL_4_isUV "States whether the LV cell #4 is in undervoltage.";
-1204 S LV_CELL_5_isOV "States whether the LV cell #5 is in overvoltage.";
-1204 S LV_CELL_5_isUV "States whether the LV cell #5 is in undervoltage.";
-1204 S LV_CELL_6_isOV "States whether the LV cell #6 is in overvoltage.";
-1204 S LV_CELL_6_isUV "States whether the LV cell #6 is in undervoltage.";
-1204 S LV_CELL_NTC_00_isOT "States whether the LV cell temperature sensor #0 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_01_isOT "States whether the LV cell temperature sensor #1 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_02_isOT "States whether the LV cell temperature sensor #2 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_03_isOT "States whether the LV cell temperature sensor #3 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_04_isOT "States whether the LV cell temperature sensor #4 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_05_isOT "States whether the LV cell temperature sensor #5 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_06_isOT "States whether the LV cell temperature sensor #6 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_07_isOT "States whether the LV cell temperature sensor #7 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_08_isOT "States whether the LV cell temperature sensor #8 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_09_isOT "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_10_isOT "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature.";
-1204 S LV_CELL_NTC_11_isOT "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature.";
-1220 S LV_RELAY_isClosed "States whether the LV relay is closed.";
-1220 S LV_RELAY_isRelayOverrideOn "States whether the LV relay override is enabled.";
-1236 S LV_CELL_0_voltage "The voltage of the LV cell #0 expressed in mV.";
-1236 S LV_CELL_1_voltage "The voltage of the LV cell #1 expressed in mV.";
-1236 S LV_CELL_2_voltage "The voltage of the LV cell #2 expressed in mV.";
-1236 S LV_CELL_3_voltage "The voltage of the LV cell #3 expressed in mV.";
-1252 S LV_CELL_4_voltage "The voltage of the LV cell #4 expressed in mV.";
-1252 S LV_CELL_5_voltage "The voltage of the LV cell #4 expressed in mV.";
-1252 S LV_CELL_6_voltage "The voltage of the LV cell #4 expressed in mV.";
-1269 S TSAC_FAN_pwmDutyCycleStatus "PWM duty cycle percentage for TSAC fans control.";
-1290 S TIRE_FL_sensID "The sensor id of the front left tire.";
-1290 S TIRE_FL_status "The status the front left tire.";
-1290 S TIRE_FL_temperature "The temperature of the front left tire.";
-1290 S TIRE_FL_pressure "The pressure of the front left tire.";
-1290 S TIRE_FR_sensID "The sensor id of the front right tire.";
-1290 S TIRE_FR_status "The status the front right tire.";
-1290 S TIRE_FR_temperature "The temperature of the front right tire.";
-1290 S TIRE_FR_pressure "The pressure of the front right tire.";
-1306 S TIRE_RL_sensID "The sensor id of the rear left tire.";
-1306 S TIRE_RL_status "The status the rear left tire.";
-1306 S TIRE_RL_temperature "The temperature of the rear left tire.";
-1306 S TIRE_RL_pressure "The pressure of the rear left tire.";
-1306 S TIRE_RR_sensID "The sensor id of the rear right tire.";
-1306 S TIRE_RR_status "The status the rear right tire.";
-1306 S TIRE_RR_temperature "The temperature of the rear right tire.";
-1306 S TIRE_RR_pressure "The pressure of the rear right tire.";
+1191 S DSPACE_main_FSM_State "The state of the main/RTD FSM of dspace";
+1191 S DSPACE_amkInvFL_FSM_State "The state of the AMK Inverter Front Left FSM of dspace";
+1191 S DSPACE_amkInvFR_FSM_State "The state of the AMK Inverter Front Right FSM of dspace";
+1191 S DSPACE_amkInvRL_FSM_State "The state of the AMK Inverter Rear Left FSM of dspace";
+1191 S DSPACE_amkInvRR_FSM_State "The state of the AMK Inverter Rear Right FSM of dspace";
+1204 S LV_CELL_0_isOV "States whether the LV cell #0 is in overvoltage";
+1204 S LV_CELL_0_isUV "States whether the LV cell #0 is in undervoltage";
+1204 S LV_CELL_1_isOV "States whether the LV cell #1 is in overvoltage";
+1204 S LV_CELL_1_isUV "States whether the LV cell #1 is in undervoltage";
+1204 S LV_CELL_2_isOV "States whether the LV cell #2 is in overvoltage";
+1204 S LV_CELL_2_isUV "States whether the LV cell #2 is in undervoltage";
+1204 S LV_CELL_3_isOV "States whether the LV cell #3 is in overvoltage";
+1204 S LV_CELL_3_isUV "States whether the LV cell #3 is in undervoltage";
+1204 S LV_CELL_4_isOV "States whether the LV cell #4 is in overvoltage";
+1204 S LV_CELL_4_isUV "States whether the LV cell #4 is in undervoltage";
+1204 S LV_CELL_5_isOV "States whether the LV cell #5 is in overvoltage";
+1204 S LV_CELL_5_isUV "States whether the LV cell #5 is in undervoltage";
+1204 S LV_CELL_6_isOV "States whether the LV cell #6 is in overvoltage";
+1204 S LV_CELL_6_isUV "States whether the LV cell #6 is in undervoltage";
+1204 S LV_CELL_NTC_00_isOT "States whether the LV cell temperature sensor #0 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_01_isOT "States whether the LV cell temperature sensor #1 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_02_isOT "States whether the LV cell temperature sensor #2 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_03_isOT "States whether the LV cell temperature sensor #3 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_04_isOT "States whether the LV cell temperature sensor #4 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_05_isOT "States whether the LV cell temperature sensor #5 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_06_isOT "States whether the LV cell temperature sensor #6 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_07_isOT "States whether the LV cell temperature sensor #7 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_08_isOT "States whether the LV cell temperature sensor #8 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_09_isOT "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_10_isOT "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_11_isOT "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature";
+1220 S LV_RELAY_isClosed "States whether the LV relay is closed";
+1220 S LV_RELAY_isRelayOverrideOn "States whether the LV relay override is enabled";
+1236 S LV_CELL_0_voltage "The voltage of the LV cell #0 expressed in mV";
+1236 S LV_CELL_1_voltage "The voltage of the LV cell #1 expressed in mV";
+1236 S LV_CELL_2_voltage "The voltage of the LV cell #2 expressed in mV";
+1236 S LV_CELL_3_voltage "The voltage of the LV cell #3 expressed in mV";
+1252 S LV_CELL_4_voltage "The voltage of the LV cell #4 expressed in mV";
+1252 S LV_CELL_5_voltage "The voltage of the LV cell #4 expressed in mV";
+1252 S LV_CELL_6_voltage "The voltage of the LV cell #4 expressed in mV";
+1269 S TSAC_FAN_pwmDutyCycleStatus "PWM duty cycle percentage for TSAC fans control";
+1290 S TIRE_FL_sensID "The sensor id of the Front Left tire";
+1290 S TIRE_FL_statusIsSpinning "Acc bit of Front Left tire status register: wheel is spinning (1) or not (0)";
+1290 S TIRE_FL_statusIsVbattNotOk "Vbatt bit of Front Left tire status register: TPMS battery is below 2.2V (1) or above (0)";
+1290 S TIRE_FL_temperature "The temperature of the Front Left tire";
+1290 S TIRE_FL_pressure "The pressure of the front left tire";
+1290 S TIRE_FR_sensID "The sensor id of the front right tire";
+1290 S TIRE_FR_statusIsSpinning "Acc bit of Front Right tire status register: wheel is spinning (1) or not (0)";
+1290 S TIRE_FR_statusIsVbattNotOk "Vbatt bit of Front Right tire status register: TPMS battery is below 2.2V (1) or above (0)";
+1290 S TIRE_FR_temperature "The temperature of the Front Right tire";
+1290 S TIRE_FR_pressure "The pressure of the Front Right tire";
+1306 S TIRE_RL_sensID "The sensor id of the Rear Left tire";
+1306 S TIRE_RL_statusIsSpinning "Acc bit of Rear Left tire status register: wheel is spinning (1) or not (0)";
+1306 S TIRE_RL_statusIsVbattNotOk "Vbatt bit of Rear Left tire status register: TPMS battery is below 2.2V (1) or above (0)";
+1306 S TIRE_RL_temperature "The temperature of the Rear Left tire";
+1306 S TIRE_RL_pressure "The pressure of the front left tire";
+1306 S TIRE_RR_sensID "The sensor id of the front right tire";
+1306 S TIRE_RR_statusIsSpinning "Acc bit of Rear Right tire status register: wheel is spinning (1) or not (0)";
+1306 S TIRE_RR_statusIsVbattNotOk "Vbatt bit of Rear Right tire status register: TPMS battery is below 2.2V (1) or above (0)";
+1306 S TIRE_RR_temperature "The temperature of the Rear Right tire";
+1306 S TIRE_RR_pressure "The pressure of the Rear Right tire";
 1552 S NLG5_S_CP_DT "Control pilot signal (SAE J1772) detected ";
 1552 S NLG5_S_UM_II "US mains level 2 (240VAC / 60Hz) detected";
 1552 S NLG5_S_UM_I "US mains level 1 (120VAC / 60Hz) detected";
@@ -851,52 +859,52 @@
 1607 S FW_majorVersion "firmware major version number";
 1607 S FW_minorVersion "firmware minor version number";
 1607 S FW_patchVersion "firmware patch version number";
-1620 S LV_CELL_NTC_00_resistance "The resistance of the NTC #0 in the battery pack expressed in Ohm.";
-1620 S LV_CELL_NTC_01_resistance "The resistance of the NTC #1 in the battery pack expressed in Ohm.";
-1620 S LV_CELL_NTC_02_resistance "The resistance of the NTC #2 in the battery pack expressed in Ohm.";
-1620 S LV_CELL_NTC_03_resistance "The resistance of the NTC #3 in the battery pack expressed in Ohm.";
-1620 S LV_CELL_NTC_04_resistance "The resistance of the NTC #4 in the battery pack expressed in Ohm.";
-1620 S LV_CELL_NTC_05_resistance "The resistance of the NTC #5 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_06_resistance "The resistance of the NTC #6 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_07_resistance "The resistance of the NTC #7 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_08_resistance "The resistance of the NTC #8 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_09_resistance "The resistance of the NTC #9 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_10_resistance "The resistance of the NTC #10 in the battery pack expressed in Ohm.";
-1636 S LV_CELL_NTC_11_resistance "The resistance of the NTC #11 in the battery pack expressed in Ohm.";
-1650 S JACKET_FL_NTC_resistance "The resistance of the front left jacket NTC expressed in Ohm.";
-1650 S JACKET_FR_NTC_resistance "The resistance of the front right jacket NTC expressed in Ohm.";
-1650 S COLDPLATE_L_NTC_resistance "The resistance of the left coldplate NTC expressed in Ohm.";
-1650 S COLDPLATE_R_NTC_resistance "The resistance of the right coldplate NTC expressed in Ohm.";
-1650 S SPARE_NTC_0_resistance "The resistance of the spare NTC #0 expressed in Ohm.";
-1650 S SPARE_NTC_1_resistance "The resistance of the spare NTC #1 expressed in Ohm.";
-1667 S JACKET_RL_NTC_resistance "The resistance of the rear left jacket NTC expressed in Ohm.";
-1667 S JACKET_RR_NTC_resistance "The resistance of the rear right jacket NTC expressed in Ohm.";
-1667 S RAD_RL_IN_NTC_resistance "The resistance of the rear left IN radiator NTC expressed in Ohm.";
-1667 S RAD_RL_OUT_NTC_resistance "The resistance of the rear left OUT radiator NTC expressed in Ohm.";
-1667 S RAD_RR_IN_NTC_resistance "The resistance of the rear right IN radiator NTC expressed in Ohm.";
-1667 S RAD_RR_OUT_NTC_resistance "The resistance of the rear right OUT radiator NTC expressed in Ohm.";
-1685 S APPS_0_voltageRangeMin "APPS channel #0 minimum range expressed in mV.";
-1685 S APPS_0_voltageRangeMax "APPS channel #0 maximum range expressed in mV.";
-1685 S APPS_1_voltageRangeMin "APPS channel #1 minimum range expressed in mV.";
-1685 S APPS_1_voltageRangeMax "APPS channel #1 maximum range expressed in mV.";
-1701 S BMS_LV_diagPWD "The password to enter diagnostic mode of the BMS_LV.";
-1701 S LV_RELAY_forcedState "The command to force the LV relay open (0) or closed (1).";
-1719 S LED_1_red "The red channel of LED #1 of the dashboard.";
-1719 S LED_1_green "The green channel of LED #1 of the dashboard.";
-1719 S LED_1_blue "The blue channel of LED #1 of the dashboard.";
-1719 S LED_2_red "The red channel of LED #2 of the dashboard.";
-1719 S LED_2_green "The green channel of LED #2 of the dashboard.";
-1719 S LED_2_blue "The blue channel of LED #2 of the dashboard.";
-1719 S LED_3_red "The red channel of LED #3 of the dashboard.";
-1719 S LED_3_green "The green channel of LED #3 of the dashboard.";
-1719 S LED_3_blue "The blue channel of LED #3 of the dashboard.";
-1719 S LED_4_red "The red channel of LED #4 of the dashboard.";
-1719 S LED_4_green "The green channel of LED #4 of the dashboard.";
-1719 S LED_4_blue "The blue channel of LED #4 of the dashboard.";
-1735 S LED_1_color "Dashboard LED #1 color control.";
-1735 S LED_2_color "Dashboard LED #2 color control.";
-1735 S LED_3_color "Dashboard LED #3 color control.";
-1735 S LED_4_color "Dashboard LED #4 color control.";
+1620 S LV_CELL_NTC_00_resistance "The resistance of the NTC #0 in the battery pack expressed in Ohm";
+1620 S LV_CELL_NTC_01_resistance "The resistance of the NTC #1 in the battery pack expressed in Ohm";
+1620 S LV_CELL_NTC_02_resistance "The resistance of the NTC #2 in the battery pack expressed in Ohm";
+1620 S LV_CELL_NTC_03_resistance "The resistance of the NTC #3 in the battery pack expressed in Ohm";
+1620 S LV_CELL_NTC_04_resistance "The resistance of the NTC #4 in the battery pack expressed in Ohm";
+1620 S LV_CELL_NTC_05_resistance "The resistance of the NTC #5 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_06_resistance "The resistance of the NTC #6 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_07_resistance "The resistance of the NTC #7 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_08_resistance "The resistance of the NTC #8 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_09_resistance "The resistance of the NTC #9 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_10_resistance "The resistance of the NTC #10 in the battery pack expressed in Ohm";
+1636 S LV_CELL_NTC_11_resistance "The resistance of the NTC #11 in the battery pack expressed in Ohm";
+1650 S JACKET_FL_NTC_resistance "The resistance of the front left jacket NTC expressed in Ohm";
+1650 S JACKET_FR_NTC_resistance "The resistance of the front right jacket NTC expressed in Ohm";
+1650 S COLDPLATE_L_NTC_resistance "The resistance of the left coldplate NTC expressed in Ohm";
+1650 S COLDPLATE_R_NTC_resistance "The resistance of the right coldplate NTC expressed in Ohm";
+1650 S SPARE_NTC_0_resistance "The resistance of the spare NTC #0 expressed in Ohm";
+1650 S SPARE_NTC_1_resistance "The resistance of the spare NTC #1 expressed in Ohm";
+1667 S JACKET_RL_NTC_resistance "The resistance of the rear left jacket NTC expressed in Ohm";
+1667 S JACKET_RR_NTC_resistance "The resistance of the rear right jacket NTC expressed in Ohm";
+1667 S RAD_RL_IN_NTC_resistance "The resistance of the rear left IN radiator NTC expressed in Ohm";
+1667 S RAD_RL_OUT_NTC_resistance "The resistance of the rear left OUT radiator NTC expressed in Ohm";
+1667 S RAD_RR_IN_NTC_resistance "The resistance of the rear right IN radiator NTC expressed in Ohm";
+1667 S RAD_RR_OUT_NTC_resistance "The resistance of the rear right OUT radiator NTC expressed in Ohm";
+1685 S APPS_0_voltageRangeMin "APPS channel #0 minimum range expressed in mV";
+1685 S APPS_0_voltageRangeMax "APPS channel #0 maximum range expressed in mV";
+1685 S APPS_1_voltageRangeMin "APPS channel #1 minimum range expressed in mV";
+1685 S APPS_1_voltageRangeMax "APPS channel #1 maximum range expressed in mV";
+1701 S BMS_LV_diagPWD "The password to enter diagnostic mode of the BMS_LV";
+1701 S LV_RELAY_forcedState "The command to force the LV relay open (0) or closed (1)";
+1719 S LED_1_red "The red channel of LED #1 of the dashboard";
+1719 S LED_1_green "The green channel of LED #1 of the dashboard";
+1719 S LED_1_blue "The blue channel of LED #1 of the dashboard";
+1719 S LED_2_red "The red channel of LED #2 of the dashboard";
+1719 S LED_2_green "The green channel of LED #2 of the dashboard";
+1719 S LED_2_blue "The blue channel of LED #2 of the dashboard";
+1719 S LED_3_red "The red channel of LED #3 of the dashboard";
+1719 S LED_3_green "The green channel of LED #3 of the dashboard";
+1719 S LED_3_blue "The blue channel of LED #3 of the dashboard";
+1719 S LED_4_red "The red channel of LED #4 of the dashboard";
+1719 S LED_4_green "The green channel of LED #4 of the dashboard";
+1719 S LED_4_blue "The blue channel of LED #4 of the dashboard";
+1735 S LED_1_color "Dashboard LED #1 color control";
+1735 S LED_2_color "Dashboard LED #2 color control";
+1735 S LED_3_color "Dashboard LED #3 color control";
+1735 S LED_4_color "Dashboard LED #4 color control";
 1816 S LAD_D_ParamRq "Diag requested data from host";
 1818 S LAD_D_ParamRp "Diag responded data to host";
 [END_DESC_SIG]
