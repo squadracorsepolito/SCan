@@ -33,6 +33,9 @@
         },
         "IMU": {
             "description": "Inertial Measurement Unit."
+        },
+        "BRUSA": {
+            "description": "Brusa NLG5 charger."
         }
     },
     "general_attributes": {},
@@ -51,7 +54,8 @@
             "EXTRA_NODE": 8,
             "SCANNER": 9,
             "TPMS": 10,
-            "IMU": 11
+            "IMU": 11,
+            "BRUSA": 12
         },
         "dspaceMainFsmStates_Enum": {
             "IDLE": 0,
@@ -3440,6 +3444,1183 @@
                     "offset": 0,
                     "min": 0,
                     "max": 65535
+                }
+            }
+        },
+        "NLG5_ACT_I": {
+            "id": 1553,
+            "length": 8,
+            "sender": "BRUSA",
+            "cycle_time": 100,
+            "signals": {
+                "NLG5_MC_ACT": {
+                    "description": "Actual mains current",
+                    "start_bit": 7,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 50
+                },
+                "NLG5_MV_ACT": {
+                    "description": "Actual mains voltage",
+                    "start_bit": 23,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "V",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 500
+                },
+                "NLG5_OC_ACT": {
+                    "description": "output current to the battery",
+                    "start_bit": 55,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "A",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 150
+                },
+                "NLG5_OV_ACT": {
+                    "description": "Actual battery output voltage",
+                    "start_bit": 39,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "V",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1000
+                }
+            }
+        },
+        "NLG5_ACT_II": {
+            "id": 1554,
+            "length": 8,
+            "sender": "BRUSA",
+            "cycle_time": 100,
+            "signals": {
+                "NLG5_ABV": {
+                    "description": "Aux battery voltage",
+                    "start_bit": 31,
+                    "size": 8,
+                    "endianness": "big",
+                    "unit": "V",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 25
+                },
+                "NLG5_AHC_EXT": {
+                    "description": "Charge balance obtained via  Ext. Ah counter connected to DI1 / DI2",
+                    "start_bit": 39,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "Ah",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                },
+                "NLG5_OC_BO": {
+                    "description": "output current of the booster (if one is present and active)",
+                    "start_bit": 55,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 50
+                },
+                "NLG5_S_MC_M_CP": {
+                    "description": "Value of mains current limit, commanded by the control pilot (SAE J1772) signal",
+                    "start_bit": 7,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 100
+                },
+                "NLG5_S_MC_M_PI": {
+                    "description": "Value of mains current limit, commanded by the 'power indicator' (PI) analog input signal",
+                    "start_bit": 23,
+                    "size": 8,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 20
+                }
+            }
+        },
+        "NLG5_CTL": {
+            "id": 1560,
+            "length": 7,
+            "cycle_time": 100,
+            "signals": {
+                "NLG5_C_CP_V": {
+                    "description": "special signal to tell a charging station equipped with the Control Pilot interface (SAE J1772) to switch on the facility's ventilation (in order to get rid of battery gases like hydrogen, e.g.)",
+                    "start_bit": 5,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_C_C_EL": {
+                    "description": "cycle this value 0-1-0 to clear all latched charger errors ",
+                    "start_bit": 6,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_C_C_EN": {
+                    "description": "Must be ON to enable power stage of the charger",
+                    "start_bit": 7,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_C_MR": {
+                    "description": "Enables CP-State C to request mains voltage",
+                    "start_bit": 4,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_MC_MAX": {
+                    "description": "Maximum current to be drawn from the mains outlet, usually 16A. Must always contain a valid value in order to keep on charging.",
+                    "start_bit": 15,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 50
+                },
+                "NLG5_OC_COM": {
+                    "description": "Desired battery current. Must always contain a valid value in order to keep on charging.",
+                    "start_bit": 47,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "A",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 150
+                },
+                "NLG5_OV_COM": {
+                    "description": "Desired voltage to be output to the battery. Must always contain a valid value in order to keep on charging.",
+                    "start_bit": 31,
+                    "size": 16,
+                    "endianness": "big",
+                    "unit": "V",
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1000
+                }
+            }
+        },
+        "NLG5_DIAG_RX": {
+            "id": 1816,
+            "length": 8,
+            "signals": {
+                "LAD_D_ParamRq": {
+                    "description": "Diag requested data from host",
+                    "start_bit": 7,
+                    "size": 64,
+                    "endianness": "big",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 0,
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ]
+                }
+            }
+        },
+        "NLG5_DIAG_TX": {
+            "id": 1818,
+            "length": 8,
+            "sender": "BRUSA",
+            "signals": {
+                "LAD_D_ParamRp": {
+                    "description": "Diag responded data to host",
+                    "start_bit": 7,
+                    "size": 64,
+                    "endianness": "big",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 0,
+                    "receivers": [
+                        "BRUSA",
+                        "SCANNER"
+                    ]
+                }
+            }
+        },
+        "NLG5_ERR": {
+            "id": 1556,
+            "length": 5,
+            "sender": "BRUSA",
+            "cycle_time": 1000,
+            "signals": {
+                "NLG5_E_B_P": {
+                    "description": "wrong battery polarity;  error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 15,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_C_OFF": {
+                    "description": "CAN off, transmit buffer \u003e255",
+                    "start_bit": 16,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_C_RX": {
+                    "description": "CAN receiver buffer \u003e127",
+                    "start_bit": 30,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_C_TO": {
+                    "description": "CAN timeout, no control message received for \u003e300ms",
+                    "start_bit": 17,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_C_TX": {
+                    "description": "CAN transmit buffer \u003e127",
+                    "start_bit": 31,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_EP_CRC": {
+                    "description": "Pow EEPROM checksum failure",
+                    "start_bit": 20,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_ES_CRC": {
+                    "description": "Sys EEPROM checksum failure",
+                    "start_bit": 21,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_F_CRC": {
+                    "description": "Flash memory checksum failure",
+                    "start_bit": 23,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_INIT": {
+                    "description": "Initialization error",
+                    "start_bit": 18,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_MF": {
+                    "description": "Mains fuse defective",
+                    "start_bit": 0,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_MOV_I": {
+                    "description": "Mains overvoltage 1 detected",
+                    "start_bit": 5,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_MOV_II": {
+                    "description": "Mains overvoltage 2 detected",
+                    "start_bit": 6,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_NV_CRC": {
+                    "description": "NVSRAM check sum failure; contains most of the scaling \u0026 calibration values, CAN ID's and  charging profile etc.",
+                    "start_bit": 22,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_OF": {
+                    "description": "output fuse defective",
+                    "start_bit": 1,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_OOV": {
+                    "description": "battery output overvoltage; error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 7,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_P_MV": {
+                    "description": "plausibility mains voltage measurement wrong",
+                    "start_bit": 2,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_P_OM": {
+                    "description": "plausibility battery output voltage measurement wrong",
+                    "start_bit": 3,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_SC": {
+                    "description": "power stage short circuit condition detected; error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 4,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_SDT_AH": {
+                    "description": "Emergency Shutdown Threshold 'Amp Hours' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 27,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_SDT_BT": {
+                    "description": "Emergency Shutdown Threshold 'Battery Temperature' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 29,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_SDT_BV": {
+                    "description": "Emergency Shutdown Threshold 'Battery Voltage' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 28,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_SDT_CT": {
+                    "description": "Emergency Shutdown Threshold 'Charging Time' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON",
+                    "start_bit": 26,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_C": {
+                    "description": "Temperature sensor for prim capacitor defective",
+                    "start_bit": 14,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_DIO": {
+                    "description": "Temperature sensor for diodes defective",
+                    "start_bit": 12,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_EXT1": {
+                    "description": "Ext. temperature sensor 1 defective (if enabled)",
+                    "start_bit": 10,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_EXT2": {
+                    "description": "Ext. temperature sensor 2 defective (if enabled)",
+                    "start_bit": 9,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_EXT3": {
+                    "description": "Ext. temperature sensor 3 defective (if enabled)",
+                    "start_bit": 8,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_POW": {
+                    "description": "Temperature sensor for prim power stage defective",
+                    "start_bit": 13,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_T_TR": {
+                    "description": "Temperature sensor for transformer defective",
+                    "start_bit": 11,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_E_WDT": {
+                    "description": "Internal Watchdog Timeout",
+                    "start_bit": 19,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_W_CM_NA": {
+                    "description": "NLG5 Control message not active",
+                    "start_bit": 35,
+                    "size": 1,
+                    "endianness": "big",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 0
+                },
+                "NLG5_W_C_VOR": {
+                    "description": "Commanded value is out of specified range; max or min applicable value is assumed instead",
+                    "start_bit": 36,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_W_OD": {
+                    "description": "LED Output driver defective, LEDs cannot be controlled by NLG5 anymore. Charging is still possible.",
+                    "start_bit": 33,
+                    "size": 1,
+                    "endianness": "big",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 0
+                },
+                "NLG5_W_PL_BV": {
+                    "description": "Output power limited by low battery voltage",
+                    "start_bit": 38,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_W_PL_IT": {
+                    "description": "Output power limited by charger internal overtemperature",
+                    "start_bit": 37,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_W_PL_MV": {
+                    "description": "Output power limited by low mains voltage",
+                    "start_bit": 39,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_W_SC_M": {
+                    "description": "Save-Charging-Mode reduces primary current to 3.95 A as long as one of the four internal temperature sensors indicates -18deg C or less.",
+                    "start_bit": 32,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 0
+                }
+            }
+        },
+        "NLG5_ST": {
+            "id": 1552,
+            "length": 4,
+            "sender": "BRUSA",
+            "cycle_time": 100,
+            "signals": {
+                "NLG5_S_AAC": {
+                    "description": "AUX 12 V Automatic Charging Active",
+                    "start_bit": 24,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_BPD_I": {
+                    "description": "Bypass detection bit 1; 00: no bypass, 01: DC bypass detected, 10:AC bypass in phase, 11: AC bypass not in phase",
+                    "start_bit": 15,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_BPD_II": {
+                    "description": "Bypass detection bit 2; 00: no bypass, 01: DC bypass detected, 10:AC bypass in phase, 11: AC bypass not in phase",
+                    "start_bit": 14,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_CP_DT": {
+                    "description": "Control pilot signal (SAE J1772) detected ",
+                    "start_bit": 0,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_ERR": {
+                    "description": "An error has been detected, red LED is ON, no power is output",
+                    "start_bit": 6,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_EUM": {
+                    "description": "European mains input detected (230V, 50Hz)",
+                    "start_bit": 3,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_FAN": {
+                    "description": "Charger cooling fan is active",
+                    "start_bit": 4,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_HE": {
+                    "description": "Indicates if hardware enabled, i.e. a hi or lo signal is fed to the 'Power On' pin (pin3 of control connector)",
+                    "start_bit": 7,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_CP": {
+                    "description": "Output power limited by control pilot signal (SAE J1772)",
+                    "start_bit": 9,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_MC": {
+                    "description": "Output power limited by mains current limit",
+                    "start_bit": 11,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_MC_MAX": {
+                    "description": "Output power limited by maximum mains current capability of NLG5",
+                    "start_bit": 23,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_MO_MAX": {
+                    "description": "Output power limited by maximum output voltage capability of NLG5",
+                    "start_bit": 21,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_OC": {
+                    "description": "Output power limited by battery output current limit",
+                    "start_bit": 12,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_OC_MAX": {
+                    "description": "Output power limited by maximum output current capability of NLG5",
+                    "start_bit": 22,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_OV": {
+                    "description": "Output power limited by battery output voltage limit",
+                    "start_bit": 13,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_PI": {
+                    "description": "Output power limited by analog input 'power indicator' (PI) limit",
+                    "start_bit": 10,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_PMAX": {
+                    "description": "Output power limited by maximum power capability of NLG5",
+                    "start_bit": 8,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_T_BATT": {
+                    "description": "Output power limited by battery temperature",
+                    "start_bit": 16,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_T_CPRIM": {
+                    "description": "Output power limited by temperature of primary capacitors",
+                    "start_bit": 20,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_T_DIO": {
+                    "description": "Output power limited by temperature of diodes",
+                    "start_bit": 18,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_T_POW": {
+                    "description": "Output power limited by temperature of power stage",
+                    "start_bit": 19,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_L_T_TR": {
+                    "description": "Output power limited by temperature of transformer",
+                    "start_bit": 17,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_UM_I": {
+                    "description": "US mains level 1 (120VAC / 60Hz) detected",
+                    "start_bit": 2,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_UM_II": {
+                    "description": "US mains level 2 (240VAC / 60Hz) detected",
+                    "start_bit": 1,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "NLG5_S_WAR": {
+                    "description": "Warning condition on, i.e. charging power limited due to any limiting condition; red LED is blinking",
+                    "start_bit": 5,
+                    "size": 1,
+                    "endianness": "big",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                }
+            }
+        },
+        "NLG5_TEMP": {
+            "id": 1555,
+            "length": 8,
+            "sender": "BRUSA",
+            "cycle_time": 1000,
+            "signals": {
+                "NLG5_P_TMP": {
+                    "description": "Power stage temperature",
+                    "start_bit": 7,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "degC",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": -40,
+                    "max": 300
+                },
+                "NLG5_TEMP_EXT2": {
+                    "description": "Value of external battery temperature sensor #2 (if connected and enabled)",
+                    "start_bit": 39,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "degC",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": -40,
+                    "max": 300
+                },
+                "NLG5_TMP_EXT1": {
+                    "description": "Value of external battery temperature sensor #1 (if connected and enabled)",
+                    "start_bit": 23,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "degC",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": -40,
+                    "max": 300
+                },
+                "NLG5_TMP_EXT3": {
+                    "description": "Value of external battery temperature sensor #3 (if connected and enabled)",
+                    "start_bit": 55,
+                    "size": 16,
+                    "endianness": "big",
+                    "signed": true,
+                    "unit": "degC",
+                    "receivers": [
+                        "SCANNER"
+                    ],
+                    "scale": 0.1,
+                    "offset": 0,
+                    "min": -40,
+                    "max": 300
                 }
             }
         }
