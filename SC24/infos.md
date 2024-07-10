@@ -1,6 +1,24 @@
 # INFOS
+## ECU-IDS
+The list of ECUs and their ids:
+- TLB_BAT: 1
+- SB_FRONT: 2
+- SB_REAR: 3
+- BMS_LV: 4
+- DASH: 5
+- DIAG_TOOL: 6
+- DSPACE: 7
+- EXTRA_NODE: 8  `DON'T CHANGE THIS ECU-ID: KEEP IT AT 8 !`  
+Some ECUs have non modifiable can-ids because programmed at fabbrication/delivery, we put those here
+- SCANNER: 9
+- TPMS: 10
+- IMU: 11
 ## Criteria For Message-Id assignment
 Below values are in base 10
+### Blacklisted Message-ids (using ecu-id encoding)
+- EXTRA-NODES, ECU-ID 8 (0x8)
+    - Message-id: 112 (0x70): IRTS sensors
+
 ### High Priority high speed (1-50ms) 
 ```
 - Message IDs: 0-19 [20]
@@ -32,6 +50,7 @@ Below values are in base 10
 ```
 - Message IDs: 70-99 [30] 
     - 70: [all-ecus]_xcpTx
+    - 73: DSPACE_signals
     - 74: DSPACE_fsmStates
     - 75: BMS_LV-cellsStatus
     - 76: BMS_LV-status
@@ -42,7 +61,7 @@ Below values are in base 10
 ```
 ### Low Priority
 ```
-- Message IDs: 100-127 [27] 
+- Message IDs: 100-127 [27] (exclude 112)
     - 100: [all-ecus]_hello
     - 101-102: BMS_LV_ntcResistance0/1
     - 103: SB_FRONT-ntcResistance
@@ -50,4 +69,5 @@ Below values are in base 10
     - 105: DASH-appsRangeLimits
     - 106: DASH-carCommands
     - 107-108 : DSPACE-ledColors
+    - 112: BALCKLISTED see above
 ```
