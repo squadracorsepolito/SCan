@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 52
+[NUMBER_OF_MESSAGES] 54
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -179,6 +179,10 @@
 
 [START_MSG] SCANNER__xcpTx,1129,8,1,0,S,SCANNER
 [START_SIGNALS] xcp_payload,64,1,0,U,0,0,1,0,1,,,DIAG_TOOL
+[END_MSG]
+
+[START_MSG] DSPACE__signals,1175,1,1,0,S,DSPACE
+[START_SIGNALS] HVBAT_soc,8,1,0,U,0,100,1,0,1,%,,DASH,SCANNER
 [END_MSG]
 
 [START_MSG] DSPACE__fsmStates,1191,5,5,0,S,DSPACE
@@ -439,7 +443,11 @@
 [VALUE_DESCRIPTION] "WHITE",8
 [END_MSG]
 
-[NODE] DSPACE,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV,IMU,DIAG_TOOL,TPMS
+[START_MSG] IRTS_placeholderMessage,1800,8,1,0,S,EXTRA_NODE
+[START_SIGNALS] IRTS_signalPlaceholder,64,1,0,U,65535,0,1,0,1,,,
+[END_MSG]
+
+[NODE] DSPACE,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV,IMU,DIAG_TOOL,TPMS,EXTRA_NODE
 [START_DESC]
 
 [START_DESC_MSG]
@@ -473,6 +481,7 @@
 1124 S "(send_type: CyclicIfActive)";
 1125 S "(send_type: CyclicIfActive)";
 1129 S "(send_type: CyclicIfActive)";
+1175 S "(cycle_time: 100) (send_type: Cyclic)";
 1191 S "(cycle_time: 100) (send_type: Cyclic)";
 1204 S "(cycle_time: 100) (send_type: Cyclic)";
 1220 S "(cycle_time: 500) (send_type: Cyclic)";
@@ -495,6 +504,7 @@
 1701 S "(send_type: IfActive)";
 1719 S "(cycle_time: 200) (send_type: Cyclic)";
 1735 S "(cycle_time: 200) (send_type: Cyclic)";
+1800 S "IRTS message placeholder TODO: update this message when you have the specification";
 [END_DESC_MSG]
 [START_DESC_NODE]
 [END_DESC_NODE]
@@ -567,6 +577,7 @@
 1124 S xcp_payload "xcp payload data";
 1125 S xcp_payload "xcp payload data";
 1129 S xcp_payload "xcp payload data";
+1175 S HVBAT_soc "HV Battery State Of Charge percentage";
 1191 S DSPACE_main_FSM_State "The state of the main/RTD FSM of dspace.";
 1191 S DSPACE_amkInvFL_FSM_State "The state of the AMK Inverter Front Left FSM of dspace.";
 1191 S DSPACE_amkInvFR_FSM_State "The state of the AMK Inverter Front Right FSM of dspace.";
@@ -746,6 +757,8 @@
 1124,S,"GenMsgSendType","3"
 1125,S,"GenMsgSendType","3"
 1129,S,"GenMsgSendType","3"
+1175,S,"GenMsgCycleTime","100"
+1175,S,"GenMsgSendType","1"
 1191,S,"GenMsgCycleTime","100"
 1191,S,"GenMsgSendType","1"
 1204,S,"GenMsgCycleTime","100"
