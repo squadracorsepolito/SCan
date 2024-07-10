@@ -2,34 +2,34 @@
     "version": "0.2",
     "nodes": {
         "BMS_LV": {
-            "description": "Battery-Management-System Low-Voltage ECU."
+            "description": "Battery-Management-System Low-Voltage ECU"
         },
         "DASH": {
-            "description": "Dashboard ECU."
+            "description": "Dashboard ECU"
         },
         "DIAG_TOOL": {
-            "description": "Diagnostic tool."
+            "description": "Diagnostic tool"
         },
         "DSPACE": {
-            "description": "An automotive ECU."
+            "description": "An automotive ECU"
         },
         "EXTRA_NODE": {
             "description": "Extra CAN BUS-Nodes not permanent or temporary"
         },
         "SB_FRONT": {
-            "description": "Sensorboard front ECU."
+            "description": "Sensorboard front ECU"
         },
         "SB_REAR": {
-            "description": "Sensorboard rear ECU."
+            "description": "Sensorboard rear ECU"
         },
         "SCANNER": {
             "description": "Can Logger ECU"
         },
         "TLB_BAT": {
-            "description": "TSAL-latch-board battery ECU."
+            "description": "TSAL-latch-board battery ECU"
         },
         "TPMS": {
-            "description": "Tire pressure monitoring system."
+            "description": "Tire pressure monitoring system"
         },
         "IMU": {
             "description": "Inertial Measurement Unit."
@@ -274,7 +274,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_BAT_currentSensVoltage": {
-                    "description": "The voltage returned by the current sensor of the LV battery expressed in mV.",
+                    "description": "The voltage returned by the current sensor of the LV battery expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -289,7 +289,7 @@
                     "max": 4980.66
                 },
                 "LV_BAT_summedVoltage": {
-                    "description": "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV.",
+                    "description": "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
@@ -304,7 +304,7 @@
                     "max": 17497.845
                 },
                 "LV_BAT_voltage": {
-                    "description": "The total read voltage of the LV battery pack expressed in mV.",
+                    "description": "The total read voltage of the LV battery pack expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -329,7 +329,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_CELL_NTC_00_resistance": {
-                    "description": "The resistance of the NTC #0 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #0 in the battery pack expressed in Ohm",
                     "start_bit": 0,
                     "size": 10,
                     "endianness": "little",
@@ -344,7 +344,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_01_resistance": {
-                    "description": "The resistance of the NTC #1 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #1 in the battery pack expressed in Ohm",
                     "start_bit": 10,
                     "size": 10,
                     "endianness": "little",
@@ -359,7 +359,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_02_resistance": {
-                    "description": "The resistance of the NTC #2 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #2 in the battery pack expressed in Ohm",
                     "start_bit": 20,
                     "size": 10,
                     "endianness": "little",
@@ -374,7 +374,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_03_resistance": {
-                    "description": "The resistance of the NTC #3 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #3 in the battery pack expressed in Ohm",
                     "start_bit": 30,
                     "size": 10,
                     "endianness": "little",
@@ -389,7 +389,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_04_resistance": {
-                    "description": "The resistance of the NTC #4 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #4 in the battery pack expressed in Ohm",
                     "start_bit": 40,
                     "size": 10,
                     "endianness": "little",
@@ -404,7 +404,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_05_resistance": {
-                    "description": "The resistance of the NTC #5 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #5 in the battery pack expressed in Ohm",
                     "start_bit": 50,
                     "size": 10,
                     "endianness": "little",
@@ -429,7 +429,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_CELL_NTC_06_resistance": {
-                    "description": "The resistance of the NTC #6 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #6 in the battery pack expressed in Ohm",
                     "start_bit": 0,
                     "size": 10,
                     "endianness": "little",
@@ -444,7 +444,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_07_resistance": {
-                    "description": "The resistance of the NTC #7 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #7 in the battery pack expressed in Ohm",
                     "start_bit": 10,
                     "size": 10,
                     "endianness": "little",
@@ -459,7 +459,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_08_resistance": {
-                    "description": "The resistance of the NTC #8 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #8 in the battery pack expressed in Ohm",
                     "start_bit": 20,
                     "size": 10,
                     "endianness": "little",
@@ -474,7 +474,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_09_resistance": {
-                    "description": "The resistance of the NTC #9 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #9 in the battery pack expressed in Ohm",
                     "start_bit": 30,
                     "size": 10,
                     "endianness": "little",
@@ -489,7 +489,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_10_resistance": {
-                    "description": "The resistance of the NTC #10 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #10 in the battery pack expressed in Ohm",
                     "start_bit": 40,
                     "size": 10,
                     "endianness": "little",
@@ -504,7 +504,7 @@
                     "max": 31968.75
                 },
                 "LV_CELL_NTC_11_resistance": {
-                    "description": "The resistance of the NTC #11 in the battery pack expressed in Ohm.",
+                    "description": "The resistance of the NTC #11 in the battery pack expressed in Ohm",
                     "start_bit": 50,
                     "size": 10,
                     "endianness": "little",
@@ -529,7 +529,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_CELL_0_isOV": {
-                    "description": "States whether the LV cell #0 is in overvoltage.",
+                    "description": "States whether the LV cell #0 is in overvoltage",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -543,7 +543,7 @@
                     "max": 1
                 },
                 "LV_CELL_0_isUV": {
-                    "description": "States whether the LV cell #0 is in undervoltage.",
+                    "description": "States whether the LV cell #0 is in undervoltage",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -557,7 +557,7 @@
                     "max": 1
                 },
                 "LV_CELL_1_isOV": {
-                    "description": "States whether the LV cell #1 is in overvoltage.",
+                    "description": "States whether the LV cell #1 is in overvoltage",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -571,7 +571,7 @@
                     "max": 1
                 },
                 "LV_CELL_1_isUV": {
-                    "description": "States whether the LV cell #1 is in undervoltage.",
+                    "description": "States whether the LV cell #1 is in undervoltage",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -585,7 +585,7 @@
                     "max": 1
                 },
                 "LV_CELL_2_isOV": {
-                    "description": "States whether the LV cell #2 is in overvoltage.",
+                    "description": "States whether the LV cell #2 is in overvoltage",
                     "start_bit": 4,
                     "size": 1,
                     "endianness": "little",
@@ -599,7 +599,7 @@
                     "max": 1
                 },
                 "LV_CELL_2_isUV": {
-                    "description": "States whether the LV cell #2 is in undervoltage.",
+                    "description": "States whether the LV cell #2 is in undervoltage",
                     "start_bit": 5,
                     "size": 1,
                     "endianness": "little",
@@ -613,7 +613,7 @@
                     "max": 1
                 },
                 "LV_CELL_3_isOV": {
-                    "description": "States whether the LV cell #3 is in overvoltage.",
+                    "description": "States whether the LV cell #3 is in overvoltage",
                     "start_bit": 6,
                     "size": 1,
                     "endianness": "little",
@@ -627,7 +627,7 @@
                     "max": 1
                 },
                 "LV_CELL_3_isUV": {
-                    "description": "States whether the LV cell #3 is in undervoltage.",
+                    "description": "States whether the LV cell #3 is in undervoltage",
                     "start_bit": 7,
                     "size": 1,
                     "endianness": "little",
@@ -641,7 +641,7 @@
                     "max": 1
                 },
                 "LV_CELL_4_isOV": {
-                    "description": "States whether the LV cell #4 is in overvoltage.",
+                    "description": "States whether the LV cell #4 is in overvoltage",
                     "start_bit": 8,
                     "size": 1,
                     "endianness": "little",
@@ -655,7 +655,7 @@
                     "max": 1
                 },
                 "LV_CELL_4_isUV": {
-                    "description": "States whether the LV cell #4 is in undervoltage.",
+                    "description": "States whether the LV cell #4 is in undervoltage",
                     "start_bit": 9,
                     "size": 1,
                     "endianness": "little",
@@ -669,7 +669,7 @@
                     "max": 1
                 },
                 "LV_CELL_5_isOV": {
-                    "description": "States whether the LV cell #5 is in overvoltage.",
+                    "description": "States whether the LV cell #5 is in overvoltage",
                     "start_bit": 10,
                     "size": 1,
                     "endianness": "little",
@@ -683,7 +683,7 @@
                     "max": 1
                 },
                 "LV_CELL_5_isUV": {
-                    "description": "States whether the LV cell #5 is in undervoltage.",
+                    "description": "States whether the LV cell #5 is in undervoltage",
                     "start_bit": 11,
                     "size": 1,
                     "endianness": "little",
@@ -697,7 +697,7 @@
                     "max": 1
                 },
                 "LV_CELL_6_isOV": {
-                    "description": "States whether the LV cell #6 is in overvoltage.",
+                    "description": "States whether the LV cell #6 is in overvoltage",
                     "start_bit": 12,
                     "size": 1,
                     "endianness": "little",
@@ -711,7 +711,7 @@
                     "max": 1
                 },
                 "LV_CELL_6_isUV": {
-                    "description": "States whether the LV cell #6 is in undervoltage.",
+                    "description": "States whether the LV cell #6 is in undervoltage",
                     "start_bit": 13,
                     "size": 1,
                     "endianness": "little",
@@ -725,7 +725,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_00_isOT": {
-                    "description": "States whether the LV cell temperature sensor #0 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #0 (NTC) detects an over temperature",
                     "start_bit": 14,
                     "size": 1,
                     "endianness": "little",
@@ -739,7 +739,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_01_isOT": {
-                    "description": "States whether the LV cell temperature sensor #1 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #1 (NTC) detects an over temperature",
                     "start_bit": 15,
                     "size": 1,
                     "endianness": "little",
@@ -753,7 +753,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_02_isOT": {
-                    "description": "States whether the LV cell temperature sensor #2 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #2 (NTC) detects an over temperature",
                     "start_bit": 16,
                     "size": 1,
                     "endianness": "little",
@@ -767,7 +767,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_03_isOT": {
-                    "description": "States whether the LV cell temperature sensor #3 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #3 (NTC) detects an over temperature",
                     "start_bit": 17,
                     "size": 1,
                     "endianness": "little",
@@ -781,7 +781,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_04_isOT": {
-                    "description": "States whether the LV cell temperature sensor #4 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #4 (NTC) detects an over temperature",
                     "start_bit": 18,
                     "size": 1,
                     "endianness": "little",
@@ -795,7 +795,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_05_isOT": {
-                    "description": "States whether the LV cell temperature sensor #5 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #5 (NTC) detects an over temperature",
                     "start_bit": 19,
                     "size": 1,
                     "endianness": "little",
@@ -809,7 +809,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_06_isOT": {
-                    "description": "States whether the LV cell temperature sensor #6 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #6 (NTC) detects an over temperature",
                     "start_bit": 20,
                     "size": 1,
                     "endianness": "little",
@@ -823,7 +823,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_07_isOT": {
-                    "description": "States whether the LV cell temperature sensor #7 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #7 (NTC) detects an over temperature",
                     "start_bit": 21,
                     "size": 1,
                     "endianness": "little",
@@ -837,7 +837,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_08_isOT": {
-                    "description": "States whether the LV cell temperature sensor #8 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #8 (NTC) detects an over temperature",
                     "start_bit": 22,
                     "size": 1,
                     "endianness": "little",
@@ -851,7 +851,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_09_isOT": {
-                    "description": "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature",
                     "start_bit": 23,
                     "size": 1,
                     "endianness": "little",
@@ -865,7 +865,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_10_isOT": {
-                    "description": "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature",
                     "start_bit": 24,
                     "size": 1,
                     "endianness": "little",
@@ -879,7 +879,7 @@
                     "max": 1
                 },
                 "LV_CELL_NTC_11_isOT": {
-                    "description": "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature.",
+                    "description": "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature",
                     "start_bit": 25,
                     "size": 1,
                     "endianness": "little",
@@ -903,7 +903,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_RELAY_isClosed": {
-                    "description": "States whether the LV relay is closed.",
+                    "description": "States whether the LV relay is closed",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -917,7 +917,7 @@
                     "max": 1
                 },
                 "LV_RELAY_isRelayOverrideOn": {
-                    "description": "States whether the LV relay override is enabled.",
+                    "description": "States whether the LV relay override is enabled",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -941,7 +941,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_CELL_0_voltage": {
-                    "description": "The voltage of the LV cell #0 expressed in mV.",
+                    "description": "The voltage of the LV cell #0 expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -956,7 +956,7 @@
                     "max": 2490.33
                 },
                 "LV_CELL_1_voltage": {
-                    "description": "The voltage of the LV cell #1 expressed in mV.",
+                    "description": "The voltage of the LV cell #1 expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -971,7 +971,7 @@
                     "max": 2490.33
                 },
                 "LV_CELL_2_voltage": {
-                    "description": "The voltage of the LV cell #2 expressed in mV.",
+                    "description": "The voltage of the LV cell #2 expressed in mV",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
@@ -986,7 +986,7 @@
                     "max": 2490.33
                 },
                 "LV_CELL_3_voltage": {
-                    "description": "The voltage of the LV cell #3 expressed in mV.",
+                    "description": "The voltage of the LV cell #3 expressed in mV",
                     "start_bit": 48,
                     "size": 16,
                     "endianness": "little",
@@ -1011,7 +1011,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LV_CELL_4_voltage": {
-                    "description": "The voltage of the LV cell #4 expressed in mV.",
+                    "description": "The voltage of the LV cell #4 expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -1026,7 +1026,7 @@
                     "max": 2490.33
                 },
                 "LV_CELL_5_voltage": {
-                    "description": "The voltage of the LV cell #4 expressed in mV.",
+                    "description": "The voltage of the LV cell #4 expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -1041,7 +1041,7 @@
                     "max": 2490.33
                 },
                 "LV_CELL_6_voltage": {
-                    "description": "The voltage of the LV cell #4 expressed in mV.",
+                    "description": "The voltage of the LV cell #4 expressed in mV",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
@@ -1083,7 +1083,7 @@
             "send_type": "IfActive",
             "signals": {
                 "APPS_0_voltageRangeMax": {
-                    "description": "APPS channel #0 maximum range expressed in mV.",
+                    "description": "APPS channel #0 maximum range expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -1098,7 +1098,7 @@
                     "max": 65535
                 },
                 "APPS_0_voltageRangeMin": {
-                    "description": "APPS channel #0 minimum range expressed in mV.",
+                    "description": "APPS channel #0 minimum range expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -1113,7 +1113,7 @@
                     "max": 65535
                 },
                 "APPS_1_voltageRangeMax": {
-                    "description": "APPS channel #1 maximum range expressed in mV.",
+                    "description": "APPS channel #1 maximum range expressed in mV",
                     "start_bit": 48,
                     "size": 16,
                     "endianness": "little",
@@ -1128,7 +1128,7 @@
                     "max": 65535
                 },
                 "APPS_1_voltageRangeMin": {
-                    "description": "APPS channel #1 minimum range expressed in mV.",
+                    "description": "APPS channel #1 minimum range expressed in mV",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
@@ -1153,7 +1153,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "BTN_RTD_isPressed": {
-                    "description": "Ready To Drive Button pressed.",
+                    "description": "Ready To Drive Button pressed",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -1167,7 +1167,7 @@
                     "max": 255
                 },
                 "BTN_1_isPressed": {
-                    "description": "Steering wheel Button #1 is pressed.",
+                    "description": "Steering wheel Button #1 is pressed",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -1181,7 +1181,7 @@
                     "max": 1
                 },
                 "BTN_2_isPressed": {
-                    "description": "Steering wheel Button #2 is pressed.",
+                    "description": "Steering wheel Button #2 is pressed",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -1195,7 +1195,7 @@
                     "max": 1
                 },
                 "BTN_3_isPressed": {
-                    "description": "Steering wheel Button #3 is pressed.",
+                    "description": "Steering wheel Button #3 is pressed",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -1209,7 +1209,7 @@
                     "max": 1
                 },
                 "BTN_4_isPressed": {
-                    "description": "Steering wheel Button #4 is pressed.",
+                    "description": "Steering wheel Button #4 is pressed",
                     "start_bit": 4,
                     "size": 1,
                     "endianness": "little",
@@ -1311,7 +1311,7 @@
             "send_type": "IfActive",
             "signals": {
                 "BMS_LV_diagPWD": {
-                    "description": "The password to enter diagnostic mode of the BMS_LV.",
+                    "description": "The password to enter diagnostic mode of the BMS_LV",
                     "start_bit": 0,
                     "size": 15,
                     "endianness": "little",
@@ -1324,7 +1324,7 @@
                     "max": 32768
                 },
                 "LV_RELAY_forcedState": {
-                    "description": "The command to force the LV relay open (0) or closed (1).",
+                    "description": "The command to force the LV relay open (0) or closed (1)",
                     "start_bit": 15,
                     "size": 1,
                     "endianness": "little",
@@ -1348,7 +1348,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "TSAC_FAN_pwmDutyCycleStatus": {
-                    "description": "PWM duty cycle percentage for TSAC fans control.",
+                    "description": "PWM duty cycle percentage for TSAC fans control",
                     "start_bit": 0,
                     "size": 4,
                     "endianness": "little",
@@ -1373,7 +1373,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "DATETIME_year": {
-                    "description": "Current year expressed as an offset from 1970.",
+                    "description": "Current year expressed as an offset from 1970",
                     "start_bit": 0,
                     "size": 8,
                     "endianness": "little",
@@ -1391,7 +1391,7 @@
                     "max": 255
                 },
                 "DATETIME_month": {
-                    "description": "Current month of the year (1 = January, 12 = December).",
+                    "description": "Current month of the year (1 = January, 12 = December)",
                     "start_bit": 8,
                     "size": 4,
                     "endianness": "little",
@@ -1409,7 +1409,7 @@
                     "max": 11
                 },
                 "DATETIME_day": {
-                    "description": "Current day of the month, from 1 to 31.",
+                    "description": "Current day of the month, from 1 to 31",
                     "start_bit": 12,
                     "size": 5,
                     "endianness": "little",
@@ -1446,7 +1446,7 @@
                     "max": 23
                 },
                 "DATETIME_minutes": {
-                    "description": "Current minutes of the hour.",
+                    "description": "Current minutes of the hour",
                     "start_bit": 22,
                     "size": 6,
                     "endianness": "little",
@@ -1465,7 +1465,7 @@
                     "max": 59
                 },
                 "DATETIME_seconds": {
-                    "description": "Current seconds of the minute.",
+                    "description": "Current seconds of the minute",
                     "start_bit": 28,
                     "size": 6,
                     "endianness": "little",
@@ -1484,7 +1484,7 @@
                     "max": 59
                 },
                 "DATETIME_houndresOfASeconds": {
-                    "description": "Current tens of the second.",
+                    "description": "Current tens of the second",
                     "start_bit": 34,
                     "size": 7,
                     "endianness": "little",
@@ -1585,7 +1585,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "DSPACE_main_FSM_State": {
-                    "description": "The state of the main/RTD FSM of dspace.",
+                    "description": "The state of the main/RTD FSM of dspace",
                     "start_bit": 0,
                     "size": 8,
                     "endianness": "little",
@@ -1599,7 +1599,7 @@
                     "min": -1
                 },
                 "DSPACE_amkInvFL_FSM_State": {
-                    "description": "The state of the AMK Inverter Front Left FSM of dspace.",
+                    "description": "The state of the AMK Inverter Front Left FSM of dspace",
                     "start_bit": 8,
                     "size": 8,
                     "endianness": "little",
@@ -1613,7 +1613,7 @@
                     "min": 0
                 },
                 "DSPACE_amkInvFR_FSM_State": {
-                    "description": "The state of the AMK Inverter Front Right FSM of dspace.",
+                    "description": "The state of the AMK Inverter Front Right FSM of dspace",
                     "start_bit": 16,
                     "size": 8,
                     "endianness": "little",
@@ -1627,7 +1627,7 @@
                     "min": 0
                 },
                 "DSPACE_amkInvRL_FSM_State": {
-                    "description": "The state of the AMK Inverter Rear Left FSM of dspace.",
+                    "description": "The state of the AMK Inverter Rear Left FSM of dspace",
                     "start_bit": 24,
                     "size": 8,
                     "endianness": "little",
@@ -1641,7 +1641,7 @@
                     "min": 0
                 },
                 "DSPACE_amkInvRR_FSM_State": {
-                    "description": "The state of the AMK Inverter Rear Right FSM of dspace.",
+                    "description": "The state of the AMK Inverter Rear Right FSM of dspace",
                     "start_bit": 32,
                     "size": 8,
                     "endianness": "little",
@@ -1665,7 +1665,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "BRAKE_LIGHT_activeCMD": {
-                    "description": "The command to turn on the brake light (0 inactive - 1 active).",
+                    "description": "The command to turn on the brake light (0 inactive - 1 active)",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -1680,7 +1680,7 @@
                     "max": 1
                 },
                 "RAD_FAN_pwmDutyCicleCtrl": {
-                    "description": "PWM duty cycle percentage for Radiator Fans control.",
+                    "description": "PWM duty cycle percentage for Radiator Fans control",
                     "start_bit": 8,
                     "size": 8,
                     "endianness": "little",
@@ -1696,7 +1696,7 @@
                     "max": 100
                 },
                 "COOL_PUMPS_speedCtrl": {
-                    "description": "Speed percentage for Cooling Pumps control.",
+                    "description": "Speed percentage for Cooling Pumps control",
                     "start_bit": 16,
                     "size": 8,
                     "endianness": "little",
@@ -1726,7 +1726,7 @@
             ],
             "signals": {
                 "LED_1_red": {
-                    "description": "The red channel of LED #1 of the dashboard.",
+                    "description": "The red channel of LED #1 of the dashboard",
                     "start_bit": 0,
                     "size": 5,
                     "endianness": "little",
@@ -1736,7 +1736,7 @@
                     "max": 31
                 },
                 "LED_1_green": {
-                    "description": "The green channel of LED #1 of the dashboard.",
+                    "description": "The green channel of LED #1 of the dashboard",
                     "start_bit": 5,
                     "size": 5,
                     "endianness": "little",
@@ -1746,7 +1746,7 @@
                     "max": 31
                 },
                 "LED_1_blue": {
-                    "description": "The blue channel of LED #1 of the dashboard.",
+                    "description": "The blue channel of LED #1 of the dashboard",
                     "start_bit": 10,
                     "size": 5,
                     "endianness": "little",
@@ -1756,7 +1756,7 @@
                     "max": 31
                 },
                 "LED_2_red": {
-                    "description": "The red channel of LED #2 of the dashboard.",
+                    "description": "The red channel of LED #2 of the dashboard",
                     "start_bit": 15,
                     "size": 5,
                     "endianness": "little",
@@ -1766,7 +1766,7 @@
                     "max": 31
                 },
                 "LED_2_green": {
-                    "description": "The green channel of LED #2 of the dashboard.",
+                    "description": "The green channel of LED #2 of the dashboard",
                     "start_bit": 20,
                     "size": 5,
                     "endianness": "little",
@@ -1776,7 +1776,7 @@
                     "max": 31
                 },
                 "LED_2_blue": {
-                    "description": "The blue channel of LED #2 of the dashboard.",
+                    "description": "The blue channel of LED #2 of the dashboard",
                     "start_bit": 25,
                     "size": 5,
                     "endianness": "little",
@@ -1786,7 +1786,7 @@
                     "max": 31
                 },
                 "LED_3_red": {
-                    "description": "The red channel of LED #3 of the dashboard.",
+                    "description": "The red channel of LED #3 of the dashboard",
                     "start_bit": 30,
                     "size": 5,
                     "endianness": "little",
@@ -1796,7 +1796,7 @@
                     "max": 31
                 },
                 "LED_3_green": {
-                    "description": "The green channel of LED #3 of the dashboard.",
+                    "description": "The green channel of LED #3 of the dashboard",
                     "start_bit": 35,
                     "size": 5,
                     "endianness": "little",
@@ -1806,7 +1806,7 @@
                     "max": 31
                 },
                 "LED_3_blue": {
-                    "description": "The blue channel of LED #3 of the dashboard.",
+                    "description": "The blue channel of LED #3 of the dashboard",
                     "start_bit": 40,
                     "size": 5,
                     "endianness": "little",
@@ -1816,7 +1816,7 @@
                     "max": 31
                 },
                 "LED_4_red": {
-                    "description": "The red channel of LED #4 of the dashboard.",
+                    "description": "The red channel of LED #4 of the dashboard",
                     "start_bit": 45,
                     "size": 5,
                     "endianness": "little",
@@ -1826,7 +1826,7 @@
                     "max": 31
                 },
                 "LED_4_green": {
-                    "description": "The green channel of LED #4 of the dashboard.",
+                    "description": "The green channel of LED #4 of the dashboard",
                     "start_bit": 50,
                     "size": 5,
                     "endianness": "little",
@@ -1836,7 +1836,7 @@
                     "max": 31
                 },
                 "LED_4_blue": {
-                    "description": "The blue channel of LED #4 of the dashboard.",
+                    "description": "The blue channel of LED #4 of the dashboard",
                     "start_bit": 55,
                     "size": 5,
                     "endianness": "little",
@@ -1860,7 +1860,7 @@
             ],
             "signals": {
                 "LED_1_color": {
-                    "description": "Dashboard LED #1 color control.",
+                    "description": "Dashboard LED #1 color control",
                     "start_bit": 0,
                     "size": 4,
                     "endianness": "little",
@@ -1869,7 +1869,7 @@
                     "max": 8
                 },
                 "LED_2_color": {
-                    "description": "Dashboard LED #2 color control.",
+                    "description": "Dashboard LED #2 color control",
                     "start_bit": 4,
                     "size": 4,
                     "endianness": "little",
@@ -1878,7 +1878,7 @@
                     "max": 8
                 },
                 "LED_3_color": {
-                    "description": "Dashboard LED #3 color control.",
+                    "description": "Dashboard LED #3 color control",
                     "start_bit": 8,
                     "size": 4,
                     "endianness": "little",
@@ -1887,7 +1887,7 @@
                     "max": 8
                 },
                 "LED_4_color": {
-                    "description": "Dashboard LED #4 color control.",
+                    "description": "Dashboard LED #4 color control",
                     "start_bit": 12,
                     "size": 4,
                     "endianness": "little",
@@ -1975,7 +1975,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "APPS_0_voltage": {
-                    "description": "The voltage of the APPS #0 expressed in mV.",
+                    "description": "The voltage of the APPS #0 expressed in mV",
                     "start_bit": 0,
                     "size": 10,
                     "endianness": "little",
@@ -1990,7 +1990,7 @@
                     "max": 65535
                 },
                 "APPS_1_voltage": {
-                    "description": "The voltage of the APPS #1 expressed in mV.",
+                    "description": "The voltage of the APPS #1 expressed in mV",
                     "start_bit": 10,
                     "size": 10,
                     "endianness": "little",
@@ -2005,7 +2005,7 @@
                     "max": 65535
                 },
                 "STEER_RME_voltage": {
-                    "description": "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV.",
+                    "description": "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV",
                     "start_bit": 20,
                     "size": 16,
                     "endianness": "little",
@@ -2020,7 +2020,7 @@
                     "max": 65535
                 },
                 "BRAKE_PRESS_FRONT_voltage": {
-                    "description": "The voltage of the front brake pressure sensor expressed in mV.",
+                    "description": "The voltage of the front brake pressure sensor expressed in mV",
                     "start_bit": 36,
                     "size": 16,
                     "endianness": "little",
@@ -2045,7 +2045,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "COLDPLATE_L_NTC_resistance": {
-                    "description": "The resistance of the left coldplate NTC expressed in Ohm.",
+                    "description": "The resistance of the left coldplate NTC expressed in Ohm",
                     "start_bit": 20,
                     "size": 10,
                     "endianness": "little",
@@ -2060,7 +2060,7 @@
                     "max": 31968.75
                 },
                 "COLDPLATE_R_NTC_resistance": {
-                    "description": "The resistance of the right coldplate NTC expressed in Ohm.",
+                    "description": "The resistance of the right coldplate NTC expressed in Ohm",
                     "start_bit": 30,
                     "size": 10,
                     "endianness": "little",
@@ -2075,7 +2075,7 @@
                     "max": 31968.75
                 },
                 "JACKET_FL_NTC_resistance": {
-                    "description": "The resistance of the front left jacket NTC expressed in Ohm.",
+                    "description": "The resistance of the front left jacket NTC expressed in Ohm",
                     "start_bit": 0,
                     "size": 10,
                     "endianness": "little",
@@ -2090,7 +2090,7 @@
                     "max": 31968.75
                 },
                 "JACKET_FR_NTC_resistance": {
-                    "description": "The resistance of the front right jacket NTC expressed in Ohm.",
+                    "description": "The resistance of the front right jacket NTC expressed in Ohm",
                     "start_bit": 10,
                     "size": 10,
                     "endianness": "little",
@@ -2105,7 +2105,7 @@
                     "max": 31968.75
                 },
                 "SPARE_NTC_0_resistance": {
-                    "description": "The resistance of the spare NTC #0 expressed in Ohm.",
+                    "description": "The resistance of the spare NTC #0 expressed in Ohm",
                     "start_bit": 40,
                     "size": 10,
                     "endianness": "little",
@@ -2120,7 +2120,7 @@
                     "max": 31968.75
                 },
                 "SPARE_NTC_1_resistance": {
-                    "description": "The resistance of the spare NTC #1 expressed in Ohm.",
+                    "description": "The resistance of the spare NTC #1 expressed in Ohm",
                     "start_bit": 50,
                     "size": 10,
                     "endianness": "little",
@@ -2145,7 +2145,7 @@
             "sender": "SB_FRONT",
             "signals": {
                 "LPPS_DAMPER_FL_voltage": {
-                    "description": "The voltage of the linear potentiometer position sensor on the front left damper expressed in mV.",
+                    "description": "The voltage of the linear potentiometer position sensor on the front left damper expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -2160,7 +2160,7 @@
                     "max": 65535
                 },
                 "LPPS_DAMPER_FR_voltage": {
-                    "description": "The voltage of the linear potentiometer position sensor on the front right damper expressed in mV.",
+                    "description": "The voltage of the linear potentiometer position sensor on the front right damper expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -2185,7 +2185,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "SDC_POST_BOTS_isActive": {
-                    "description": "States whether the SDC post BOTS is active.",
+                    "description": "States whether the SDC post BOTS is active",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -2199,7 +2199,7 @@
                     "max": 1
                 },
                 "SDC_POST_CP_PUSH_BTN_isActive": {
-                    "description": "States whether the SDC post cockpit push button is active.",
+                    "description": "States whether the SDC post cockpit push button is active",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -2213,7 +2213,7 @@
                     "max": 1
                 },
                 "SDC_POST_INERTIA_isActive": {
-                    "description": "States whether the SDC post inertia switch is active.",
+                    "description": "States whether the SDC post inertia switch is active",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -2255,7 +2255,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "BRAKE_PRESS_REAR_voltage": {
-                    "description": "The voltage of the rear brake pressure sensor expressed in mV.",
+                    "description": "The voltage of the rear brake pressure sensor expressed in mV",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
@@ -2270,7 +2270,7 @@
                     "max": 65535
                 },
                 "COOL_PRESS_LEFT_voltage": {
-                    "description": "The voltage of the left cooling pressure sensor expressed in mV.",
+                    "description": "The voltage of the left cooling pressure sensor expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -2285,7 +2285,7 @@
                     "max": 65535
                 },
                 "COOL_PRESS_RIGHT_voltage": {
-                    "description": "The voltage of the right cooling pressure sensor expressed in mV.",
+                    "description": "The voltage of the right cooling pressure sensor expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -2310,7 +2310,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "DISCHARGE_isOpen": {
-                    "description": "States whether the discharge is open.",
+                    "description": "States whether the discharge is open",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -2324,7 +2324,7 @@
                     "max": 1
                 },
                 "BSPD_hasError": {
-                    "description": "States whether the BSPD has an error.",
+                    "description": "States whether the BSPD has an error",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -2399,7 +2399,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "JACKET_RL_NTC_resistance": {
-                    "description": "The resistance of the rear left jacket NTC expressed in Ohm.",
+                    "description": "The resistance of the rear left jacket NTC expressed in Ohm",
                     "start_bit": 0,
                     "size": 10,
                     "endianness": "little",
@@ -2414,7 +2414,7 @@
                     "max": 31968.75
                 },
                 "JACKET_RR_NTC_resistance": {
-                    "description": "The resistance of the rear right jacket NTC expressed in Ohm.",
+                    "description": "The resistance of the rear right jacket NTC expressed in Ohm",
                     "start_bit": 10,
                     "size": 10,
                     "endianness": "little",
@@ -2429,7 +2429,7 @@
                     "max": 31968.75
                 },
                 "RAD_RL_IN_NTC_resistance": {
-                    "description": "The resistance of the rear left IN radiator NTC expressed in Ohm.",
+                    "description": "The resistance of the rear left IN radiator NTC expressed in Ohm",
                     "start_bit": 20,
                     "size": 10,
                     "endianness": "little",
@@ -2444,7 +2444,7 @@
                     "max": 31968.75
                 },
                 "RAD_RL_OUT_NTC_resistance": {
-                    "description": "The resistance of the rear left OUT radiator NTC expressed in Ohm.",
+                    "description": "The resistance of the rear left OUT radiator NTC expressed in Ohm",
                     "start_bit": 30,
                     "size": 10,
                     "endianness": "little",
@@ -2459,7 +2459,7 @@
                     "max": 31968.75
                 },
                 "RAD_RR_IN_NTC_resistance": {
-                    "description": "The resistance of the rear right IN radiator NTC expressed in Ohm.",
+                    "description": "The resistance of the rear right IN radiator NTC expressed in Ohm",
                     "start_bit": 40,
                     "size": 10,
                     "endianness": "little",
@@ -2474,7 +2474,7 @@
                     "max": 31968.75
                 },
                 "RAD_RR_OUT_NTC_resistance": {
-                    "description": "The resistance of the rear right OUT radiator NTC expressed in Ohm.",
+                    "description": "The resistance of the rear right OUT radiator NTC expressed in Ohm",
                     "start_bit": 50,
                     "size": 10,
                     "endianness": "little",
@@ -2499,7 +2499,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "LPPS_DAMPER_RL_voltage": {
-                    "description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.",
+                    "description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV",
                     "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
@@ -2514,7 +2514,7 @@
                     "max": 65535
                 },
                 "LPPS_DAMPER_RR_voltage": {
-                    "description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV.",
+                    "description": "The voltage of the linear potentiometer position sensor on the rear left damper expressed in mV",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
@@ -2539,7 +2539,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "SDC_POST_BSPD_isClosed": {
-                    "description": "States whether the SDC post BSPD is closed.",
+                    "description": "States whether the SDC post BSPD is closed",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -2553,7 +2553,7 @@
                     "max": 1
                 },
                 "SDC_PRE_PUSH_BTNS_isClosed": {
-                    "description": "States whether the SDC per push buttons (hoop right/left) is closed.",
+                    "description": "States whether the SDC per push buttons (hoop right/left) is closed",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -2567,7 +2567,7 @@
                     "max": 1
                 },
                 "SDC_POST_DC_BUS_isClosed": {
-                    "description": "States whether the SDC post DC bus (inverter mono) is closed.",
+                    "description": "States whether the SDC post DC bus (inverter mono) is closed",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -2581,7 +2581,7 @@
                     "max": 1
                 },
                 "SDC_POST_INV_FR_isClosed": {
-                    "description": "States whether the SDC post inverter front right is closed.",
+                    "description": "States whether the SDC post inverter front right is closed",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -2731,7 +2731,7 @@
                     "max": 1
                 },
                 "SDC_PRCH_RLY_isClosed": {
-                    "description": "States whether the SDC precharge relay is closed.",
+                    "description": "States whether the SDC precharge relay is closed",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -2783,7 +2783,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "AIR_POS_cmd_isActive": {
-                    "description": "Status of the Positive AIR command.",
+                    "description": "Status of the Positive AIR command",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -2797,7 +2797,7 @@
                     "max": 1
                 },
                 "AIR_POS_isClosed": {
-                    "description": "Status of the Positive AIR mechanical state.",
+                    "description": "Status of the Positive AIR mechanical state",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -2811,7 +2811,7 @@
                     "max": 1
                 },
                 "AIR_NEG_cmd_isActive": {
-                    "description": "Status of the Negative AIR command.",
+                    "description": "Status of the Negative AIR command",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -2825,7 +2825,7 @@
                     "max": 1
                 },
                 "AIR_NEG_isClosed": {
-                    "description": "Status of the Negative AIR mechanical state.",
+                    "description": "Status of the Negative AIR mechanical state",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -2839,7 +2839,7 @@
                     "max": 1
                 },
                 "DCBUS_PRECH_RLY_cmd_isActive": {
-                    "description": "Status of the DCBUS Precharge Relay command.",
+                    "description": "Status of the DCBUS Precharge Relay command",
                     "start_bit": 4,
                     "size": 1,
                     "endianness": "little",
@@ -2853,7 +2853,7 @@
                     "max": 1
                 },
                 "DCBUS_PRECH_RLY_isClosed": {
-                    "description": "Status of the DCBUS Precharge Relay mechanical state.",
+                    "description": "Status of the DCBUS Precharge Relay mechanical state",
                     "start_bit": 5,
                     "size": 1,
                     "endianness": "little",
@@ -2867,7 +2867,7 @@
                     "max": 1
                 },
                 "AMS_errIsActive": {
-                    "description": "States whether the AMS error is active.",
+                    "description": "States whether the AMS error is active",
                     "start_bit": 6,
                     "size": 1,
                     "endianness": "little",
@@ -2881,7 +2881,7 @@
                     "max": 1
                 },
                 "IMD_errIsActive": {
-                    "description": "States whether the IMD error is active.",
+                    "description": "States whether the IMD error is active",
                     "start_bit": 7,
                     "size": 1,
                     "endianness": "little",
@@ -2895,7 +2895,7 @@
                     "max": 1
                 },
                 "TSAL_green_isActive": {
-                    "description": "States whether the TSAL green signal is active.",
+                    "description": "States whether the TSAL green signal is active",
                     "start_bit": 8,
                     "size": 1,
                     "endianness": "little",
@@ -2909,7 +2909,7 @@
                     "max": 1
                 },
                 "DCBUS_isOver60V": {
-                    "description": "States whether the DC BUS volatge is over 60V.",
+                    "description": "States whether the DC BUS volatge is over 60V",
                     "start_bit": 9,
                     "size": 1,
                     "endianness": "little",
@@ -2923,7 +2923,7 @@
                     "max": 1
                 },
                 "IMP_any_isActive": {
-                    "description": "States whether any implausibility is active.",
+                    "description": "States whether any implausibility is active",
                     "start_bit": 10,
                     "size": 1,
                     "endianness": "little",
@@ -2937,7 +2937,7 @@
                     "max": 1
                 },
                 "IMP_HV_Relays_Signals_isActive": {
-                    "description": "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active.",
+                    "description": "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active",
                     "start_bit": 11,
                     "size": 1,
                     "endianness": "little",
@@ -2951,7 +2951,7 @@
                     "max": 1
                 },
                 "IMP_AIRs_Signals_isActive": {
-                    "description": "States whether an implausibility on AIRs (NEG,POS) signals is active.",
+                    "description": "States whether an implausibility on AIRs (NEG,POS) signals is active",
                     "start_bit": 12,
                     "size": 1,
                     "endianness": "little",
@@ -2965,7 +2965,7 @@
                     "max": 1
                 },
                 "AIR_POS_STG_mechStateSignal_isActive": {
-                    "description": "States whether a Short To Gnd on AIR POS mechanical state signal is active.",
+                    "description": "States whether a Short To Gnd on AIR POS mechanical state signal is active",
                     "start_bit": 13,
                     "size": 1,
                     "endianness": "little",
@@ -2979,7 +2979,7 @@
                     "max": 1
                 },
                 "AIR_NEG_STG_mechStateSignal_isActive": {
-                    "description": "States whether a Short To Gnd on AIR NEG mechanical state signal is active.",
+                    "description": "States whether a Short To Gnd on AIR NEG mechanical state signal is active",
                     "start_bit": 14,
                     "size": 1,
                     "endianness": "little",
@@ -3001,23 +3001,8 @@
             "sender": "TPMS",
             "send_type": "cyclicIfActive",
             "signals": {
-                "TIRE_FL_pressure": {
-                    "description": "The pressure of the front left tire.",
-                    "start_bit": 24,
-                    "size": 8,
-                    "endianness": "little",
-                    "unit": "mB",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 1,
-                    "max": 254
-                },
                 "TIRE_FL_sensID": {
-                    "description": "The sensor id of the front left tire.",
+                    "description": "The sensor id of the Front Left tire",
                     "start_bit": 0,
                     "size": 8,
                     "endianness": "little",
@@ -3027,13 +3012,13 @@
                     ],
                     "scale": 1,
                     "offset": 0,
-                    "min": 0,
+                    "min": 1,
                     "max": 255
                 },
-                "TIRE_FL_status": {
-                    "description": "The status the front left tire.",
-                    "start_bit": 8,
-                    "size": 8,
+                "TIRE_FL_statusIsSpinning": {
+                    "description": "Acc bit of Front Left tire status register: wheel is spinning (1) or not (0)",
+                    "start_bit": 10,
+                    "size": 1,
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
@@ -3042,10 +3027,24 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 1
+                },
+                "TIRE_FL_statusIsVbattNotOk": {
+                    "description": "Vbatt bit of Front Left tire status register: TPMS battery is below 2.2V (1) or above (0)",
+                    "start_bit": 11,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
                 },
                 "TIRE_FL_temperature": {
-                    "description": "The temperature of the front left tire.",
+                    "description": "The temperature of the Front Left tire",
                     "start_bit": 16,
                     "size": 8,
                     "endianness": "little",
@@ -3055,13 +3054,13 @@
                         "SCANNER"
                     ],
                     "scale": 1,
-                    "offset": 0,
+                    "offset": -50,
                     "min": 10,
                     "max": 170
                 },
-                "TIRE_FR_pressure": {
-                    "description": "The pressure of the front right tire.",
-                    "start_bit": 56,
+                "TIRE_FL_pressure": {
+                    "description": "The pressure of the front left tire",
+                    "start_bit": 24,
                     "size": 8,
                     "endianness": "little",
                     "unit": "mB",
@@ -3069,13 +3068,13 @@
                         "DSPACE",
                         "SCANNER"
                     ],
-                    "scale": 1,
-                    "offset": 0,
+                    "scale": 13.7035,
+                    "offset": -0.7035,
                     "min": 1,
                     "max": 254
                 },
                 "TIRE_FR_sensID": {
-                    "description": "The sensor id of the front right tire.",
+                    "description": "The sensor id of the front right tire",
                     "start_bit": 32,
                     "size": 8,
                     "endianness": "little",
@@ -3085,13 +3084,13 @@
                     ],
                     "scale": 1,
                     "offset": 0,
-                    "min": 0,
+                    "min": 1,
                     "max": 255
                 },
-                "TIRE_FR_status": {
-                    "description": "The status the front right tire.",
-                    "start_bit": 40,
-                    "size": 8,
+                "TIRE_FR_statusIsSpinning": {
+                    "description": "Acc bit of Front Right tire status register: wheel is spinning (1) or not (0)",
+                    "start_bit": 42,
+                    "size": 1,
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
@@ -3100,10 +3099,24 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 1
+                },
+                "TIRE_FR_statusIsVbattNotOk": {
+                    "description": "Vbatt bit of Front Right tire status register: TPMS battery is below 2.2V (1) or above (0)",
+                    "start_bit": 43,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
                 },
                 "TIRE_FR_temperature": {
-                    "description": "The temperature of the front right tire.",
+                    "description": "The temperature of the Front Right tire",
                     "start_bit": 48,
                     "size": 8,
                     "endianness": "little",
@@ -3113,9 +3126,24 @@
                         "SCANNER"
                     ],
                     "scale": 1,
-                    "offset": 0,
+                    "offset": -50,
                     "min": 10,
                     "max": 170
+                },
+                "TIRE_FR_pressure": {
+                    "description": "The pressure of the Front Right tire",
+                    "start_bit": 56,
+                    "size": 8,
+                    "endianness": "little",
+                    "unit": "mB",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 13.7035,
+                    "offset": -0.7035,
+                    "min": 1,
+                    "max": 254
                 }
             }
         },
@@ -3126,23 +3154,8 @@
             "sender": "TPMS",
             "send_type": "cyclicIfActive",
             "signals": {
-                "TIRE_RL_pressure": {
-                    "description": "The pressure of the rear left tire.",
-                    "start_bit": 24,
-                    "size": 8,
-                    "endianness": "little",
-                    "unit": "mB",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 1,
-                    "max": 254
-                },
                 "TIRE_RL_sensID": {
-                    "description": "The sensor id of the rear left tire.",
+                    "description": "The sensor id of the Rear Left tire",
                     "start_bit": 0,
                     "size": 8,
                     "endianness": "little",
@@ -3152,13 +3165,13 @@
                     ],
                     "scale": 1,
                     "offset": 0,
-                    "min": 0,
+                    "min": 1,
                     "max": 255
                 },
-                "TIRE_RL_status": {
-                    "description": "The status the rear left tire.",
-                    "start_bit": 8,
-                    "size": 8,
+                "TIRE_RL_statusIsSpinning": {
+                    "description": "Acc bit of Rear Left tire status register: wheel is spinning (1) or not (0)",
+                    "start_bit": 10,
+                    "size": 1,
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
@@ -3167,10 +3180,24 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 1
+                },
+                "TIRE_RL_statusIsVbattNotOk": {
+                    "description": "Vbatt bit of Rear Left tire status register: TPMS battery is below 2.2V (1) or above (0)",
+                    "start_bit": 11,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
                 },
                 "TIRE_RL_temperature": {
-                    "description": "The temperature of the rear left tire.",
+                    "description": "The temperature of the Rear Left tire",
                     "start_bit": 16,
                     "size": 8,
                     "endianness": "little",
@@ -3180,13 +3207,13 @@
                         "SCANNER"
                     ],
                     "scale": 1,
-                    "offset": 0,
+                    "offset": -50,
                     "min": 10,
                     "max": 170
                 },
-                "TIRE_RR_pressure": {
-                    "description": "The pressure of the rear right tire.",
-                    "start_bit": 56,
+                "TIRE_RL_pressure": {
+                    "description": "The pressure of the front left tire",
+                    "start_bit": 24,
                     "size": 8,
                     "endianness": "little",
                     "unit": "mB",
@@ -3194,13 +3221,13 @@
                         "DSPACE",
                         "SCANNER"
                     ],
-                    "scale": 1,
-                    "offset": 0,
+                    "scale": 13.7035,
+                    "offset": -0.7035,
                     "min": 1,
                     "max": 254
                 },
                 "TIRE_RR_sensID": {
-                    "description": "The sensor id of the rear right tire.",
+                    "description": "The sensor id of the front right tire",
                     "start_bit": 32,
                     "size": 8,
                     "endianness": "little",
@@ -3210,13 +3237,13 @@
                     ],
                     "scale": 1,
                     "offset": 0,
-                    "min": 0,
+                    "min": 1,
                     "max": 255
                 },
-                "TIRE_RR_status": {
-                    "description": "The status the rear right tire.",
-                    "start_bit": 40,
-                    "size": 8,
+                "TIRE_RR_statusIsSpinning": {
+                    "description": "Acc bit of Rear Right tire status register: wheel is spinning (1) or not (0)",
+                    "start_bit": 42,
+                    "size": 1,
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
@@ -3225,10 +3252,24 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 1
+                },
+                "TIRE_RR_statusIsVbattNotOk": {
+                    "description": "Vbatt bit of Rear Right tire status register: TPMS battery is below 2.2V (1) or above (0)",
+                    "start_bit": 43,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
                 },
                 "TIRE_RR_temperature": {
-                    "description": "The temperature of the rear right tire.",
+                    "description": "The temperature of the Rear Right tire",
                     "start_bit": 48,
                     "size": 8,
                     "endianness": "little",
@@ -3238,9 +3279,24 @@
                         "SCANNER"
                     ],
                     "scale": 1,
-                    "offset": 0,
+                    "offset": -50,
                     "min": 10,
                     "max": 170
+                },
+                "TIRE_RR_pressure": {
+                    "description": "The pressure of the Rear Right tire",
+                    "start_bit": 56,
+                    "size": 8,
+                    "endianness": "little",
+                    "unit": "mB",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 13.7035,
+                    "offset": -0.7035,
+                    "min": 1,
+                    "max": 254
                 }
             }
         },
