@@ -13,11 +13,14 @@ Some ECUs have non modifiable can-ids because programmed at fabbrication/deliver
 - SCANNER: 9
 - TPMS: 10
 - IMU: 11
+- BRUSA: 12
 ## Criteria For Message-Id assignment
 Below values are in base 10
 ### Blacklisted Message-ids (using ecu-id encoding)
 - EXTRA-NODES, ECU-ID 8 (0x8)
     - Message-id: 112 (0x70): IRTS sensors
+- BRUSA, ECU-ID 12 (0xc)
+    - Message-id: 97 (0x61), 113 (0x71)
 
 ### High Priority high speed (1-50ms) 
 ```
@@ -58,6 +61,7 @@ Below values are in base 10
     - 79: Dash_periphStatus
     - 80: TPMS_frontWheelsPressure
     - 81: TPMS_rearWheelsPressure
+    - 97: BALCKLISTED
 ```
 ### Low Priority
 ```
@@ -70,4 +74,5 @@ Below values are in base 10
     - 106: DASH-carCommands
     - 107-108 : DSPACE-ledColors
     - 112: BALCKLISTED see above
+    - 113: BALCKLISTED
 ```
