@@ -225,15 +225,15 @@ BO_ 1280 Steering_MotorControl_Debug: 1 dash
 	SG_ RearLeft_ON : 2|1@1- (1,0) [0|1] "" dspace
 	SG_ RearRight_ON : 3|1@1- (1,0) [0|1] "" dspace
 
-CM_ BU_ tlb_bat "tsal-latch-board battery ECU";
 CM_ BU_ bms_lv "battery-management-system low-voltage";
 CM_ BU_ dash "dashboard ECU";
 CM_ BU_ dspace "automotive ECU";
 CM_ BU_ sens_front "sensorboard front ECU";
 CM_ BU_ sens_rear "sensorboard rear ECU";
+CM_ BU_ tlb_bat "tsal-latch-board battery ECU";
 
-BA_DEF_ BO_ "GenMsgSendType" ENUM "NoMsgSendType","Cyclic","IfActive","CyclicIfActive","NotUsed";
 BA_DEF_ BO_ "GenMsgCycleTime" INT 0 1000;
+BA_DEF_ BO_ "GenMsgSendType" ENUM "NoMsgSendType","Cyclic","IfActive","CyclicIfActive","NotUsed";
 BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
 BA_DEF_ SG_ "GenSigSendType" ENUM "NoSigSendType","Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NotUsed";
 BA_DEF_DEF_ "GenMsgCycleTime" 0;
