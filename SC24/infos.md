@@ -1,4 +1,18 @@
 # INFOS
+## ECU-IDS
+The list of ECUs and their ids:
+- TLB_BAT: 1
+- SB_FRONT: 2
+- SB_REAR: 3
+- BMS_LV: 4
+- DASH: 5
+- DIAG_TOOL: 6
+- DSPACE: 7
+- EXTRA_NODE: 8  `DON'T CHANGE THIS ECU-ID: KEEP IT AT 8 !`  
+Some ECUs have non modifiable can-ids because programmed at fabbrication/delivery, we put those here
+- SCANNER: 9
+- TPMS: 10
+- IMU: 11
 ## Criteria For Message-Id assignment
 Below values are in base 10
 ### Blacklisted Message-ids (using ecu-id encoding)
