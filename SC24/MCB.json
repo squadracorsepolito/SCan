@@ -1,5 +1,5 @@
 {
-    "version": "_",
+    "version": "0.2",
     "nodes": {
         "BMS_LV": {
             "description": "Battery-Management-System Low-Voltage ECU."
@@ -1552,6 +1552,30 @@
                 }
             }
         },
+        "DSPACE__signals": {
+            "message-id_dec": 73,
+            "id": 1175,
+            "length": 1,
+            "sender": "DSPACE",
+            "cycle_time": 100,
+            "send_type": "Cyclic",
+            "signals": {
+                "HVBAT_soc": {
+                    "description": "HV Battery State Of Charge percentage",
+                    "start_bit": 0,
+                    "size": 8,
+                    "endianness": "little",
+                    "signed": false,
+                    "unit": "%",
+                    "receivers": [
+                        "DASH",
+                        "SCANNER"
+                    ],
+                    "max": 0,
+                    "min": 100
+                }
+            }
+        },
         "DSPACE__fsmStates": {
             "message-id_dec": 74,
             "id": 1191,
@@ -1669,7 +1693,7 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 100
                 },
                 "COOL_PUMPS_speedCtrl": {
                     "description": "Speed percentage for Cooling Pumps control.",
@@ -1685,7 +1709,7 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 255
+                    "max": 100
                 }
             }
         },
@@ -3402,6 +3426,24 @@
                     "offset": 0,
                     "min": 0,
                     "max": 4294970000
+                }
+            }
+        },
+        "IRTS_placeholderMessage": {
+            "message-id_dec": 112,
+            "id": 1800,
+            "length": 8,
+            "sender": "EXTRA_NODE",
+            "description": "IRTS message placeholder TODO: update this message when you have the specification",
+            "signals": {
+                "IRTS_signalPlaceholder": {
+                    "start_bit": 0,
+                    "size": 64,
+                    "endianness": "little",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
                 }
             }
         },
