@@ -1,6 +1,10 @@
 # INFOS
 ## Criteria For Message-Id assignment
 Below values are in base 10
+### Blacklisted Message-ids (using ecu-id encoding)
+- EXTRA-NODES, ECU-ID 8 (0x8)
+    - Message-id: 112 (0x70): IRTS sensors
+
 ### High Priority high speed (1-50ms) 
 ```
 - Message IDs: 0-19 [20]
@@ -30,8 +34,9 @@ Below values are in base 10
 ```
 ### Mid Priority Low Speed (50-100+ms)
 ```
-- Message IDs: 70-99 [30] 
+- Message IDs: 71-99 [30] 
     - 70: [all-ecus]_xcpTx
+    - 73: DSPACE_signals
     - 74: DSPACE_fsmStates
     - 75: BMS_LV-cellsStatus
     - 76: BMS_LV-status
@@ -50,4 +55,5 @@ Below values are in base 10
     - 105: DASH-appsRangeLimits
     - 106: DASH-carCommands
     - 107-108 : DSPACE-ledColors
+    - 112: BALCKLISTED see above
 ```
