@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 54
+[NUMBER_OF_MESSAGES] 62
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -301,6 +301,106 @@
 [START_SIGNALS] TIRE_RR_pressure,8,8,0,U,254,1,1,0,1,mB,,DSPACE,SCANNER
 [END_MSG]
 
+[START_MSG] NLG5_ST,1552,4,25,0,S,BRUSA
+[START_SIGNALS] NLG5_S_CP_DT,1,1,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_UM_II,1,1,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_UM_I,1,1,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_EUM,1,1,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_FAN,1,1,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_WAR,1,1,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_ERR,1,1,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_HE,1,1,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_PMAX,1,2,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_CP,1,2,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_PI,1,2,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_MC,1,2,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_OC,1,2,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_OV,1,2,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_BPD_II,1,2,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_BPD_I,1,2,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_T_BATT,1,3,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_T_TR,1,3,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_T_DIO,1,3,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_T_POW,1,3,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_T_CPRIM,1,3,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_MO_MAX,1,3,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_OC_MAX,1,3,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_L_MC_MAX,1,3,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_S_AAC,1,4,0,U,1,0,0,0,1,,,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_ACT_I,1553,8,4,0,S,BRUSA
+[START_SIGNALS] NLG5_MC_ACT,16,2,0,U,5000,0,0,0,0.01,A,,SCANNER
+[START_SIGNALS] NLG5_MV_ACT,16,4,0,U,5000,0,0,0,0.1,V,,SCANNER
+[START_SIGNALS] NLG5_OV_ACT,16,6,0,U,10000,0,0,0,0.1,V,,SCANNER
+[START_SIGNALS] NLG5_OC_ACT,16,8,0,I,15000,0,0,0,0.01,A,,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_ACT_II,1554,8,5,0,S,BRUSA
+[START_SIGNALS] NLG5_S_MC_M_CP,16,2,0,U,1000,0,0,0,0.1,A,,SCANNER
+[START_SIGNALS] NLG5_S_MC_M_PI,8,3,0,U,200,0,0,0,0.1,A,,SCANNER
+[START_SIGNALS] NLG5_ABV,8,4,0,U,250,0,0,0,0.1,V,,SCANNER
+[START_SIGNALS] NLG5_AHC_EXT,16,6,0,I,32767,-32768,0,0,0.01,Ah,,SCANNER
+[START_SIGNALS] NLG5_OC_BO,16,8,0,U,5000,0,0,0,0.01,A,,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_TEMP,1555,8,4,0,S,BRUSA
+[START_SIGNALS] NLG5_P_TMP,16,2,0,I,3000,-400,0,0,0.1,degC,,SCANNER
+[START_SIGNALS] NLG5_TMP_EXT1,16,4,0,I,3000,-400,0,0,0.1,degC,,SCANNER
+[START_SIGNALS] NLG5_TEMP_EXT2,16,6,0,I,3000,-400,0,0,0.1,degC,,SCANNER
+[START_SIGNALS] NLG5_TMP_EXT3,16,8,0,I,3000,-400,0,0,0.1,degC,,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_ERR,1556,5,37,0,S,BRUSA
+[START_SIGNALS] NLG5_E_MF,1,1,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_OF,1,1,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_P_MV,1,1,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_P_OM,1,1,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_SC,1,1,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_MOV_I,1,1,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_MOV_II,1,1,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_OOV,1,1,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_EXT3,1,2,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_EXT2,1,2,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_EXT1,1,2,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_TR,1,2,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_DIO,1,2,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_POW,1,2,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_T_C,1,2,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_B_P,1,2,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_C_OFF,1,3,0,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_C_TO,1,3,1,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_INIT,1,3,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_WDT,1,3,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_EP_CRC,1,3,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_ES_CRC,1,3,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_NV_CRC,1,3,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_F_CRC,1,3,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_SDT_CT,1,4,2,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_SDT_AH,1,4,3,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_SDT_BV,1,4,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_SDT_BT,1,4,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_C_RX,1,4,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_E_C_TX,1,4,7,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_W_SC_M,1,5,0,U,0,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_W_OD,1,5,1,U,0,0,0,0,1,,,
+[START_SIGNALS] NLG5_W_CM_NA,1,5,3,U,0,0,0,0,1,,,
+[START_SIGNALS] NLG5_W_C_VOR,1,5,4,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_W_PL_IT,1,5,5,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_W_PL_BV,1,5,6,U,1,0,0,0,1,,,SCANNER
+[START_SIGNALS] NLG5_W_PL_MV,1,5,7,U,1,0,0,0,1,,,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_CTL,1560,7,7,0,S,Vector__XXX
+[START_SIGNALS] NLG5_C_MR,1,1,4,U,1,0,0,0,1,,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_C_CP_V,1,1,5,U,1,0,0,0,1,,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_C_C_EL,1,1,6,U,1,0,0,0,1,,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_C_C_EN,1,1,7,U,1,0,0,0,1,,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_MC_MAX,16,3,0,U,500,0,0,0,0.1,A,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_OV_COM,16,5,0,U,10000,0,0,0,0.1,V,,BRUSA,SCANNER
+[START_SIGNALS] NLG5_OC_COM,16,7,0,U,1500,0,0,0,0.1,A,,BRUSA,SCANNER
+[END_MSG]
+
 [START_MSG] TLB_BAT__hello,1601,3,3,0,S,TLB_BAT
 [START_SIGNALS] FW_majorVersion,8,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] FW_minorVersion,8,2,0,U,255,0,1,0,1,,,DSPACE,SCANNER
@@ -447,7 +547,15 @@
 [START_SIGNALS] IRTS_signalPlaceholder,64,1,0,U,65535,0,1,0,1,,,
 [END_MSG]
 
-[NODE] DSPACE,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV,IMU,DIAG_TOOL,TPMS,EXTRA_NODE
+[START_MSG] NLG5_DIAG_RX,1816,8,1,0,S,Vector__XXX
+[START_SIGNALS] LAD_D_ParamRq,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
+[END_MSG]
+
+[START_MSG] NLG5_DIAG_TX,1818,8,1,0,S,BRUSA
+[START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
+[END_MSG]
+
+[NODE] DSPACE,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV,IMU,DIAG_TOOL,TPMS,BRUSA,EXTRA_NODE
 [START_DESC]
 
 [START_DESC_MSG]
@@ -490,6 +598,12 @@
 1269 S "(cycle_time: 500) (send_type: Cyclic)";
 1290 S "(send_type: CyclicIfActive)";
 1306 S "(send_type: CyclicIfActive)";
+1552 S "(cycle_time: 100)";
+1553 S "(cycle_time: 100)";
+1554 S "(cycle_time: 100)";
+1555 S "(cycle_time: 1000)";
+1556 S "(cycle_time: 1000)";
+1560 S "(cycle_time: 100)";
 1601 S "(send_type: IfActive)";
 1602 S "(send_type: IfActive)";
 1603 S "(send_type: IfActive)";
@@ -505,6 +619,8 @@
 1719 S "(cycle_time: 200) (send_type: Cyclic)";
 1735 S "(cycle_time: 200) (send_type: Cyclic)";
 1800 S "IRTS message placeholder TODO: update this message when you have the specification";
+1816 S "";
+1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
 [END_DESC_NODE]
@@ -635,6 +751,88 @@
 1306 S TIRE_RR_status "The status the rear right tire.";
 1306 S TIRE_RR_temperature "The temperature of the rear right tire.";
 1306 S TIRE_RR_pressure "The pressure of the rear right tire.";
+1552 S NLG5_S_CP_DT "Control pilot signal (SAE J1772) detected ";
+1552 S NLG5_S_UM_II "US mains level 2 (240VAC / 60Hz) detected";
+1552 S NLG5_S_UM_I "US mains level 1 (120VAC / 60Hz) detected";
+1552 S NLG5_S_EUM "European mains input detected (230V, 50Hz)";
+1552 S NLG5_S_FAN "Charger cooling fan is active";
+1552 S NLG5_S_WAR "Warning condition on, i.e. charging power limited due to any limiting condition; red LED is blinking";
+1552 S NLG5_S_ERR "An error has been detected, red LED is ON, no power is output";
+1552 S NLG5_S_HE "Indicates if hardware enabled, i.e. a hi or lo signal is fed to the 'Power On' pin (pin3 of control connector)";
+1552 S NLG5_S_L_PMAX "Output power limited by maximum power capability of NLG5";
+1552 S NLG5_S_L_CP "Output power limited by control pilot signal (SAE J1772)";
+1552 S NLG5_S_L_PI "Output power limited by analog input 'power indicator' (PI) limit";
+1552 S NLG5_S_L_MC "Output power limited by mains current limit";
+1552 S NLG5_S_L_OC "Output power limited by battery output current limit";
+1552 S NLG5_S_L_OV "Output power limited by battery output voltage limit";
+1552 S NLG5_S_BPD_II "Bypass detection bit 2; 00: no bypass, 01: DC bypass detected, 10:AC bypass in phase, 11: AC bypass not in phase";
+1552 S NLG5_S_BPD_I "Bypass detection bit 1; 00: no bypass, 01: DC bypass detected, 10:AC bypass in phase, 11: AC bypass not in phase";
+1552 S NLG5_S_L_T_BATT "Output power limited by battery temperature";
+1552 S NLG5_S_L_T_TR "Output power limited by temperature of transformer";
+1552 S NLG5_S_L_T_DIO "Output power limited by temperature of diodes";
+1552 S NLG5_S_L_T_POW "Output power limited by temperature of power stage";
+1552 S NLG5_S_L_T_CPRIM "Output power limited by temperature of primary capacitors";
+1552 S NLG5_S_L_MO_MAX "Output power limited by maximum output voltage capability of NLG5";
+1552 S NLG5_S_L_OC_MAX "Output power limited by maximum output current capability of NLG5";
+1552 S NLG5_S_L_MC_MAX "Output power limited by maximum mains current capability of NLG5";
+1552 S NLG5_S_AAC "AUX 12 V Automatic Charging Active";
+1553 S NLG5_MC_ACT "Actual mains current";
+1553 S NLG5_MV_ACT "Actual mains voltage";
+1553 S NLG5_OV_ACT "Actual battery output voltage";
+1553 S NLG5_OC_ACT "output current to the battery";
+1554 S NLG5_S_MC_M_CP "Value of mains current limit, commanded by the control pilot (SAE J1772) signal";
+1554 S NLG5_S_MC_M_PI "Value of mains current limit, commanded by the 'power indicator' (PI) analog input signal";
+1554 S NLG5_ABV "Aux battery voltage";
+1554 S NLG5_AHC_EXT "Charge balance obtained via  Ext. Ah counter connected to DI1 / DI2";
+1554 S NLG5_OC_BO "output current of the booster (if one is present and active)";
+1555 S NLG5_P_TMP "Power stage temperature";
+1555 S NLG5_TMP_EXT1 "Value of external battery temperature sensor #1 (if connected and enabled)";
+1555 S NLG5_TEMP_EXT2 "Value of external battery temperature sensor #2 (if connected and enabled)";
+1555 S NLG5_TMP_EXT3 "Value of external battery temperature sensor #3 (if connected and enabled)";
+1556 S NLG5_E_MF "Mains fuse defective";
+1556 S NLG5_E_OF "output fuse defective";
+1556 S NLG5_E_P_MV "plausibility mains voltage measurement wrong";
+1556 S NLG5_E_P_OM "plausibility battery output voltage measurement wrong";
+1556 S NLG5_E_SC "power stage short circuit condition detected; error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_MOV_I "Mains overvoltage 1 detected";
+1556 S NLG5_E_MOV_II "Mains overvoltage 2 detected";
+1556 S NLG5_E_OOV "battery output overvoltage; error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_T_EXT3 "Ext. temperature sensor 3 defective (if enabled)";
+1556 S NLG5_E_T_EXT2 "Ext. temperature sensor 2 defective (if enabled)";
+1556 S NLG5_E_T_EXT1 "Ext. temperature sensor 1 defective (if enabled)";
+1556 S NLG5_E_T_TR "Temperature sensor for transformer defective";
+1556 S NLG5_E_T_DIO "Temperature sensor for diodes defective";
+1556 S NLG5_E_T_POW "Temperature sensor for prim power stage defective";
+1556 S NLG5_E_T_C "Temperature sensor for prim capacitor defective";
+1556 S NLG5_E_B_P "wrong battery polarity;  error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_C_OFF "CAN off, transmit buffer >255";
+1556 S NLG5_E_C_TO "CAN timeout, no control message received for >300ms";
+1556 S NLG5_E_INIT "Initialization error";
+1556 S NLG5_E_WDT "Internal Watchdog Timeout";
+1556 S NLG5_E_EP_CRC "Pow EEPROM checksum failure";
+1556 S NLG5_E_ES_CRC "Sys EEPROM checksum failure";
+1556 S NLG5_E_NV_CRC "NVSRAM check sum failure; contains most of the scaling & calibration values, CAN ID's and  charging profile etc.";
+1556 S NLG5_E_F_CRC "Flash memory checksum failure";
+1556 S NLG5_E_SDT_CT "Emergency Shutdown Threshold 'Charging Time' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_SDT_AH "Emergency Shutdown Threshold 'Amp Hours' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_SDT_BV "Emergency Shutdown Threshold 'Battery Voltage' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_SDT_BT "Emergency Shutdown Threshold 'Battery Temperature' is exceeded; see ChargeStar help section 'protective features';  error can only be cleared by cycling power ON-OFF-ON";
+1556 S NLG5_E_C_RX "CAN receiver buffer >127";
+1556 S NLG5_E_C_TX "CAN transmit buffer >127";
+1556 S NLG5_W_SC_M "Save-Charging-Mode reduces primary current to 3.95 A as long as one of the four internal temperature sensors indicates -18deg C or less.";
+1556 S NLG5_W_OD "LED Output driver defective, LEDs cannot be controlled by NLG5 anymore. Charging is still possible.";
+1556 S NLG5_W_CM_NA "NLG5 Control message not active";
+1556 S NLG5_W_C_VOR "Commanded value is out of specified range; max or min applicable value is assumed instead";
+1556 S NLG5_W_PL_IT "Output power limited by charger internal overtemperature";
+1556 S NLG5_W_PL_BV "Output power limited by low battery voltage";
+1556 S NLG5_W_PL_MV "Output power limited by low mains voltage";
+1560 S NLG5_C_MR "Enables CP-State C to request mains voltage";
+1560 S NLG5_C_CP_V "special signal to tell a charging station equipped with the Control Pilot interface (SAE J1772) to switch on the facility's ventilation (in order to get rid of battery gases like hydrogen, e.g.)";
+1560 S NLG5_C_C_EL "cycle this value 0-1-0 to clear all latched charger errors ";
+1560 S NLG5_C_C_EN "Must be ON to enable power stage of the charger";
+1560 S NLG5_MC_MAX "Maximum current to be drawn from the mains outlet, usually 16A. Must always contain a valid value in order to keep on charging.";
+1560 S NLG5_OV_COM "Desired voltage to be output to the battery. Must always contain a valid value in order to keep on charging.";
+1560 S NLG5_OC_COM "Desired battery current. Must always contain a valid value in order to keep on charging.";
 1601 S FW_majorVersion "firmware major version number";
 1601 S FW_minorVersion "firmware minor version number";
 1601 S FW_patchVersion "firmware patch version number";
@@ -699,6 +897,8 @@
 1735 S LED_2_color "Dashboard LED #2 color control.";
 1735 S LED_3_color "Dashboard LED #3 color control.";
 1735 S LED_4_color "Dashboard LED #4 color control.";
+1816 S LAD_D_ParamRq "Diag requested data from host";
+1818 S LAD_D_ParamRp "Diag responded data to host";
 [END_DESC_SIG]
 [END_DESC]
 
@@ -773,6 +973,12 @@
 1269,S,"GenMsgSendType","1"
 1290,S,"GenMsgSendType","3"
 1306,S,"GenMsgSendType","3"
+1552,S,"GenMsgCycleTime","100"
+1553,S,"GenMsgCycleTime","100"
+1554,S,"GenMsgCycleTime","100"
+1555,S,"GenMsgCycleTime","1000"
+1556,S,"GenMsgCycleTime","1000"
+1560,S,"GenMsgCycleTime","100"
 1601,S,"GenMsgSendType","2"
 1602,S,"GenMsgSendType","2"
 1603,S,"GenMsgSendType","2"
