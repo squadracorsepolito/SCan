@@ -32,7 +32,7 @@ NS_ :
 
 BS_ :
 
-BU_ : tlb_bat bms_lv dash dspace sens_front sens_rear
+BU_ : dspace sens_front sens_rear tlb_bat bms_lv dash
 
 BO_ 5 Sens_Front_1: 8 sens_front
 	SG_ Throttle_0_Voltage_mV : 0|16@1+ (1,0) [0|65535] "" dspace
@@ -225,12 +225,12 @@ BO_ 1280 Steering_MotorControl_Debug: 1 dash
 	SG_ RearLeft_ON : 2|1@1- (1,0) [0|1] "" dspace
 	SG_ RearRight_ON : 3|1@1- (1,0) [0|1] "" dspace
 
-CM_ BU_ sens_rear "sensorboard rear ECU";
-CM_ BU_ tlb_bat "tsal-latch-board battery ECU";
 CM_ BU_ bms_lv "battery-management-system low-voltage";
 CM_ BU_ dash "dashboard ECU";
 CM_ BU_ dspace "automotive ECU";
 CM_ BU_ sens_front "sensorboard front ECU";
+CM_ BU_ sens_rear "sensorboard rear ECU";
+CM_ BU_ tlb_bat "tsal-latch-board battery ECU";
 
 BA_DEF_ BO_ "GenMsgCycleTime" INT 0 1000;
 BA_DEF_ BO_ "GenMsgSendType" ENUM "NoMsgSendType","Cyclic","IfActive","CyclicIfActive","NotUsed";
