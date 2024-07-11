@@ -90,8 +90,9 @@
 [START_SIGNALS] PITCH_ACC,16,7,0,U,65535,0,1,0,0.01,deg,,SCANNER
 [END_MSG]
 
-[START_MSG] DSPACE_peripheralsCTRL,407,3,3,0,S,DSPACE
+[START_MSG] DSPACE_peripheralsCTRL,407,3,4,0,S,DSPACE
 [START_SIGNALS] BRAKE_LIGHT_activeCMD,1,1,0,U,1,0,1,0,1,,,DASH,SB_REAR,SCANNER
+[START_SIGNALS] DASH_SDC_RLY_closeCMD,1,1,1,U,1,0,1,0,1,,,DASH,SCANNER
 [START_SIGNALS] RAD_FAN_pwmDutyCicleCtrl,8,2,0,U,100,0,1,0,1,%,,DASH,SB_REAR,SCANNER
 [START_SIGNALS] COOL_PUMPS_speedCtrl,8,3,0,U,100,0,1,0,1,%,,DASH,SB_REAR,SCANNER
 [END_MSG]
@@ -574,7 +575,7 @@
 389 S "";
 392 S "";
 393 S "";
-407 S "(cycle_time: 100) (send_type: Cyclic)";
+407 S "(cycle_time: 10) (send_type: Cyclic)";
 512 S "";
 646 S "(send_type: CyclicIfActive)";
 662 S "(send_type: CyclicIfActive)";
@@ -671,6 +672,7 @@
 357 S ROT_SW_1_state "Rotary Switch 1 state";
 357 S ROT_SW_2_state "Rotary Switch 2 state";
 407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
+407 S DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
 407 S RAD_FAN_pwmDutyCicleCtrl "PWM duty cycle percentage for Radiator Fans control";
 407 S COOL_PUMPS_speedCtrl "Speed percentage for Cooling Pumps control";
 646 S xcp_payload "xcp payload data";
@@ -941,7 +943,7 @@
 324,S,"GenMsgSendType","1"
 357,S,"GenMsgCycleTime","500"
 357,S,"GenMsgSendType","1"
-407,S,"GenMsgCycleTime","100"
+407,S,"GenMsgCycleTime","10"
 407,S,"GenMsgSendType","1"
 646,S,"GenMsgSendType","3"
 662,S,"GenMsgSendType","3"
