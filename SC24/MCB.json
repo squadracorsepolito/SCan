@@ -1661,7 +1661,7 @@
             "id": 407,
             "length": 3,
             "sender": "DSPACE",
-            "cycle_time": 100,
+            "cycle_time": 10,
             "send_type": "Cyclic",
             "signals": {
                 "BRAKE_LIGHT_activeCMD": {
@@ -1672,6 +1672,20 @@
                     "receivers": [
                         "DASH",
                         "SB_REAR",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "DASH_SDC_RLY_closeCMD": {
+                    "description": "The command to close the SDC relay (0 open - 1 close)",
+                    "start_bit": 1,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DASH",
                         "SCANNER"
                     ],
                     "scale": 1,
