@@ -19,8 +19,17 @@ Below values are in base 10
 ### Blacklisted Message-ids (using ecu-id encoding)
 - EXTRA-NODES, ECU-ID 8 (0x8)
     - Message-id: 112 (0x70): IRTS sensors
-- BRUSA, ECU-ID 12 (0xc)
-    - Message-id: 97 (0x61), 113 (0x71)
+
+### Blacklisted CAN-IDs (NO ecu-id encoding, static ids)
+- BRUSA: 
+   -  CAN-ID 1552 (0x610): NLG5_ST
+   -  CAN-ID 1553 (0x611): NLG5_ACT_I
+   -  CAN-ID 1554 (0x612): NLG5_ACT_II
+   -  CAN-ID 1555 (0x613): NLG5_TEMP
+   -  CAN-ID 1556 (0x614): NLG5_ERR
+   -  CAN-ID 1560 (0x618): NLG5_CTL
+   -  CAN-ID 1816 (0x718): NLG5_DIAG_RX
+   -  CAN-ID 1818 (0x71a): NLG5_DIAG_TX
 
 ### High Priority high speed (1-50ms) 
 ```
@@ -74,5 +83,4 @@ Below values are in base 10
     - 106: DASH-carCommands
     - 107-108 : DSPACE-ledColors
     - 112: BALCKLISTED see above
-    - 113: BALCKLISTED
 ```
