@@ -3,6 +3,8 @@ name: Generate Utils From JSON
 on:
   push:
     branches: [ "master" ]
+    paths:
+      -  "SC24/**.json"
 
   workflow_dispatch:
 
