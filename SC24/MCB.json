@@ -1730,7 +1730,7 @@
         "DSPACE_dashLedsColorRGB": {
             "message-id_dec": 107,
             "id": 1719,
-            "length": 8,
+            "length": 5,
             "sender": "DSPACE",
             "cycle_time": 200,
             "send_type": "Cyclic",
@@ -1742,172 +1742,122 @@
                 "LED_1_red": {
                     "description": "The red channel of LED #1 of the dashboard",
                     "start_bit": 0,
-                    "size": 5,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_1_green": {
                     "description": "The green channel of LED #1 of the dashboard",
-                    "start_bit": 5,
-                    "size": 5,
+                    "start_bit": 3,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_1_blue": {
                     "description": "The blue channel of LED #1 of the dashboard",
-                    "start_bit": 10,
-                    "size": 5,
+                    "start_bit": 6,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_2_red": {
                     "description": "The red channel of LED #2 of the dashboard",
-                    "start_bit": 15,
-                    "size": 5,
+                    "start_bit": 9,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_2_green": {
                     "description": "The green channel of LED #2 of the dashboard",
-                    "start_bit": 20,
-                    "size": 5,
+                    "start_bit": 12,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_2_blue": {
                     "description": "The blue channel of LED #2 of the dashboard",
-                    "start_bit": 25,
-                    "size": 5,
+                    "start_bit": 15,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_3_red": {
                     "description": "The red channel of LED #3 of the dashboard",
-                    "start_bit": 30,
-                    "size": 5,
+                    "start_bit": 18,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_3_green": {
                     "description": "The green channel of LED #3 of the dashboard",
-                    "start_bit": 35,
-                    "size": 5,
+                    "start_bit": 21,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_3_blue": {
                     "description": "The blue channel of LED #3 of the dashboard",
-                    "start_bit": 40,
-                    "size": 5,
+                    "start_bit": 24,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_4_red": {
                     "description": "The red channel of LED #4 of the dashboard",
-                    "start_bit": 45,
-                    "size": 5,
+                    "start_bit": 27,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_4_green": {
                     "description": "The green channel of LED #4 of the dashboard",
-                    "start_bit": 50,
-                    "size": 5,
+                    "start_bit": 30,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
+                    "max": 7
                 },
                 "LED_4_blue": {
                     "description": "The blue channel of LED #4 of the dashboard",
-                    "start_bit": 55,
-                    "size": 5,
+                    "start_bit": 33,
+                    "size": 3,
                     "endianness": "little",
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 31
-                }
-            }
-        },
-        "DSPACE_dashLedsColorLiteral": {
-            "message-id_dec": 108,
-            "id": 1735,
-            "length": 2,
-            "sender": "DSPACE",
-            "cycle_time": 200,
-            "send_type": "Cyclic",
-            "receivers": [
-                "DASH",
-                "SCANNER"
-            ],
-            "signals": {
-                "LED_1_color": {
-                    "description": "Dashboard LED #1 color control",
-                    "start_bit": 0,
-                    "size": 4,
-                    "endianness": "little",
-                    "enum_ref": "colorsRGB_Enum",
-                    "min": 0,
-                    "max": 8
-                },
-                "LED_2_color": {
-                    "description": "Dashboard LED #2 color control",
-                    "start_bit": 4,
-                    "size": 4,
-                    "endianness": "little",
-                    "enum_ref": "colorsRGB_Enum",
-                    "min": 0,
-                    "max": 8
-                },
-                "LED_3_color": {
-                    "description": "Dashboard LED #3 color control",
-                    "start_bit": 8,
-                    "size": 4,
-                    "endianness": "little",
-                    "enum_ref": "colorsRGB_Enum",
-                    "min": 0,
-                    "max": 8
-                },
-                "LED_4_color": {
-                    "description": "Dashboard LED #4 color control",
-                    "start_bit": 12,
-                    "size": 4,
-                    "endianness": "little",
-                    "enum_ref": "colorsRGB_Enum",
-                    "min": 0,
-                    "max": 8
+                    "max": 7
                 }
             }
         },
@@ -3518,7 +3468,6 @@
             }
         },
         "NLG5_ACT_I": {
-            "message-id_dec": 97,
             "id": 1553,
             "length": 8,
             "sender": "BRUSA",
@@ -3584,7 +3533,6 @@
             }
         },
         "NLG5_ACT_II": {
-            "message-id_dec": 97,
             "id": 1554,
             "length": 8,
             "sender": "BRUSA",
@@ -3664,7 +3612,6 @@
             }
         },
         "NLG5_CTL": {
-            "message-id_dec": 97,
             "id": 1560,
             "length": 7,
             "cycle_time": 100,
@@ -3773,7 +3720,6 @@
             }
         },
         "NLG5_DIAG_RX": {
-            "message-id_dec": 113,
             "id": 1816,
             "length": 8,
             "signals": {
@@ -3794,7 +3740,6 @@
             }
         },
         "NLG5_DIAG_TX": {
-            "message-id_dec": 113,
             "id": 1818,
             "length": 8,
             "sender": "BRUSA",
@@ -3816,7 +3761,6 @@
             }
         },
         "NLG5_ERR": {
-            "message-id_dec": 97,
             "id": 1556,
             "length": 5,
             "sender": "BRUSA",
@@ -4300,7 +4244,6 @@
             }
         },
         "NLG5_ST": {
-            "message-id_dec": 97,
             "id": 1552,
             "length": 4,
             "sender": "BRUSA",
@@ -4634,7 +4577,6 @@
             }
         },
         "NLG5_TEMP": {
-            "message-id_dec": 97,
             "id": 1555,
             "length": 8,
             "sender": "BRUSA",
