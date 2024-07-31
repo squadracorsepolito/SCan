@@ -517,7 +517,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DIAG_TOOL,EXTRA_NODE,SCANNER,TLB_BAT,BRUSA,BMS_LV,DASH,DSPACE,SB_FRONT,SB_REAR,TPMS,IMU
+[NODE] DIAG_TOOL,DSPACE,TPMS,IMU,BRUSA,BMS_LV,EXTRA_NODE,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,DASH
 [START_DESC]
 
 [START_DESC_MSG]
@@ -585,17 +585,17 @@
 [END_DESC_MSG]
 [START_DESC_NODE]
 DIAG_TOOL "Diagnostic tool";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SCANNER "Can Logger ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-BRUSA "Brusa NLG5 charger.";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DASH "Dashboard ECU";
 DSPACE "An automotive ECU";
-SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
 TPMS "Tire pressure monitoring system";
 IMU "Inertial Measurement Unit.";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_FRONT "Sensorboard front ECU";
+SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
+DASH "Dashboard ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
