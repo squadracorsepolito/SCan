@@ -1,5 +1,5 @@
 {
-    "version": "0.2",
+    "version": "2024.1",
     "nodes": {
         "BMS_LV": {
             "description": "Battery-Management-System Low-Voltage ECU"
