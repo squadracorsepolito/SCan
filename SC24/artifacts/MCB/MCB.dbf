@@ -517,7 +517,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DSPACE,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV,IMU,DIAG_TOOL,TPMS,BRUSA,EXTRA_NODE
+[NODE] DIAG_TOOL,EXTRA_NODE,SCANNER,TLB_BAT,BRUSA,BMS_LV,DASH,DSPACE,SB_FRONT,SB_REAR,TPMS,IMU
 [START_DESC]
 
 [START_DESC_MSG]
@@ -527,7 +527,7 @@
 99 S "(cycle_time: 10) (send_type: Cyclic)";
 115 S "(cycle_time: 10) (send_type: Cyclic)";
 324 S "(cycle_time: 100) (send_type: Cyclic)";
-357 S "(cycle_time: 500) (send_type: Cyclic)";
+357 S "(cycle_time: 200) (send_type: Cyclic)";
 388 S "";
 389 S "";
 392 S "";
@@ -584,6 +584,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+DIAG_TOOL "Diagnostic tool";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DASH "Dashboard ECU";
+DSPACE "An automotive ECU";
+SB_FRONT "Sensorboard front ECU";
+SB_REAR "Sensorboard rear ECU";
+TPMS "Tire pressure monitoring system";
+IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -898,7 +910,7 @@
 115,S,"GenMsgSendType","1"
 324,S,"GenMsgCycleTime","100"
 324,S,"GenMsgSendType","1"
-357,S,"GenMsgCycleTime","500"
+357,S,"GenMsgCycleTime","200"
 357,S,"GenMsgSendType","1"
 407,S,"GenMsgCycleTime","10"
 407,S,"GenMsgSendType","1"
