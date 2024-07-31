@@ -1656,7 +1656,7 @@
                 }
             }
         },
-        "DSPACE_peripheralsCTRL": {
+        "DSPACE__peripheralsCTRL": {
             "message-id_dec": 25,
             "id": 407,
             "length": 3,
@@ -1727,7 +1727,7 @@
                 }
             }
         },
-        "DSPACE_dashLedsColorRGB": {
+        "DSPACE__dashLedsColorRGB": {
             "message-id_dec": 107,
             "id": 1719,
             "length": 5,
@@ -2656,6 +2656,7 @@
             "send_type": "Cyclic",
             "signals": {
                 "SDC_TSAC_initialIn_isActive": {
+                    "description": "Shutdown Circuit sensing: TSAC Initial input is active status",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
@@ -2669,6 +2670,7 @@
                     "max": 1
                 },
                 "SDC_post_AMS_IMD_relay_isActive": {
+                    "description": "Shutdown Circuit sensing: post AMS/IMD relay is active status",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -2682,6 +2684,7 @@
                     "max": 1
                 },
                 "SDC_TSAC_finalIn_isActive": {
+                    "description": "Shutdown Circuit sensing: TSAC Final Input is active status",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
@@ -2694,8 +2697,8 @@
                     "min": 0,
                     "max": 1
                 },
-                "SDC_PRCH_RLY_isClosed": {
-                    "description": "States whether the SDC precharge relay is closed",
+                "SDC_PrechBypassRelay_isClosed": {
+                    "description": "States whether the SDC precharge bypass relay is closed",
                     "start_bit": 3,
                     "size": 1,
                     "endianness": "little",
@@ -2709,6 +2712,7 @@
                     "max": 1
                 },
                 "SDC_TSAC_initialIn_voltage": {
+                    "description": "Shutdown Circuit sensing: TSAC Initial Input voltage",
                     "start_bit": 4,
                     "size": 8,
                     "endianness": "little",
@@ -2723,6 +2727,7 @@
                     "max": 255
                 },
                 "SDC_TSAC_finalIn_voltage": {
+                    "description": "Shutdown Circuit sensing: TSAC Final Input voltage",
                     "start_bit": 12,
                     "size": 8,
                     "endianness": "little",
@@ -2830,7 +2835,7 @@
                     "min": 0,
                     "max": 1
                 },
-                "AMS_errIsActive": {
+                "AMS_err_isActive": {
                     "description": "States whether the AMS error is active",
                     "start_bit": 6,
                     "size": 1,
@@ -2844,7 +2849,7 @@
                     "min": 0,
                     "max": 1
                 },
-                "IMD_errIsActive": {
+                "IMD_err_isActive": {
                     "description": "States whether the IMD error is active",
                     "start_bit": 7,
                     "size": 1,
@@ -2900,8 +2905,8 @@
                     "min": 0,
                     "max": 1
                 },
-                "IMP_HV_Relays_Signals_isActive": {
-                    "description": "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active",
+                "IMP_HV_RelaysState_isActive": {
+                    "description": "States whether an implausibility on HV relays (NEG,POS,PRECH) State is active (differene between cmd and mechanical state)",
                     "start_bit": 11,
                     "size": 1,
                     "endianness": "little",
@@ -2914,8 +2919,8 @@
                     "min": 0,
                     "max": 1
                 },
-                "IMP_AIRs_Signals_isActive": {
-                    "description": "States whether an implausibility on AIRs (NEG,POS) signals is active",
+                "IMP_DCBUS_isActive": {
+                    "description": "States whether the DCBUS Implausibility is active (DCBUS Less then 60V and TS is active)",
                     "start_bit": 12,
                     "size": 1,
                     "endianness": "little",
