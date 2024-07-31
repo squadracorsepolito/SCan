@@ -1149,7 +1149,7 @@
             "id": 357,
             "length": 2,
             "sender": "DASH",
-            "cycle_time": 500,
+            "cycle_time": 200,
             "send_type": "Cyclic",
             "signals": {
                 "BTN_RTD_isPressed": {
