@@ -23,13 +23,13 @@
 [START_SIGNALS] AIR_NEG_isClosed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] DCBUS_PRECH_RLY_cmd_isActive,1,1,4,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] DCBUS_PRECH_RLY_isClosed,1,1,5,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] AMS_errIsActive,1,1,6,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] IMD_errIsActive,1,1,7,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] AMS_err_isActive,1,1,6,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] IMD_err_isActive,1,1,7,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] TSAL_green_isActive,1,2,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] DCBUS_isOver60V,1,2,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] IMP_any_isActive,1,2,2,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] IMP_HV_Relays_Signals_isActive,1,2,3,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] IMP_AIRs_Signals_isActive,1,2,4,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] IMP_HV_RelaysState_isActive,1,2,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] IMP_DCBUS_isActive,1,2,4,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] AIR_POS_STG_mechStateSignal_isActive,1,2,5,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
@@ -90,7 +90,7 @@
 [START_SIGNALS] PITCH_ACC,16,7,0,U,65535,0,1,0,0.01,deg,,SCANNER
 [END_MSG]
 
-[START_MSG] DSPACE_peripheralsCTRL,407,3,4,0,S,DSPACE
+[START_MSG] DSPACE__peripheralsCTRL,407,3,4,0,S,DSPACE
 [START_SIGNALS] BRAKE_LIGHT_activeCMD,1,1,0,U,1,0,1,0,1,,,DASH,SB_REAR,SCANNER
 [START_SIGNALS] DASH_SDC_RLY_closeCMD,1,1,1,U,1,0,1,0,1,,,DASH,SCANNER
 [START_SIGNALS] RAD_FAN_pwmDutyCicleCtrl,8,2,0,U,100,0,1,0,1,%,,DASH,SB_REAR,SCANNER
@@ -130,7 +130,7 @@
 [START_SIGNALS] SDC_TSAC_initialIn_isActive,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] SDC_post_AMS_IMD_relay_isActive,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] SDC_TSAC_finalIn_isActive,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] SDC_PRCH_RLY_isClosed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] SDC_PrechBypassRelay_isClosed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] SDC_TSAC_initialIn_voltage,8,1,4,U,1440.68,0,1,0,0.177,V,,DSPACE,SCANNER
 [START_SIGNALS] SDC_TSAC_finalIn_voltage,8,2,4,U,1440.68,0,1,0,0.177,V,,DSPACE,SCANNER
 [END_MSG]
@@ -490,7 +490,7 @@
 [START_SIGNALS] LV_RELAY_forcedState,1,2,7,U,1,0,1,0,1,closed,,BMS_LV
 [END_MSG]
 
-[START_MSG] DSPACE_dashLedsColorRGB,1719,5,12,0,S,DSPACE
+[START_MSG] DSPACE__dashLedsColorRGB,1719,5,12,0,S,DSPACE
 [START_SIGNALS] LED_1_red,3,1,0,U,7,0,1,0,1,,,
 [START_SIGNALS] LED_1_green,3,1,3,U,7,0,1,0,1,,,
 [START_SIGNALS] LED_1_blue,3,1,6,U,7,0,1,0,1,,,
@@ -599,13 +599,13 @@
 65 S AIR_NEG_isClosed "Status of the Negative AIR mechanical state";
 65 S DCBUS_PRECH_RLY_cmd_isActive "Status of the DCBUS Precharge Relay command";
 65 S DCBUS_PRECH_RLY_isClosed "Status of the DCBUS Precharge Relay mechanical state";
-65 S AMS_errIsActive "States whether the AMS error is active";
-65 S IMD_errIsActive "States whether the IMD error is active";
+65 S AMS_err_isActive "States whether the AMS error is active";
+65 S IMD_err_isActive "States whether the IMD error is active";
 65 S TSAL_green_isActive "States whether the TSAL green signal is active";
 65 S DCBUS_isOver60V "States whether the DC BUS volatge is over 60V";
 65 S IMP_any_isActive "States whether any implausibility is active";
-65 S IMP_HV_Relays_Signals_isActive "States whether an implausibility on HV relays (NEG,POS,PRECH) signals is active";
-65 S IMP_AIRs_Signals_isActive "States whether an implausibility on AIRs (NEG,POS) signals is active";
+65 S IMP_HV_RelaysState_isActive "States whether an implausibility on HV relays (NEG,POS,PRECH) State is active (differene between cmd and mechanical state)";
+65 S IMP_DCBUS_isActive "States whether the DCBUS Implausibility is active (DCBUS Less then 60V and TS is active)";
 65 S AIR_POS_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR POS mechanical state signal is active";
 65 S AIR_NEG_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR NEG mechanical state signal is active";
 82 S APPS_0_voltage "The voltage of the APPS #0 expressed in mV";
@@ -637,7 +637,12 @@
 694 S xcp_payload "xcp payload data";
 710 S xcp_payload "xcp payload data";
 726 S xcp_payload "xcp payload data";
-737 S SDC_PRCH_RLY_isClosed "States whether the SDC precharge relay is closed";
+737 S SDC_TSAC_initialIn_isActive "Shutdown Circuit sensing: TSAC Initial input is active status";
+737 S SDC_post_AMS_IMD_relay_isActive "Shutdown Circuit sensing: post AMS/IMD relay is active status";
+737 S SDC_TSAC_finalIn_isActive "Shutdown Circuit sensing: TSAC Final Input is active status";
+737 S SDC_PrechBypassRelay_isClosed "States whether the SDC precharge bypass relay is closed";
+737 S SDC_TSAC_initialIn_voltage "Shutdown Circuit sensing: TSAC Initial Input voltage";
+737 S SDC_TSAC_finalIn_voltage "Shutdown Circuit sensing: TSAC Final Input voltage";
 755 S SDC_POST_BSPD_isClosed "States whether the SDC post BSPD is closed";
 755 S SDC_PRE_PUSH_BTNS_isClosed "States whether the SDC per push buttons (hoop right/left) is closed";
 755 S SDC_POST_DC_BUS_isClosed "States whether the SDC post DC bus (inverter mono) is closed";
