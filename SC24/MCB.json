@@ -3269,59 +3269,89 @@
                 }
             }
         },
-        "SBG_ECAN_MSG_GPS2_HDT": {
-            "id": 393,
-            "length": 8,
+        "IMU__Accelerometers": {
+            "message-id_dec": 55,
+            "id": 891,
+            "length": 6,
             "sender": "IMU",
             "signals": {
-                "PITCH": {
-                    "start_bit": 32,
+                "ACCEL_X": {
+                    "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
                     "signed": true,
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
+                    "unit": "m.s-2",
                     "scale": 0.01,
                     "offset": 0,
                     "min": -327.68,
                     "max": 327.67
                 },
-                "PITCH_ACC": {
-                    "start_bit": 48,
-                    "size": 16,
-                    "endianness": "little",
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 0.01,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 655.35
-                },
-                "TRUE_HEADING": {
-                    "start_bit": 0,
-                    "size": 16,
-                    "endianness": "little",
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 0.01,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 655.35
-                },
-                "TRUE_HEADING_ACC": {
+                "ACCEL_Y": {
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
+                    "signed": true,
+                    "unit": "m.s-2",
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                },
+                "ACCEL_Z": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "m.s-2",
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                }
+            }
+        },
+        "IMU__TrackSlipCurv": {
+            "message-id_dec": 60,
+            "id": 971,
+            "length": 7,
+            "sender": "IMU",
+            "signals": {
+                "ANGLE_SLIP": {
+                    "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "rad",
+                    "scale": 0.0001,
+                    "offset": 0,
+                    "min": -3.2768,
+                    "max": 3.2767
+                },
+                "ANGLE_TRACK": {
+                    "start_bit": 0,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "rad",
+                    "scale": 0.0001,
+                    "offset": 0,
+                    "min": -3.2768,
+                    "max": 3.2767
+                },
+                "AUTO_STATUS": {
+                    "start_bit": 48,
+                    "size": 8,
+                    "endianness": "little",
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 255
+                },
+                "CURVATURE_RADIUS": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "m",
                     "scale": 0.01,
                     "offset": 0,
                     "min": 0,
@@ -3329,40 +3359,50 @@
                 }
             }
         },
-        "SBG_ECAN_MSG_GPS2_HDT_INFO": {
-            "id": 392,
+        "IMU__VelocityBody": {
+            "message-id_dec": 59,
+            "id": 955,
             "length": 6,
             "sender": "IMU",
             "signals": {
-                "STATUS": {
+                "VELOCITY_X": {
+                    "start_bit": 0,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "m.s-1",
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                },
+                "VELOCITY_Y": {
+                    "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "m.s-1",
+                    "scale": 0.01,
+                    "offset": 0,
+                    "min": -327.68,
+                    "max": 327.67
+                },
+                "VELOCITY_Z": {
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 1,
+                    "signed": true,
+                    "unit": "m.s-1",
+                    "scale": 0.01,
                     "offset": 0,
-                    "min": 0,
-                    "max": 65535
-                },
-                "TIME_STAMP": {
-                    "start_bit": 0,
-                    "size": 32,
-                    "endianness": "little",
-                    "unit": "usec",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 4294970000
+                    "min": -327.68,
+                    "max": 327.67
                 }
             }
         },
-        "SBG_ECAN_MSG_GPS2_POS": {
-            "id": 389,
+        "IMU__GPS1_Position": {
+            "message-id_dec": 58,
+            "id": 939,
             "length": 8,
             "sender": "IMU",
             "signals": {
@@ -3371,10 +3411,7 @@
                     "size": 32,
                     "endianness": "little",
                     "signed": true,
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
+                    "unit": "\ufffd",
                     "scale": 1e-07,
                     "offset": 0,
                     "min": -214.7483648,
@@ -3385,10 +3422,7 @@
                     "size": 32,
                     "endianness": "little",
                     "signed": true,
-                    "unit": "deg",
-                    "receivers": [
-                        "SCANNER"
-                    ],
+                    "unit": "\ufffd",
                     "scale": 1e-07,
                     "offset": 0,
                     "min": -214.7483648,
@@ -3396,61 +3430,85 @@
                 }
             }
         },
-        "SBG_ECAN_MSG_GPS2_POS_INFO": {
-            "id": 388,
-            "length": 8,
+        "IMU__Gyro": {
+            "message-id_dec": 56,
+            "id": 907,
+            "length": 6,
             "sender": "IMU",
             "signals": {
-                "STATUS": {
-                    "start_bit": 32,
-                    "size": 32,
-                    "endianness": "little",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 4294970000
-                },
-                "TIME_STAMP": {
+                "GYRO_X": {
                     "start_bit": 0,
-                    "size": 32,
+                    "size": 16,
                     "endianness": "little",
-                    "unit": "usec",
-                    "receivers": [
-                        "SCANNER"
-                    ],
-                    "scale": 1,
+                    "signed": true,
+                    "unit": "rad.s-1",
+                    "scale": 0.001,
                     "offset": 0,
-                    "min": 0,
-                    "max": 4294970000
-                }
-            }
-        },
-        "SBG_ECAN_MSG_EVENT_INFO_A": {
-            "id": 512,
-            "length": 8,
-            "sender": "IMU",
-            "signals": {
-                "STATUS": {
+                    "min": -32.768,
+                    "max": 32.767
+                },
+                "GYRO_Y": {
+                    "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "rad.s-1",
+                    "scale": 0.001,
+                    "offset": 0,
+                    "min": -32.768,
+                    "max": 32.767
+                },
+                "GYRO_Z": {
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
-                    "scale": 1,
+                    "signed": true,
+                    "unit": "rad.s-1",
+                    "scale": 0.001,
                     "offset": 0,
-                    "min": 0,
-                    "max": 65535
-                },
-                "TIME_STAMP": {
-                    "start_bit": 0,
-                    "size": 32,
+                    "min": -32.768,
+                    "max": 32.767
+                }
+            }
+        },
+        "IMU__Euler": {
+            "message-id_dec": 57,
+            "id": 923,
+            "length": 6,
+            "sender": "IMU",
+            "signals": {
+                "PITCH": {
+                    "start_bit": 16,
+                    "size": 16,
                     "endianness": "little",
-                    "unit": "usec",
-                    "scale": 1,
+                    "signed": true,
+                    "unit": "rad",
+                    "scale": 0.0001,
                     "offset": 0,
-                    "min": 0,
-                    "max": 4294970000
+                    "min": -3.2768,
+                    "max": 3.2767
+                },
+                "ROLL": {
+                    "start_bit": 0,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "rad",
+                    "scale": 0.0001,
+                    "offset": 0,
+                    "min": -3.2768,
+                    "max": 3.2767
+                },
+                "YAW": {
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "signed": true,
+                    "unit": "rad",
+                    "scale": 0.0001,
+                    "offset": 0,
+                    "min": -3.2768,
+                    "max": 3.2767
                 }
             }
         },
@@ -3619,6 +3677,7 @@
         "NLG5_CTL": {
             "id": 1560,
             "length": 7,
+            "sender": "BRUSA",
             "cycle_time": 100,
             "signals": {
                 "NLG5_C_CP_V": {
@@ -3727,6 +3786,7 @@
         "NLG5_DIAG_RX": {
             "id": 1816,
             "length": 8,
+            "sender": "BRUSA",
             "signals": {
                 "LAD_D_ParamRq": {
                     "description": "Diag requested data from host",
@@ -3785,7 +3845,7 @@
                     "max": 1
                 },
                 "NLG5_E_C_OFF": {
-                    "description": "CAN off, transmit buffer \u003e255",
+                    "description": "CAN off, transmit buffer >255",
                     "start_bit": 16,
                     "size": 1,
                     "endianness": "big",
@@ -3798,7 +3858,7 @@
                     "max": 1
                 },
                 "NLG5_E_C_RX": {
-                    "description": "CAN receiver buffer \u003e127",
+                    "description": "CAN receiver buffer >127",
                     "start_bit": 30,
                     "size": 1,
                     "endianness": "big",
@@ -3811,7 +3871,7 @@
                     "max": 1
                 },
                 "NLG5_E_C_TO": {
-                    "description": "CAN timeout, no control message received for \u003e300ms",
+                    "description": "CAN timeout, no control message received for >300ms",
                     "start_bit": 17,
                     "size": 1,
                     "endianness": "big",
@@ -3824,7 +3884,7 @@
                     "max": 1
                 },
                 "NLG5_E_C_TX": {
-                    "description": "CAN transmit buffer \u003e127",
+                    "description": "CAN transmit buffer >127",
                     "start_bit": 31,
                     "size": 1,
                     "endianness": "big",
@@ -3928,7 +3988,7 @@
                     "max": 1
                 },
                 "NLG5_E_NV_CRC": {
-                    "description": "NVSRAM check sum failure; contains most of the scaling \u0026 calibration values, CAN ID's and  charging profile etc.",
+                    "description": "NVSRAM check sum failure; contains most of the scaling & calibration values, CAN ID's and  charging profile etc.",
                     "start_bit": 22,
                     "size": 1,
                     "endianness": "big",

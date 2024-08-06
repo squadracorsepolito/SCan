@@ -7,7 +7,7 @@ mcb = json.load(mcb_f)
 ecu_ids = mcb["signal_enums"]["ecu_id_Enum"];
 for message in mcb["messages"]:
     sender = mcb["messages"][message]["sender"]
-    if sender == "IMU" :
+    if sender == "BRUSA" :
         continue
     sender_ecu_id = ecu_ids[sender]
     message_id = mcb["messages"][message]["message-id_dec"]

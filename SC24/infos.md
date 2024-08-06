@@ -8,8 +8,7 @@ The list of ECUs and their ids:
 - DASH: 5
 - DIAG_TOOL: 6
 - DSPACE: 7
-- EXTRA_NODE: 8  `DON'T CHANGE THIS ECU-ID: KEEP IT AT 8 !`  
-Some ECUs have non modifiable can-ids because programmed at fabbrication/delivery, we put those here
+- EXTRA_NODE: 8  `DON'T CHANGE THIS ECU-ID: KEEP IT AT 8 !` (Some ECUs have non modifiable can-ids because programmed at fabbrication/delivery, we put those here)
 - SCANNER: 9
 - TPMS: 10
 - IMU: 11
@@ -57,6 +56,12 @@ Below values are in base 10
     - 48: SB_FRONT_sdcSensingStatus
     - 50: SB_FRONT_potentiometer
     - 51: SB_REAR_potentiometer
+    - 55: IMU__Accelerometers 
+    - 56: IMU__Gyro
+    - 57: IMU__Euler
+    - 58: IMU__GPS1_Position
+    - 59: IMU__VelocityBody
+    - 60: IMU__TrackSlipCurv
 ```
 ### Mid Priority Low Speed (50-100+ms)
 ```
