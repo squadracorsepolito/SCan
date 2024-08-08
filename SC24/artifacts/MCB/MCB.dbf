@@ -48,7 +48,7 @@
 [END_MSG]
 
 [START_MSG] SB_REAR__criticalPeripherals,115,1,2,0,S,SB_REAR
-[START_SIGNALS] DISCHARGE_isOpen,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] DISCHARGE_isActive,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BSPD_hasError,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
@@ -526,7 +526,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] BRUSA,BMS_LV,DASH,EXTRA_NODE,SB_FRONT,SB_REAR,TLB_BAT,DIAG_TOOL,DSPACE,SCANNER,TPMS,IMU
+[NODE] TLB_BAT,TPMS,BMS_LV,DASH,DSPACE,SCANNER,IMU,BRUSA,DIAG_TOOL,EXTRA_NODE,SB_FRONT,SB_REAR
 [START_DESC]
 
 [START_DESC_MSG]
@@ -594,18 +594,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-BRUSA "Brusa NLG5 charger.";
+TLB_BAT "TSAL-latch-board battery ECU";
+TPMS "Tire pressure monitoring system";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
 DASH "Dashboard ECU";
+DSPACE "An automotive ECU";
+SCANNER "Can Logger ECU";
+IMU "Inertial Measurement Unit.";
+BRUSA "Brusa NLG5 charger.";
+DIAG_TOOL "Diagnostic tool";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
 SB_REAR "Sensorboard rear ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-DIAG_TOOL "Diagnostic tool";
-DSPACE "An automotive ECU";
-SCANNER "Can Logger ECU";
-TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -637,7 +637,7 @@ IMU "Inertial Measurement Unit.";
 99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
 99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
 99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
-115 S DISCHARGE_isOpen "States whether the discharge is open";
+115 S DISCHARGE_isActive "States whether the discharge is discharging the DCBUS";
 115 S BSPD_hasError "States whether the BSPD has an error";
 324 S LV_BAT_currentSensVoltage "The voltage returned by the current sensor of the LV battery expressed in mV";
 324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV";
