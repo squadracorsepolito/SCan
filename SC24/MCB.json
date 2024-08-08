@@ -2273,8 +2273,8 @@
             "cycle_time": 10,
             "send_type": "Cyclic",
             "signals": {
-                "DISCHARGE_isOpen": {
-                    "description": "States whether the discharge is open",
+                "DISCHARGE_isActive": {
+                    "description": "States whether the discharge is discharging the DCBUS",
                     "start_bit": 0,
                     "size": 1,
                     "endianness": "little",
