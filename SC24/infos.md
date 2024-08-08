@@ -56,7 +56,7 @@ Below values are in base 10
     - 48: SB_FRONT_sdcSensingStatus
     - 50: SB_FRONT_potentiometer
     - 51: SB_REAR_potentiometer
-    - 55: IMU__Accelerometers 
+    - 55: IMU__Accelerometers
     - 56: IMU__Gyro
     - 57: IMU__Euler
     - 58: IMU__GPS1_Position
