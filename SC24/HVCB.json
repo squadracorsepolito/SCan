@@ -884,6 +884,30 @@
 					"offset": -273.15,
 					"min": -40,
 					"max": 105
+				},
+				"HVB_idxCell_tMax": {
+					"description": "Thermistor ID reporting the highest cell body temperature.",
+					"start_bit": 55,
+					"size": 8,
+					"endianness": "big",
+					"unit": "degC",
+					"receivers": [],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
+				},
+				"HVB_idxCell_tMin": {
+					"description": "Thermistor ID reporting the lowest cell body temperature.",
+					"start_bit": 63,
+					"size": 8,
+					"endianness": "big",
+					"unit": "degC",
+					"receivers": [],
+					"scale": 1,
+					"offset": 0,
+					"min": 0,
+					"max": 255
 				}
 			}
 		},
@@ -7452,7 +7476,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 4,
+					"min": 0,
 					"max": 4,
 					"enum": {
 						"Vt_Result_T": 4
@@ -7547,7 +7571,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 1,
+					"min": 0,
 					"max": 1,
 					"enum": {
 						"Vt_Result_U1": 1
@@ -7642,7 +7666,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 2,
+					"min": 0,
 					"max": 2,
 					"enum": {
 						"Vt_Result_U2": 2
@@ -7734,7 +7758,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 3,
+					"min": 0,
 					"max": 3,
 					"enum": {
 						"Vt_Result_U3": 3
@@ -7826,7 +7850,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 5,
+					"min": 0,
 					"max": 5,
 					"enum": {
 						"Vt_Result_W": 5
@@ -7921,7 +7945,7 @@
 					],
 					"scale": 1,
 					"offset": 0,
-					"min": 7,
+					"min": 0,
 					"max": 7,
 					"enum": {
 						"Vt_Result_Wh": 7
