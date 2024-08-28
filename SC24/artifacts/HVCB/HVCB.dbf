@@ -492,10 +492,12 @@
 [START_SIGNALS] HVB_rSoCHvb_uCellMin,32,8,0,I,3297,-798,0,50,0.04,%,,Charger,VCU
 [END_MSG]
 
-[START_MSG] HVB_RX_TCell,520,8,3,0,S,HVB
+[START_MSG] HVB_RX_TCell,520,8,5,0,S,HVB
 [START_SIGNALS] HVB_tCellMax,16,2,0,U,10500,-4000,0,-273.15,0.01,degC,,Charger,VCU
 [START_SIGNALS] HVB_tCellMean,16,4,0,U,10500,-4000,0,-273.15,0.01,degC,,Charger,VCU
 [START_SIGNALS] HVB_tCellMin,16,6,0,U,10500,-4000,0,-273.15,0.01,degC,,Charger,VCU
+[START_SIGNALS] HVB_idxCell_tMax,8,7,0,U,255,0,0,0,1,degC,,
+[START_SIGNALS] HVB_idxCell_tMin,8,8,0,U,255,0,0,0,1,degC,,
 [END_MSG]
 
 [START_MSG] HVB_RX_Insulation,521,8,2,0,S,HVB
@@ -532,7 +534,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_U1,1314,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_U1,8,1,0,U,1,1,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_U1,8,1,0,U,1,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_U1",1
 [START_SIGNALS] IVTMain_MsgCount_Result_U1,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_U1_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -543,7 +545,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_U2,1315,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_U2,8,1,0,U,2,2,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_U2,8,1,0,U,2,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_U2",2
 [START_SIGNALS] IVTMain_MsgCount_Result_U2,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_U2_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -554,7 +556,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_U3,1316,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_U3,8,1,0,U,3,3,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_U3,8,1,0,U,3,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_U3",3
 [START_SIGNALS] IVTMain_MsgCount_Result_U3,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_U3_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -565,7 +567,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_T,1317,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_T,8,1,0,U,4,4,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_T,8,1,0,U,4,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_T",4
 [START_SIGNALS] IVTMain_MsgCount_Result_T,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_T_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -576,7 +578,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_W,1318,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_W,8,1,0,U,5,5,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_W,8,1,0,U,5,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_W",5
 [START_SIGNALS] IVTMain_MsgCount_Result_W,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_W_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -598,7 +600,7 @@
 [END_MSG]
 
 [START_MSG] IVTMain_Msg_Result_Wh,1320,6,7,0,S,IVTMain
-[START_SIGNALS] IVTMain_ID_Result_Wh,8,1,0,U,7,7,0,0,1,,,HVB
+[START_SIGNALS] IVTMain_ID_Result_Wh,8,1,0,U,7,0,0,0,1,,,HVB
 [VALUE_DESCRIPTION] "Vt_Result_Wh",7
 [START_SIGNALS] IVTMain_MsgCount_Result_Wh,4,2,0,U,0,0,0,0,1,,,HVB
 [START_SIGNALS] IVTMain_Result_Wh_OCS,1,2,4,U,0,0,0,0,1,,,
@@ -1055,6 +1057,8 @@ PC "Calibration and debug tool reading the BMS firmware revision and the single 
 520 S HVB_tCellMax "Highest cell temperature";
 520 S HVB_tCellMean "Average temperature of the cell bodies.";
 520 S HVB_tCellMin "Lowest measured cell body temperature.";
+520 S HVB_idxCell_tMax "Thermistor ID reporting the highest cell body temperature.";
+520 S HVB_idxCell_tMin "Thermistor ID reporting the lowest cell body temperature.";
 521 S HVB_stResIsol "present system main state (State Machine)";
 521 S HVB_resIsol "Battery IMD insulation resistance measure.";
 527 S HVB_noSwVers0 "Software version hash.";
