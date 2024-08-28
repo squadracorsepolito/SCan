@@ -1311,7 +1311,7 @@
         "DASH__carCommands": {
             "message-id_dec": 106,
             "id": 1701,
-            "length": 2,
+            "length": 3,
             "sender": "DASH",
             "send_type": "IfActive",
             "signals": {
