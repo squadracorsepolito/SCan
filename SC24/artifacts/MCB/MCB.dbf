@@ -495,8 +495,8 @@
 [END_MSG]
 
 [START_MSG] DASH__carCommands,1701,3,2,0,S,DASH
-[START_SIGNALS] BMS_LV_diagPWD,15,1,0,U,32768,0,1,0,1,,,BMS_LV
-[START_SIGNALS] LV_RELAY_overrideState,2,2,7,U,2,0,1,0,1,,,BMS_LV
+[START_SIGNALS] BMS_LV_diagPWD,16,1,0,U,32768,0,1,0,1,,,BMS_LV
+[START_SIGNALS] LV_RELAY_overrideState,2,3,0,U,2,0,1,0,1,,,BMS_LV
 [VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_OFF",0
 [VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_OPEN",1
 [VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_CLOSED",2
@@ -529,7 +529,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] SB_REAR,TLB_BAT,IMU,DSPACE,SB_FRONT,DIAG_TOOL,EXTRA_NODE,SCANNER,TPMS,BRUSA,BMS_LV,DASH
+[NODE] DIAG_TOOL,DSPACE,EXTRA_NODE,SB_FRONT,SB_REAR,DASH,SCANNER,TLB_BAT,TPMS,IMU,BRUSA,BMS_LV
 [START_DESC]
 
 [START_DESC_MSG]
@@ -597,18 +597,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-SB_REAR "Sensorboard rear ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-IMU "Inertial Measurement Unit.";
-DSPACE "An automotive ECU";
-SB_FRONT "Sensorboard front ECU";
 DIAG_TOOL "Diagnostic tool";
+DSPACE "An automotive ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_FRONT "Sensorboard front ECU";
+SB_REAR "Sensorboard rear ECU";
+DASH "Dashboard ECU";
 SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
 TPMS "Tire pressure monitoring system";
+IMU "Inertial Measurement Unit.";
 BRUSA "Brusa NLG5 charger.";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
-DASH "Dashboard ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
