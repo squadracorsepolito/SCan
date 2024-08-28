@@ -494,9 +494,12 @@
 [START_SIGNALS] APPS_1_voltageRangeMax,16,7,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] DASH__carCommands,1701,2,2,0,S,DASH
+[START_MSG] DASH__carCommands,1701,3,2,0,S,DASH
 [START_SIGNALS] BMS_LV_diagPWD,15,1,0,U,32768,0,1,0,1,,,BMS_LV
-[START_SIGNALS] LV_RELAY_forcedState,1,2,7,U,1,0,1,0,1,closed,,BMS_LV
+[START_SIGNALS] LV_RELAY_overrideState,2,2,7,U,2,0,1,0,1,,,BMS_LV
+[VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_OFF",0
+[VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_OPEN",1
+[VALUE_DESCRIPTION] "LV_RLY_OVERRIDE_CLOSED",2
 [END_MSG]
 
 [START_MSG] DSPACE__dashLedsColorRGB,1719,5,12,0,S,DSPACE
@@ -526,7 +529,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] TLB_BAT,TPMS,BMS_LV,DASH,DSPACE,SCANNER,IMU,BRUSA,DIAG_TOOL,EXTRA_NODE,SB_FRONT,SB_REAR
+[NODE] SB_REAR,TLB_BAT,IMU,DSPACE,SB_FRONT,DIAG_TOOL,EXTRA_NODE,SCANNER,TPMS,BRUSA,BMS_LV,DASH
 [START_DESC]
 
 [START_DESC_MSG]
@@ -594,18 +597,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+SB_REAR "Sensorboard rear ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
-TPMS "Tire pressure monitoring system";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DASH "Dashboard ECU";
-DSPACE "An automotive ECU";
-SCANNER "Can Logger ECU";
 IMU "Inertial Measurement Unit.";
-BRUSA "Brusa NLG5 charger.";
+DSPACE "An automotive ECU";
+SB_FRONT "Sensorboard front ECU";
 DIAG_TOOL "Diagnostic tool";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
+TPMS "Tire pressure monitoring system";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DASH "Dashboard ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -873,7 +876,7 @@ SB_REAR "Sensorboard rear ECU";
 1685 S APPS_1_voltageRangeMin "APPS channel #1 minimum range expressed in mV";
 1685 S APPS_1_voltageRangeMax "APPS channel #1 maximum range expressed in mV";
 1701 S BMS_LV_diagPWD "The password to enter diagnostic mode of the BMS_LV";
-1701 S LV_RELAY_forcedState "The command to force the LV relay open (0) or closed (1)";
+1701 S LV_RELAY_overrideState "The override state to force the LV relay: no override (OFF/0), alwasy open (OPEN/1) or always closed (CLOSED/2)";
 1719 S LED_1_red "The red channel of LED #1 of the dashboard";
 1719 S LED_1_green "The green channel of LED #1 of the dashboard";
 1719 S LED_1_blue "The blue channel of LED #1 of the dashboard";
