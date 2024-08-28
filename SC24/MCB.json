@@ -1318,7 +1318,7 @@
                 "BMS_LV_diagPWD": {
                     "description": "The password to enter diagnostic mode of the BMS_LV",
                     "start_bit": 0,
-                    "size": 15,
+                    "size": 16,
                     "endianness": "little",
                     "receivers": [
                         "BMS_LV"
@@ -1330,7 +1330,7 @@
                 },
                 "LV_RELAY_overrideState": {
                     "description": "The override state to force the LV relay: no override (OFF/0), alwasy open (OPEN/1) or always closed (CLOSED/2)",
-                    "start_bit": 15,
+                    "start_bit": 16,
                     "size": 2,
                     "endianness": "little",
                     "receivers": [
