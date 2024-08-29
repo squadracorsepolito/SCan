@@ -23,60 +23,61 @@ var nodeIDs = map[string]acmelib.NodeID{
 }
 
 var messageIDs = map[string]acmelib.MessageID{
-	"DSPACE_timeAndDate":          1,
-	"TLB_BAT_signalsStatus":       4,
-	"SB_FRONT_analogDevice":       5,
-	"SB_REAR_analogDevice":        6,
-	"SB_REAR_criticalPeripherals": 7,
+	"DSPACE__timeAndDate":          1,
+	"TLB_BAT__signalsStatus":       4,
+	"SB_FRONT__analogDevice":       5,
+	"SB_REAR__analogDevice":        6,
+	"SB_REAR__criticalPeripherals": 7,
 
-	"BMS_LV_lvBatGeneral":    20,
-	"DASH_hmiDevicesState":   22,
-	"DSPACE_peripheralsCTRL": 25,
+	"BMS_LV__lvBatGeneral":    20,
+	"DASH__hmiDevicesState":   22,
+	"DSPACE__peripheralsCTRL": 25,
 
-	"DIAG_TOOL_xcpTxTLB_BAT":    40,
-	"DIAG_TOOL_xcpTxSB_FRONT":   41,
-	"DIAG_TOOL_xcpTxSB_REAR":    42,
-	"DIAG_TOOL_xcpTxBMS_LV":     43,
-	"DIAG_TOOL_xcpTxDASH":       44,
-	"DIAG_TOOL_xcpTxSCANNER":    45,
-	"TLB_BAT_sdcSensingStatus":  46,
-	"SB_REAR_sdcSensingStatus":  47,
-	"SB_FRONT_sdcSensingStatus": 48,
-	"SB_FRONT_potentiometer":    50,
-	"SB_REAR_potentiometer":     51,
+	"DIAG_TOOL__xcpTxTLB_BAT":    40,
+	"DIAG_TOOL__xcpTxSB_FRONT":   41,
+	"DIAG_TOOL__xcpTxSB_REAR":    42,
+	"DIAG_TOOL__xcpTxBMS_LV":     43,
+	"DIAG_TOOL__xcpTxDASH":       44,
+	"DIAG_TOOL__xcpTxSCANNER":    45,
+	"TLB_BAT__SDCsensingStatus":  46,
+	"SB_REAR__SDCsensingStatus":  47,
+	"SB_FRONT__SDCsensingStatus": 48,
+	"SB_FRONT__potentiometer":    50,
+	"SB_REAR__potentiometer":     51,
 
-	"TLB_BAT_xcpTx":            70,
-	"SB_FRONT_xcpTx":           70,
-	"SB_REAR_xcpTx":            70,
-	"BMS_LV_xcpTx":             70,
-	"DASH_xcpTx":               70,
-	"SCANNER_xcpTx":            70,
-	"DSPACE_signals":           73,
-	"DSPACE_fsmStates":         74,
-	"BMS_LV_cellsStatus":       75,
-	"BMS_LV_status":            76,
-	"BMS_LV_lvCellVoltage0":    77,
-	"BMS_LV_lvCellVoltage1":    78,
-	"DASH_peripheralsStatus":   79,
-	"TPMS_frontWheelsPressure": 80,
-	"TPMS_rearWheelsPressure":  81,
+	"TLB_BAT__xcpTx":            70,
+	"SB_FRONT__xcpTx":           70,
+	"SB_REAR__xcpTx":            70,
+	"BMS_LV__xcpTx":             70,
+	"DASH__xcpTx":               70,
+	"DSPACE__xcpTx":             70,
+	"SCANNER__xcpTx":            70,
+	"DSPACE__signals":           73,
+	"DSPACE__fsmStates":         74,
+	"BMS_LV__cellsStatus":       75,
+	"BMS_LV__status":            76,
+	"BMS_LV__lvCellVoltage0":    77,
+	"BMS_LV__lvCellVoltage1":    78,
+	"DASH__peripheralsStatus":   79,
+	"TPMS__frontWheelsPressure": 80,
+	"TPMS__rearWheelsPressure":  81,
 
-	"TLB_BAT_hello":               100,
-	"SB_FRONT_hello":              100,
-	"SB_REAR_hello":               100,
-	"BMS_LV_hello":                100,
-	"DASH_hello":                  100,
-	"DSPACE_hello":                100,
-	"BMS_LV_lvCellNTCResistance0": 101,
-	"BMS_LV_lvCellNTCResistance1": 102,
-	"SB_FRONT_ntcResistance":      103,
-	"SB_REAR_ntcResistance":       104,
-	"DASH_appsRangeLimits":        105,
-	"DASH_carCommands":            106,
-	"DSPACE_dashLedsColorRGB":     107,
+	"TLB_BAT__hello":               100,
+	"SB_FRONT__hello":              100,
+	"SB_REAR__hello":               100,
+	"BMS_LV__hello":                100,
+	"DASH__hello":                  100,
+	"DSPACE__hello":                100,
+	"BMS_LV__lvCellNTCResistance0": 101,
+	"BMS_LV__lvCellNTCResistance1": 102,
+	"SB_FRONT__ntcResistance":      103,
+	"SB_REAR__ntcResistance":       104,
+	"DASH__appsRangeLimits":        105,
+	"DASH__carCommands":            106,
+	"DSPACE__dashLedsColorRGB":     107,
 }
 
-const originalDBC = "MCB_original.dbc"
+const originalDBC = "./../SC24/artifacts/MCB/MCB.dbc"
 const genDBC = "generated/MCB.dbc"
 const genJSON = "generated/SC24.json"
 const genWire = "generated/SC24.binpb"
@@ -103,20 +104,20 @@ func main() {
 	tmpSigType, err := acmelib.NewIntegerSignalType("fan_pwm_t", 4, false)
 	checkErr(err)
 	tmpSigType.SetMax(10)
-	modifySignalType(dashInt, "DASH_peripheralsStatus", "TSAC_FAN_pwmDutyCycleStatus", tmpSigType)
+	modifySignalType(dashInt, "DASH__peripheralsStatus", "TSAC_FAN_pwmDutyCycleStatus", tmpSigType)
 
-	modifySignalTypeName(dashInt, "DASH_hmiDevicesState", "ROT_SW_1_state", "rotary_switch_state_t")
-	modifySignalTypeName(dashInt, "DASH_appsRangeLimits", "APPS_0_voltageRangeMin", "uint16_t")
-	modifySignalTypeName(dashInt, "DASH_carCommands", "BMS_LV_diagPWD", "bms_lv_password_t")
+	modifySignalTypeName(dashInt, "DASH__hmiDevicesState", "ROT_SW_1_state", "rotary_switch_state_t")
+	modifySignalTypeName(dashInt, "DASH__appsRangeLimits", "APPS_0_voltageRangeMin", "uint16_t")
+	modifySignalTypeName(dashInt, "DASH__carCommands", "BMS_LV_diagPWD", "bms_lv_password_t")
 
 	bmslvInt, err := mcb.GetNodeInterfaceByNodeName("BMS_LV")
 	checkErr(err)
 
-	modifySignalTypeName(bmslvInt, "BMS_LV_hello", "FW_majorVersion", "uint8_t")
-	modifySignalTypeName(bmslvInt, "BMS_LV_lvCellVoltage0", "LV_CELL_0_voltage", "lv_cell_voltage_t")
-	modifySignalTypeName(bmslvInt, "BMS_LV_lvCellNTCResistance0", "LV_CELL_NTC_00_resistance", "ntc_resistance_t")
-	modifySignalTypeName(bmslvInt, "BMS_LV_lvBatGeneral", "LV_BAT_voltage", "lv_bat_voltage_t")
-	modifySignalTypeName(bmslvInt, "BMS_LV_lvBatGeneral", "LV_BAT_currentSensVoltage", "lv_bat_current_sens_t")
+	modifySignalTypeName(bmslvInt, "BMS_LV__hello", "FW_majorVersion", "uint8_t")
+	modifySignalTypeName(bmslvInt, "BMS_LV__lvCellVoltage0", "LV_CELL_0_voltage", "lv_cell_voltage_t")
+	modifySignalTypeName(bmslvInt, "BMS_LV__lvCellNTCResistance0", "LV_CELL_NTC_00_resistance", "ntc_resistance_t")
+	modifySignalTypeName(bmslvInt, "BMS_LV__lvBatGeneral", "LV_BAT_voltage", "lv_bat_voltage_t")
+	modifySignalTypeName(bmslvInt, "BMS_LV__lvBatGeneral", "LV_BAT_currentSensVoltage", "lv_bat_current_sens_t")
 
 	dspaceInt, err := mcb.GetNodeInterfaceByNodeName("DSPACE")
 	checkErr(err)
@@ -124,12 +125,12 @@ func main() {
 	tmpSigType, err = acmelib.NewIntegerSignalType("seconds_t", 6, false)
 	checkErr(err)
 	tmpSigType.SetMax(59)
-	modifySignalType(dspaceInt, "DSPACE_timeAndDate", "DATETIME_seconds", tmpSigType)
+	modifySignalType(dspaceInt, "DSPACE__timeAndDate", "DATETIME_seconds", tmpSigType)
 
-	modifySignalTypeName(dspaceInt, "DSPACE_timeAndDate", "DATETIME_month", "month_t")
-	modifySignalTypeName(dspaceInt, "DSPACE_timeAndDate", "DATETIME_day", "day_t")
-	modifySignalTypeName(dspaceInt, "DSPACE_timeAndDate", "DATETIME_hours", "hours_t")
-	modifySignalTypeName(dspaceInt, "DSPACE_timeAndDate", "DATETIME_minutes", "minutes_t")
+	modifySignalTypeName(dspaceInt, "DSPACE__timeAndDate", "DATETIME_month", "month_t")
+	modifySignalTypeName(dspaceInt, "DSPACE__timeAndDate", "DATETIME_day", "day_t")
+	modifySignalTypeName(dspaceInt, "DSPACE__timeAndDate", "DATETIME_hours", "hours_t")
+	modifySignalTypeName(dspaceInt, "DSPACE__timeAndDate", "DATETIME_minutes", "minutes_t")
 
 	// calculte bus load
 	mcb.SetBaudrate(1_000_000)
@@ -190,6 +191,10 @@ func modifySignalType(nodeInt *acmelib.NodeInterface, msgName, sigName string, n
 
 func parseNodeIDs(mcb *acmelib.Bus) {
 	interfaces := mcb.NodeInterfaces()
+	for idx, tmpInt := range interfaces {
+		checkErr(tmpInt.Node().UpdateID(acmelib.NodeID(100 + idx)))
+	}
+
 	for i := len(interfaces) - 1; i >= 0; i = i - 1 {
 		tmpNodeInt := interfaces[i]
 		tmpNode := tmpNodeInt.Node()
@@ -202,8 +207,11 @@ func parseNodeIDs(mcb *acmelib.Bus) {
 func parseMessageIDs(mcb *acmelib.Bus) {
 	for _, tmpNodeInt := range mcb.NodeInterfaces() {
 		for _, tmpMsg := range tmpNodeInt.Messages() {
-			if msgID, ok := messageIDs[tmpMsg.Name()]; ok {
+			msgID, ok := messageIDs[tmpMsg.Name()]
+			if ok {
 				checkErr(tmpMsg.UpdateID(msgID))
+			} else {
+				log.Print("Message not found: ", tmpMsg.Name())
 			}
 		}
 	}
