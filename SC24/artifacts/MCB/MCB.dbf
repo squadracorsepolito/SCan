@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 62
+[NUMBER_OF_MESSAGES] 63
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -184,6 +184,10 @@
 [END_MSG]
 
 [START_MSG] DASH__xcpTx,1125,8,1,0,S,DASH
+[START_SIGNALS] xcp_payload,64,1,0,U,0,0,1,0,1,,,DIAG_TOOL
+[END_MSG]
+
+[START_MSG] DSPACE_xcpTx,1127,8,1,0,S,DSPACE
 [START_SIGNALS] xcp_payload,64,1,0,U,0,0,1,0,1,,,DIAG_TOOL
 [END_MSG]
 
@@ -529,7 +533,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] TPMS,IMU,BMS_LV,DIAG_TOOL,EXTRA_NODE,SB_FRONT,SCANNER,TLB_BAT,DASH,DSPACE,SB_REAR,BRUSA
+[NODE] DIAG_TOOL,TLB_BAT,BRUSA,BMS_LV,DSPACE,EXTRA_NODE,SB_FRONT,SB_REAR,SCANNER,TPMS,IMU,DASH
 [START_DESC]
 
 [START_DESC_MSG]
@@ -563,6 +567,7 @@
 1123 S "(send_type: CyclicIfActive)";
 1124 S "(send_type: CyclicIfActive)";
 1125 S "(send_type: CyclicIfActive)";
+1127 S "(send_type: CyclicIfActive)";
 1129 S "(send_type: CyclicIfActive)";
 1175 S "(cycle_time: 100) (send_type: Cyclic)";
 1191 S "(cycle_time: 100) (send_type: Cyclic)";
@@ -597,18 +602,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
 DIAG_TOOL "Diagnostic tool";
+TLB_BAT "TSAL-latch-board battery ECU";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DSPACE "An automotive ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
-SCANNER "Can Logger ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-DASH "Dashboard ECU";
-DSPACE "An automotive ECU";
 SB_REAR "Sensorboard rear ECU";
-BRUSA "Brusa NLG5 charger.";
+SCANNER "Can Logger ECU";
+TPMS "Tire pressure monitoring system";
+IMU "Inertial Measurement Unit.";
+DASH "Dashboard ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -684,6 +689,7 @@ BRUSA "Brusa NLG5 charger.";
 1123 S xcp_payload "xcp payload data";
 1124 S xcp_payload "xcp payload data";
 1125 S xcp_payload "xcp payload data";
+1127 S xcp_payload "xcp payload data";
 1129 S xcp_payload "xcp payload data";
 1175 S HVBAT_soc "HV Battery State Of Charge percentage";
 1191 S DSPACE_main_FSM_State "The state of the main/RTD FSM of dspace";
@@ -948,6 +954,7 @@ BRUSA "Brusa NLG5 charger.";
 1123,S,"GenMsgSendType","3"
 1124,S,"GenMsgSendType","3"
 1125,S,"GenMsgSendType","3"
+1127,S,"GenMsgSendType","3"
 1129,S,"GenMsgSendType","3"
 1175,S,"GenMsgCycleTime","100"
 1175,S,"GenMsgSendType","1"
