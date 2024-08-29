@@ -34,12 +34,12 @@ BS_:
 
 BU_: TLB_BAT SB_FRONT SB_REAR BMS_LV DASH DIAG_TOOL DSPACE EXTRA_NODE SCANNER TPMS IMU BRUSA
 
-VAL_TABLE_ DSPACE_amkInvFR_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
-VAL_TABLE_ DSPACE_amkInvRL_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
-VAL_TABLE_ DSPACE_amkInvRR_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
 VAL_TABLE_ LV_RELAY_overrideState_Enum 0 "LV_RLY_OVERRIDE_OFF" 1 "LV_RLY_OVERRIDE_OPEN" 2 "LV_RLY_OVERRIDE_CLOSED";
 VAL_TABLE_ DSPACE_main_FSM_State_Enum 0 "IDLE" 1 "PRECHARGE" 2 "TS ON" 3 "RTD REQUEST" 4 "RTD" 5 "TS OFF" 255 "DISCHARGE";
 VAL_TABLE_ DSPACE_amkInvFL_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
+VAL_TABLE_ DSPACE_amkInvFR_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
+VAL_TABLE_ DSPACE_amkInvRL_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
+VAL_TABLE_ DSPACE_amkInvRR_FSM_State_Enum 0 "RESET" 1 "LV ON " 2 "TS ON" 3 "RTD" 4 "MOTOR DRIVE" 5 "INTERM ERROR" 6 "HARD ERROR";
 
 BO_ 65 TLB_BAT__signalsStatus : 4 TLB_BAT
  SG_ AIR_POS_cmd_isActive : 0|1@1+ (1,0) [0|1] "" DSPACE, SCANNER
@@ -275,6 +275,9 @@ BO_ 407 DSPACE__peripheralsCTRL : 3 DSPACE
  SG_ RAD_FAN_pwmDutyCicleCtrl : 8|8@1+ (1,0) [0|100] "%" DASH, SB_REAR, SCANNER
  SG_ COOL_PUMPS_speedCtrl : 16|8@1+ (1,0) [0|100] "%" DASH, SB_REAR, SCANNER
 
+BO_ 1127 DSPACE__xcpTx : 8 DSPACE
+ SG_ xcp_payload : 0|64@1+ (1,0) [0|0] "" DIAG_TOOL
+
 BO_ 1175 DSPACE__signals : 1 DSPACE
  SG_ HVBAT_soc : 0|8@1+ (1,0) [100|0] "%" DASH, SCANNER
 
@@ -303,9 +306,6 @@ BO_ 1719 DSPACE__dashLedsColorRGB : 5 DSPACE
  SG_ LED_4_red : 27|3@1+ (1,0) [0|7] "" Vector__XXX
  SG_ LED_4_green : 30|3@1+ (1,0) [0|7] "" Vector__XXX
  SG_ LED_4_blue : 33|3@1+ (1,0) [0|7] "" Vector__XXX
-
-BO_ 1127 DSPACE_xcpTx : 8 DSPACE
- SG_ xcp_payload : 0|64@1+ (1,0) [0|0] "" DIAG_TOOL
 
 BO_ 1800 IRTS_placeholderMessage : 8 EXTRA_NODE
  SG_ IRTS_signalPlaceholder : 0|64@1+ (1,0) [0|65535] "" Vector__XXX
@@ -669,6 +669,8 @@ CM_ SG_ 407 BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 ina
 CM_ SG_ 407 DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
 CM_ SG_ 407 RAD_FAN_pwmDutyCicleCtrl "PWM duty cycle percentage for Radiator Fans control";
 CM_ SG_ 407 COOL_PUMPS_speedCtrl "Speed percentage for Cooling Pumps control";
+CM_ BO_ 1127 "(send_type: CyclicIfActive)";
+CM_ SG_ 1127 xcp_payload "xcp payload data";
 CM_ BO_ 1175 "(cycle_time: 100) (send_type: Cyclic)";
 CM_ SG_ 1175 HVBAT_soc "HV Battery State Of Charge percentage";
 CM_ BO_ 1191 "(cycle_time: 100) (send_type: Cyclic)";
@@ -694,8 +696,6 @@ CM_ SG_ 1719 LED_3_blue "The blue channel of LED #3 of the dashboard";
 CM_ SG_ 1719 LED_4_red "The red channel of LED #4 of the dashboard";
 CM_ SG_ 1719 LED_4_green "The green channel of LED #4 of the dashboard";
 CM_ SG_ 1719 LED_4_blue "The blue channel of LED #4 of the dashboard";
-CM_ BO_ 1127 "(send_type: CyclicIfActive)";
-CM_ SG_ 1127 xcp_payload "xcp payload data";
 CM_ BU_ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 CM_ BO_ 1800 "IRTS message placeholder TODO: update this message when you have the specification";
 CM_ BU_ SCANNER "Can Logger ECU";
@@ -878,13 +878,13 @@ BA_ "GenMsgCycleTime" BO_ 23 10;
 BA_ "GenMsgSendType" BO_ 23 1;
 BA_ "GenMsgCycleTime" BO_ 407 10;
 BA_ "GenMsgSendType" BO_ 407 1;
+BA_ "GenMsgSendType" BO_ 1127 2;
 BA_ "GenMsgCycleTime" BO_ 1175 100;
 BA_ "GenMsgSendType" BO_ 1175 1;
 BA_ "GenMsgCycleTime" BO_ 1191 100;
 BA_ "GenMsgSendType" BO_ 1191 1;
 BA_ "GenMsgCycleTime" BO_ 1719 200;
 BA_ "GenMsgSendType" BO_ 1719 1;
-BA_ "GenMsgSendType" BO_ 1127 2;
 BA_ "GenMsgSendType" BO_ 1129 2;
 BA_ "GenMsgSendType" BO_ 1290 2;
 BA_ "GenMsgSendType" BO_ 1306 2;
