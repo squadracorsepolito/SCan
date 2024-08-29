@@ -9,10 +9,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync-branch:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup generated folder
+        run: |
+          mkdir -p SC24_acmelib/generated
+          touch SC24_acmelib/generated/MCB.dbc
+          touch SC24_acmelib/generated/SC24.json
+          touch SC24_acmelib/generated/SC24.binpb
+          touch SC24_acmelib/generated/SC24.md
+          ls -l
 
       - name: Setup Go
         uses: actions/setup-go@v5
