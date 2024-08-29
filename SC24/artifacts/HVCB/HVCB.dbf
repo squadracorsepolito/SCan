@@ -502,7 +502,7 @@
 
 [START_MSG] HVB_RX_Insulation,521,8,2,0,S,HVB
 [START_SIGNALS] HVB_stResIsol,8,2,0,U,255,0,0,0,1,,,Charger,VCU
-[VALUE_DESCRIPTION] "ERROR",0
+[VALUE_DESCRIPTION] "STOPPED",0
 [VALUE_DESCRIPTION] "OK",1
 [VALUE_DESCRIPTION] "UNDERVOLTAGE",2
 [VALUE_DESCRIPTION] "SPEEDSTART",3
@@ -610,7 +610,7 @@
 [START_SIGNALS] IVTMain_Result_Wh,32,6,0,I,2.14748e+09,-2.14748e+09,0,0,1,Wh,,HVB
 [END_MSG]
 
-[NODE] Charger,HVB,IVTMain,PC,VCU
+[NODE] IVTMain,PC,VCU,Charger,HVB
 [START_DESC]
 
 [START_DESC_MSG]
@@ -1095,11 +1095,11 @@ PC "Calibration and debug tool reading the BMS firmware revision and the single 
 [END_PARAM_SIG]
 [START_PARAM_VAL]
 [START_PARAM_NODE_VAL]
-Charger,"Manufacturer","Podium"
 IVTMain,"ILUsed","1"
 IVTMain,"Manufacturer","Isabellenhuette"
 IVTMain,"NmNode","1"
 VCU,"Manufacturer","Podium"
+Charger,"Manufacturer","Podium"
 [END_PARAM_NODE_VAL]
 [START_PARAM_MSG_VAL]
 288,S,"GenMsgCycleTime","5"
