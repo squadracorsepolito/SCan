@@ -57,9 +57,9 @@
             "IMU": 11,
             "BRUSA": 12
         },
-        "lvRlyOverrideState":{
+        "lvRlyOverrideState": {
             "LV_RLY_OVERRIDE_OFF": 0,
-            "LV_RLY_OVERRIDE_OPEN" :1,
+            "LV_RLY_OVERRIDE_OPEN": 1,
             "LV_RLY_OVERRIDE_CLOSED": 2
         },
         "dspaceMainFsmStates_Enum": {
@@ -1861,6 +1861,24 @@
                     "offset": 0,
                     "min": 0,
                     "max": 7
+                }
+            }
+        },
+        "DSPACE_xcpTx": {
+            "message-id_dec": 70,
+            "id": 1127,
+            "length": 8,
+            "sender": "DSPACE",
+            "send_type": "cyclicIfActive",
+            "signals": {
+                "xcp_payload": {
+                    "description": "xcp payload data",
+                    "start_bit": 0,
+                    "size": 64,
+                    "endianness": "little",
+                    "receivers": [
+                        "DIAG_TOOL"
+                    ]
                 }
             }
         },
