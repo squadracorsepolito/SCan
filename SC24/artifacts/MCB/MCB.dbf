@@ -34,11 +34,11 @@
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__analogDevice,82,7,4,0,S,SB_FRONT
-[START_SIGNALS] APPS_0_voltage,10,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] APPS_1_voltage,10,2,2,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] STEER_RME_voltage,16,3,4,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,5,4,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_MSG] SB_FRONT__analogDevice,82,8,4,0,S,SB_FRONT
+[START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] SB_REAR__analogDevice,99,6,3,0,S,SB_REAR
@@ -533,7 +533,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DSPACE,SB_FRONT,SB_REAR,TLB_BAT,TPMS,IMU,DASH,DIAG_TOOL,EXTRA_NODE,SCANNER,BRUSA,BMS_LV
+[NODE] SCANNER,TLB_BAT,TPMS,IMU,BRUSA,BMS_LV,SB_REAR,DSPACE,EXTRA_NODE,SB_FRONT,DASH,DIAG_TOOL
 [START_DESC]
 
 [START_DESC_MSG]
@@ -602,18 +602,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-DSPACE "An automotive ECU";
-SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
 TPMS "Tire pressure monitoring system";
 IMU "Inertial Measurement Unit.";
-DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SCANNER "Can Logger ECU";
 BRUSA "Brusa NLG5 charger.";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
+SB_REAR "Sensorboard rear ECU";
+DSPACE "An automotive ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_FRONT "Sensorboard front ECU";
+DASH "Dashboard ECU";
+DIAG_TOOL "Diagnostic tool";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
