@@ -1962,7 +1962,7 @@
                 "APPS_0_voltage": {
                     "description": "The voltage of the APPS #0 expressed in mV",
                     "start_bit": 0,
-                    "size": 10,
+                    "size": 16,
                     "endianness": "little",
                     "unit": "mV",
                     "receivers": [
@@ -1976,8 +1976,8 @@
                 },
                 "APPS_1_voltage": {
                     "description": "The voltage of the APPS #1 expressed in mV",
-                    "start_bit": 10,
-                    "size": 10,
+                    "start_bit": 16,
+                    "size": 16,
                     "endianness": "little",
                     "unit": "mV",
                     "receivers": [
@@ -1991,7 +1991,7 @@
                 },
                 "STEER_RME_voltage": {
                     "description": "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV",
-                    "start_bit": 20,
+                    "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
                     "unit": "mV",
@@ -2006,7 +2006,7 @@
                 },
                 "BRAKE_PRESS_FRONT_voltage": {
                     "description": "The voltage of the front brake pressure sensor expressed in mV",
-                    "start_bit": 36,
+                    "start_bit": 48,
                     "size": 16,
                     "endianness": "little",
                     "unit": "mV",
