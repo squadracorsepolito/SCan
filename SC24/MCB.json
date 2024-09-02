@@ -1954,7 +1954,7 @@
         "SB_FRONT__analogDevice": {
             "message-id_dec": 5,
             "id": 82,
-            "length": 7,
+            "length": 8,
             "sender": "SB_FRONT",
             "cycle_time": 10,
             "send_type": "Cyclic",
@@ -2007,7 +2007,7 @@
                 "BRAKE_PRESS_FRONT_voltage": {
                     "description": "The voltage of the front brake pressure sensor expressed in mV",
                     "start_bit": 48,
-                    "size": 13,
+                    "size": 16,
                     "endianness": "little",
                     "unit": "mV",
                     "receivers": [
