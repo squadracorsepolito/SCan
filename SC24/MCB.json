@@ -2007,7 +2007,7 @@
                 "BRAKE_PRESS_FRONT_voltage": {
                     "description": "The voltage of the front brake pressure sensor expressed in mV",
                     "start_bit": 48,
-                    "size": 16,
+                    "size": 13,
                     "endianness": "little",
                     "unit": "mV",
                     "receivers": [
@@ -2017,7 +2017,7 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 65535
+                    "max": 8192
                 }
             }
         },
