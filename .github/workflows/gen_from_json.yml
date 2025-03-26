@@ -65,6 +65,7 @@ jobs:
           echo "DBF_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).dbf" >> $GITHUB_ENV
           echo "XLSX_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).xlsx" >> $GITHUB_ENV
           echo "CSV_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file).csv" >> $GITHUB_ENV
+          echo "XCP_FILE=$(echo ${{ env.ARTIFACT_DIR }})/$(echo $file)_xcp_ids.mk" >> $GITHUB_ENV
         
       - name: Download latest jsodbc release
         uses: robinraju/release-downloader@v1.9
@@ -104,6 +105,9 @@ jobs:
           python3 -m cantools generate_c_source ${{ env.DBC_FILE }}
           mv ${{ env.C_FILE }} ${{ env.ARTIFACT_DIR }}/c_source
           mv ${{ env.H_FILE }} ${{ env.ARTIFACT_DIR }}/c_source
+
+      - name: Generate xcp easy
+        run: cat mcb.h | grep -i xcp | grep ID | sed 's/#define *//' | sed 's/ /=/` >> ${{ env.XCP_FILE }}
         
       - name: Convert dbc to dbf
         run: canconvert ${{ env.DBC_FILE }} ${{ env.DBF_FILE }}
