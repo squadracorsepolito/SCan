@@ -105,9 +105,12 @@ jobs:
           python3 -m cantools generate_c_source ${{ env.DBC_FILE }}
           mv ${{ env.C_FILE }} ${{ env.ARTIFACT_DIR }}/c_source
           mv ${{ env.H_FILE }} ${{ env.ARTIFACT_DIR }}/c_source
-
+      
+      - name: Print dir
+        run: ls -R
+      
       - name: Generate xcp easy
-        run: cat ${{ env.H_FILE }} | grep -i xcp | grep ID | sed 's/#define *//' | sed 's/ /=/` >> ${{ env.XCP_FILE }}
+        run: cat ${{ env.ARTIFACT_DIR }}/c_source/${{ env.H_FILE }} | grep -i xcp | grep ID | sed 's/#define *//' | sed 's/ /=/` >> ${{ env.XCP_FILE }}
         
       - name: Convert dbc to dbf
         run: canconvert ${{ env.DBC_FILE }} ${{ env.DBF_FILE }}
@@ -117,10 +120,7 @@ jobs:
         
       - name: Convert dbc to csv
         run: canconvert ${{ env.DBC_FILE }} ${{ env.CSV_FILE }}
-
-      - name: Print dir
-        run: ls -R
-      
+  
       - name: Push to build branch
         uses: s0/git-publish-subdir-action@develop
         env:
