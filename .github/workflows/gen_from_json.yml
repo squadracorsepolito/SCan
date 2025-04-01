@@ -110,7 +110,7 @@ jobs:
         run: ls -R
       
       - name: Generate xcp easy
-        run: grep -i xcp "${{ env.ARTIFACT_DIR }}/c_source/${{ env.H_FILE }}" | grep ID | sed 's/#define *//' | sed 's/ /=/' >> "${{ env.XCP_FILE }}"
+        run: grep -i xcp "${{ env.ARTIFACT_DIR }}/c_source/${{ env.H_FILE }}" | grep ID | sed 's/#define *//' | sed -E 's/ *=\((0x[0-9a-f]+)u\)/=\1/' >> "${{ env.XCP_FILE }}"
         
       - name: Convert dbc to dbf
         run: canconvert ${{ env.DBC_FILE }} ${{ env.DBF_FILE }}
