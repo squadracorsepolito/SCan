@@ -1808,7 +1808,7 @@
             "cycle_time": 100,
             "send_type": "Cyclic",
             "signals": {
-                "INVERTER_FL_temp": {
+                "INVERTER_RL_temp": {
                     "description": "The temperature of the rear left inverter",
                     "start_bit": 0,
                     "size": 16,
@@ -1823,7 +1823,7 @@
                     "max": 3276,
                     "unit": "degC"
                 },
-                "MOTOR_FL_temp": {
+                "MOTOR_RL_temp": {
                     "description": "The temperature of the rear left motor",
                     "start_bit": 16,
                     "size": 16,
@@ -1838,7 +1838,7 @@
                     "max": 3276,
                     "unit": "degC"
                 },
-                "INVERTER_FR_temp": {
+                "INVERTER_RR_temp": {
                     "description": "The temperature of the rear right inverter",
                     "start_bit": 32,
                     "size": 16,
@@ -1853,7 +1853,7 @@
                     "max": 3276,
                     "unit": "degC"
                 },
-                "MOTOR_FR_temp": {
+                "MOTOR_RR_temp": {
                     "description": "The temperature of the rear right motor",
                     "start_bit": 48,
                     "size": 16,
