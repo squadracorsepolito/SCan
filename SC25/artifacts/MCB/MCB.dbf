@@ -83,10 +83,10 @@
 [END_MSG]
 
 [START_MSG] DSPACE__pwtRearTemp,455,8,4,0,S,DSPACE
-[START_SIGNALS] INVERTER_FL_temp,16,1,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
-[START_SIGNALS] MOTOR_FL_temp,16,3,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
-[START_SIGNALS] INVERTER_FR_temp,16,5,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
-[START_SIGNALS] MOTOR_FR_temp,16,7,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
+[START_SIGNALS] INVERTER_RL_temp,16,1,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
+[START_SIGNALS] MOTOR_RL_temp,16,3,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
+[START_SIGNALS] INVERTER_RR_temp,16,5,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
+[START_SIGNALS] MOTOR_RR_temp,16,7,0,U,32760,-32760,1,0,0.1,degC,,DASH,SCANNER
 [END_MSG]
 
 [START_MSG] DIAG_TOOL__xcpTxBMS_LV,646,8,1,0,S,DIAG_TOOL
@@ -547,7 +547,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] TLB_BAT,TPMS,BMS_LV,DSPACE,SB_REAR,SCANNER,IMU,BRUSA,DASH,DIAG_TOOL,EXTRA_NODE,SB_FRONT
+[NODE] EXTRA_NODE,SB_FRONT,TLB_BAT,TPMS,IMU,DASH,DIAG_TOOL,SB_REAR,SCANNER,BRUSA,BMS_LV,DSPACE
 [START_DESC]
 
 [START_DESC_MSG]
@@ -618,18 +618,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-TLB_BAT "TSAL-latch-board battery ECU";
-TPMS "Tire pressure monitoring system";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DSPACE "An automotive ECU";
-SB_REAR "Sensorboard rear ECU";
-SCANNER "Can Logger ECU";
-IMU "Inertial Measurement Unit.";
-BRUSA "Brusa NLG5 charger.";
-DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
+TPMS "Tire pressure monitoring system";
+IMU "Inertial Measurement Unit.";
+DASH "Dashboard ECU";
+DIAG_TOOL "Diagnostic tool";
+SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DSPACE "An automotive ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -681,10 +681,10 @@ SB_FRONT "Sensorboard front ECU";
 439 S MOTOR_FL_temp "The temperature of the front left motor";
 439 S INVERTER_FR_temp "The temperature of the front right inverter";
 439 S MOTOR_FR_temp "The temperature of the front right motor";
-455 S INVERTER_FL_temp "The temperature of the rear left inverter";
-455 S MOTOR_FL_temp "The temperature of the rear left motor";
-455 S INVERTER_FR_temp "The temperature of the rear right inverter";
-455 S MOTOR_FR_temp "The temperature of the rear right motor";
+455 S INVERTER_RL_temp "The temperature of the rear left inverter";
+455 S MOTOR_RL_temp "The temperature of the rear left motor";
+455 S INVERTER_RR_temp "The temperature of the rear right inverter";
+455 S MOTOR_RR_temp "The temperature of the rear right motor";
 646 S xcp_payload "xcp payload data";
 662 S xcp_payload "xcp payload data";
 678 S xcp_payload "xcp payload data";
