@@ -1747,7 +1747,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1762,7 +1762,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1777,7 +1777,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1792,7 +1792,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1817,7 +1817,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1832,7 +1832,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1847,7 +1847,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
@@ -1862,7 +1862,7 @@
                         "DASH",
                         "SCANNER"
                     ],
-                    "scale": 0.1,
+                    "scale": 1,
                     "offset": 0,
                     "min": -3276,
                     "max": 3276,
