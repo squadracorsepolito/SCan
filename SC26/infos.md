@@ -105,5 +105,6 @@ Below values are in base 10
     - 105: DASH-appsRangeLimits
     - 106: DASH-carCommands
     - 107-108 : DSPACE-ledColors
+    - 109: BMS_LV_ntcResistance2
     - 112: BALCKLISTED see above
 ```
