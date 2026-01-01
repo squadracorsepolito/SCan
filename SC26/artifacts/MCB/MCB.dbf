@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 65
+[NUMBER_OF_MESSAGES] 66
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -256,7 +256,7 @@
 [VALUE_DESCRIPTION] "HARD ERROR",6
 [END_MSG]
 
-[START_MSG] BMS_LV__cellsStatus,1204,5,26,0,S,BMS_LV
+[START_MSG] BMS_LV__cellsStatus,1204,5,27,0,S,BMS_LV
 [START_SIGNALS] LV_CELL_0_isOV,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] LV_CELL_0_isUV,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] LV_CELL_1_isOV,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
@@ -283,6 +283,7 @@
 [START_SIGNALS] LV_CELL_NTC_09_isOT,1,3,7,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] LV_CELL_NTC_10_isOT,1,4,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] LV_CELL_NTC_11_isOT,1,4,1,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] LV_CELL_NTC_12_isOT,1,4,2,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] BMS_LV__status,1220,1,2,0,S,BMS_LV
@@ -535,6 +536,10 @@
 [START_SIGNALS] LED_4_blue,3,5,1,U,7,0,1,0,1,,,
 [END_MSG]
 
+[START_MSG] BMS_LV__lvCellNTCResistance2,1748,8,1,0,S,BMS_LV
+[START_SIGNALS] LV_CELL_NTC_12_resistance,10,1,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[END_MSG]
+
 [START_MSG] IRTS_placeholderMessage,1800,8,1,0,S,EXTRA_NODE
 [START_SIGNALS] IRTS_signalPlaceholder,64,1,0,U,65535,0,1,0,1,,,
 [END_MSG]
@@ -547,7 +552,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] BMS_LV,EXTRA_NODE,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,TPMS,IMU,BRUSA,DASH,DIAG_TOOL,DSPACE
+[NODE] TLB_BAT,TPMS,BRUSA,BMS_LV,SB_FRONT,SB_REAR,SCANNER,IMU,DASH,DIAG_TOOL,DSPACE,EXTRA_NODE
 [START_DESC]
 
 [START_DESC_MSG]
@@ -613,23 +618,24 @@
 1685 S "(send_type: IfActive)";
 1701 S "(send_type: IfActive)";
 1719 S "(cycle_time: 200) (send_type: Cyclic)";
+1748 S "(cycle_time: 2000) (send_type: Cyclic)";
 1800 S "IRTS message placeholder TODO: update this message when you have the specification";
 1816 S "";
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+TLB_BAT "TSAL-latch-board battery ECU";
+TPMS "Tire pressure monitoring system";
+BRUSA "Brusa NLG5 charger.";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
 SB_REAR "Sensorboard rear ECU";
 SCANNER "Can Logger ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-TPMS "Tire pressure monitoring system";
 IMU "Inertial Measurement Unit.";
-BRUSA "Brusa NLG5 charger.";
 DASH "Dashboard ECU";
 DIAG_TOOL "Diagnostic tool";
 DSPACE "An automotive ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -747,6 +753,7 @@ DSPACE "An automotive ECU";
 1204 S LV_CELL_NTC_09_isOT "States whether the LV cell temperature sensor #9 (NTC) detects an over temperature";
 1204 S LV_CELL_NTC_10_isOT "States whether the LV cell temperature sensor #10 (NTC) detects an over temperature";
 1204 S LV_CELL_NTC_11_isOT "States whether the LV cell temperature sensor #11 (NTC) detects an over temperature";
+1204 S LV_CELL_NTC_12_isOT "States whether the LV cell temperature sensor #12 (NTC) detects an over temperature";
 1220 S LV_RELAY_isClosed "States whether the LV relay is closed";
 1220 S LV_RELAY_isRelayOverrideOn "States whether the LV relay override is enabled";
 1236 S LV_CELL_0_voltage "The voltage of the LV cell #0 expressed in mV";
@@ -919,6 +926,7 @@ DSPACE "An automotive ECU";
 1719 S LED_4_red "The red channel of LED #4 of the dashboard";
 1719 S LED_4_green "The green channel of LED #4 of the dashboard";
 1719 S LED_4_blue "The blue channel of LED #4 of the dashboard";
+1748 S LV_CELL_NTC_12_resistance "The resistance of the NTC #12 in the battery pack expressed in Ohm";
 1816 S LAD_D_ParamRq "Diag requested data from host";
 1818 S LAD_D_ParamRp "Diag responded data to host";
 [END_DESC_SIG]
@@ -1024,6 +1032,8 @@ DSPACE "An automotive ECU";
 1701,S,"GenMsgSendType","2"
 1719,S,"GenMsgCycleTime","200"
 1719,S,"GenMsgSendType","1"
+1748,S,"GenMsgCycleTime","2000"
+1748,S,"GenMsgSendType","1"
 [END_PARAM_MSG_VAL]
 [START_PARAM_SIG_VAL]
 [END_PARAM_SIG_VAL]
