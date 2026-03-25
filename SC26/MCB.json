@@ -1597,7 +1597,7 @@
         "DSPACE__signals": {
             "message-id_dec": 73,
             "id": 1175,
-            "length": 1,
+            "length": 2,
             "sender": "DSPACE",
             "cycle_time": 100,
             "send_type": "Cyclic",
@@ -1615,6 +1615,47 @@
                     ],
                     "max": 0,
                     "min": 100
+                },
+                "ASSI_command": {
+                    "description": "ASSI command state",
+                    "start_bit": 8,
+                    "size": 3,
+                    "endianness": "little",
+                    "signed": false,
+                    "receivers": [
+                        "DASH",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 5
+
+                }
+            }
+        },
+        "DSPACE__autonomousMission": {
+            "message-id_dec": 71,
+            "id": 1143,
+            "length": 1,
+            "sender": "DSPACE",
+            "cycle_time": 70,
+            "send_type": "Cyclic",
+            "signals": {
+                "autonomousMission_state": {
+                    "description": "Autonomous mission state",
+                    "start_bit": 0,
+                    "size": 4,
+                    "endianness": "little",
+                    "signed": false,
+                    "receivers": [
+                        "DASH",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 7
                 }
             }
         },
@@ -1734,6 +1775,20 @@
                     "offset": 0,
                     "min": 0,
                     "max": 1
+                },
+                "AS_SDC_closeCMD": {
+                    "description": "Autonomous system SDC closure command",
+                    "start_bit": 2,
+                    "size": 3,
+                    "endianness": "little",
+                    "receivers": [
+                        "DASH",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 3
                 },
                 "RAD_FAN_pwmDutyCicleCtrl": {
                     "description": "PWM duty cycle percentage for Radiator Fans control",
@@ -2451,6 +2506,31 @@
                 "COOL_PRESS_RIGHT_voltage": {
                     "description": "The voltage of the right cooling pressure sensor expressed in mV",
                     "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "mV",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
+                }
+            }
+        },
+        "SB_REAR__coldplateCircuitPressure": {
+            "message-id_dec": 8,
+            "id": 131,
+            "length": 2,
+            "sender": "SB_REAR",
+            "cycle_time": 10,
+            "send_type": "Cyclic",
+            "signals": {
+                "COLDPLATE_CIRCUIT_PRESS_voltage": {
+                    "description": "The voltage of the coldplate circuit pressure sensor expressed in mV",
+                    "start_bit": 0,
                     "size": 16,
                     "endianness": "little",
                     "unit": "mV",
