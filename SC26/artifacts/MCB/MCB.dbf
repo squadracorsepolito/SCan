@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 66
+[NUMBER_OF_MESSAGES] 68
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -52,6 +52,10 @@
 [START_SIGNALS] BSPD_hasError,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
+[START_MSG] SB_REAR__coldplateCircuitPressure,131,2,1,0,S,SB_REAR
+[START_SIGNALS] COLDPLATE_CIRCUIT_PRESS_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
 [START_MSG] BMS_LV__lvBatGeneral,324,6,3,0,S,BMS_LV
 [START_SIGNALS] LV_BAT_currentSensVoltage,16,1,0,U,65535,0,1,0,0.076,mV,,DSPACE,SCANNER
 [START_SIGNALS] LV_BAT_voltage,16,3,0,U,65535,0,1,14000,0.267,mV,,DSPACE,SCANNER
@@ -68,9 +72,10 @@
 [START_SIGNALS] ROT_SW_2_state,4,2,4,U,9,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] DSPACE__peripheralsCTRL,407,3,4,0,S,DSPACE
+[START_MSG] DSPACE__peripheralsCTRL,407,3,5,0,S,DSPACE
 [START_SIGNALS] BRAKE_LIGHT_activeCMD,1,1,0,U,1,0,1,0,1,,,DASH,SB_REAR,SCANNER
 [START_SIGNALS] DASH_SDC_RLY_closeCMD,1,1,1,U,1,0,1,0,1,,,DASH,SCANNER
+[START_SIGNALS] AS_SDC_closeCMD,3,1,2,U,3,0,1,0,1,,,DASH,SCANNER
 [START_SIGNALS] RAD_FAN_pwmDutyCicleCtrl,8,2,0,U,100,0,1,0,1,%,,DASH,SB_REAR,SCANNER
 [START_SIGNALS] COOL_PUMPS_speedCtrl,8,3,0,U,100,0,1,0,1,%,,DASH,SB_REAR,SCANNER
 [END_MSG]
@@ -209,8 +214,13 @@
 [START_SIGNALS] xcp_payload,64,1,0,U,0,0,1,0,1,,,DIAG_TOOL
 [END_MSG]
 
-[START_MSG] DSPACE__signals,1175,1,1,0,S,DSPACE
+[START_MSG] DSPACE__autonomousMission,1143,1,1,0,S,DSPACE
+[START_SIGNALS] autonomousMission_state,4,1,0,U,7,0,1,0,1,,,DASH,SCANNER
+[END_MSG]
+
+[START_MSG] DSPACE__signals,1175,2,2,0,S,DSPACE
 [START_SIGNALS] HVBAT_soc,8,1,0,U,0,100,1,0,1,%,,DASH,SCANNER
+[START_SIGNALS] ASSI_command,3,2,0,U,5,0,1,0,1,,,DASH,SCANNER
 [END_MSG]
 
 [START_MSG] DSPACE__fsmStates,1191,5,5,0,S,DSPACE
@@ -552,7 +562,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] TLB_BAT,TPMS,BRUSA,BMS_LV,SB_FRONT,SB_REAR,SCANNER,IMU,DASH,DIAG_TOOL,DSPACE,EXTRA_NODE
+[NODE] BRUSA,DASH,DIAG_TOOL,EXTRA_NODE,SB_REAR,IMU,TPMS,BMS_LV,DSPACE,SB_FRONT,SCANNER,TLB_BAT
 [START_DESC]
 
 [START_DESC_MSG]
@@ -561,6 +571,7 @@
 82 S "(cycle_time: 10) (send_type: Cyclic)";
 99 S "(cycle_time: 10) (send_type: Cyclic)";
 115 S "(cycle_time: 10) (send_type: Cyclic)";
+131 S "(cycle_time: 10) (send_type: Cyclic)";
 324 S "(cycle_time: 100) (send_type: Cyclic)";
 357 S "(cycle_time: 200) (send_type: Cyclic)";
 407 S "(cycle_time: 10) (send_type: Cyclic)";
@@ -590,6 +601,7 @@
 1125 S "(send_type: CyclicIfActive)";
 1127 S "(send_type: CyclicIfActive)";
 1129 S "(send_type: CyclicIfActive)";
+1143 S "(cycle_time: 70) (send_type: Cyclic)";
 1175 S "(cycle_time: 100) (send_type: Cyclic)";
 1191 S "(cycle_time: 100) (send_type: Cyclic)";
 1204 S "(cycle_time: 100) (send_type: Cyclic)";
@@ -624,18 +636,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-TLB_BAT "TSAL-latch-board battery ECU";
-TPMS "Tire pressure monitoring system";
 BRUSA "Brusa NLG5 charger.";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
-SCANNER "Can Logger ECU";
-IMU "Inertial Measurement Unit.";
 DASH "Dashboard ECU";
 DIAG_TOOL "Diagnostic tool";
-DSPACE "An automotive ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_REAR "Sensorboard rear ECU";
+IMU "Inertial Measurement Unit.";
+TPMS "Tire pressure monitoring system";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DSPACE "An automotive ECU";
+SB_FRONT "Sensorboard front ECU";
+SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -669,6 +681,7 @@ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
 115 S DISCHARGE_isActive "States whether the discharge is discharging the DCBUS";
 115 S BSPD_hasError "States whether the BSPD has an error";
+131 S COLDPLATE_CIRCUIT_PRESS_voltage "The voltage of the coldplate circuit pressure sensor expressed in mV";
 324 S LV_BAT_currentSensVoltage "The voltage returned by the current sensor of the LV battery expressed in mV";
 324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV";
 324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV";
@@ -681,6 +694,7 @@ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 357 S ROT_SW_2_state "Rotary Switch 2 state";
 407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
 407 S DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
+407 S AS_SDC_closeCMD "Autonomous system SDC closure command";
 407 S RAD_FAN_pwmDutyCicleCtrl "PWM duty cycle percentage for Radiator Fans control";
 407 S COOL_PUMPS_speedCtrl "Speed percentage for Cooling Pumps control";
 439 S INVERTER_FL_temp "The temperature of the front left inverter";
@@ -721,7 +735,9 @@ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 1125 S xcp_payload "xcp payload data";
 1127 S xcp_payload "xcp payload data";
 1129 S xcp_payload "xcp payload data";
+1143 S autonomousMission_state "Autonomous mission state";
 1175 S HVBAT_soc "HV Battery State Of Charge percentage";
+1175 S ASSI_command "ASSI command state";
 1191 S DSPACE_main_FSM_State "The state of the main/RTD FSM of dspace";
 1191 S DSPACE_amkInvFL_FSM_State "The state of the AMK Inverter Front Left FSM of dspace";
 1191 S DSPACE_amkInvFR_FSM_State "The state of the AMK Inverter Front Right FSM of dspace";
@@ -959,6 +975,8 @@ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 99,S,"GenMsgSendType","1"
 115,S,"GenMsgCycleTime","10"
 115,S,"GenMsgSendType","1"
+131,S,"GenMsgCycleTime","10"
+131,S,"GenMsgSendType","1"
 324,S,"GenMsgCycleTime","100"
 324,S,"GenMsgSendType","1"
 357,S,"GenMsgCycleTime","200"
@@ -992,6 +1010,8 @@ EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 1125,S,"GenMsgSendType","3"
 1127,S,"GenMsgSendType","3"
 1129,S,"GenMsgSendType","3"
+1143,S,"GenMsgCycleTime","70"
+1143,S,"GenMsgSendType","1"
 1175,S,"GenMsgCycleTime","100"
 1175,S,"GenMsgSendType","1"
 1191,S,"GenMsgCycleTime","100"
