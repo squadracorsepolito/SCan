@@ -47,7 +47,6 @@ Below values are in base 10
     - 5: SB_FRONT_analogDevices
     - 6: SB_REAR_analogDevices
     - 7: SB_REAR_criticalPeripherals
-    - 8: SB_REAR_coldplateCircuitPressure
 ```
 
 ### High Priority low speed (50-100+ms)
@@ -84,7 +83,6 @@ Below values are in base 10
 ```
 - Message IDs: 70-99 [30]
     - 70: [all-ecus]_xcpTx
-    - 71: DSPACE_autonomousMission
     - 73: DSPACE_signals
     - 74: DSPACE_fsmStates
     - 75: BMS_LV-cellsStatus
