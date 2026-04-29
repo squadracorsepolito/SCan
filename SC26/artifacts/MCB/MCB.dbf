@@ -62,14 +62,19 @@
 [START_SIGNALS] LV_BAT_summedVoltage,16,5,0,U,65535,0,1,14000,0.267,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] DASH__hmiDevicesState,357,2,7,0,S,DASH
+[START_MSG] DASH__hmiDevicesState,357,3,12,0,S,DASH
 [START_SIGNALS] BTN_RTD_isPressed,1,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BTN_1_isPressed,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BTN_2_isPressed,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BTN_3_isPressed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BTN_4_isPressed,1,1,4,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] ROT_SW_1_state,4,2,0,U,9,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] ROT_SW_2_state,4,2,4,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_5_isPressed,1,1,5,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_6_isPressed,1,1,6,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_7_isPressed,1,1,7,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_8_isPressed,1,2,0,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_1_state,4,2,4,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_2_state,4,3,0,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_3_state,4,3,4,U,9,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] DSPACE__peripheralsCTRL,407,3,5,0,S,DSPACE
@@ -562,7 +567,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] BRUSA,DASH,DIAG_TOOL,EXTRA_NODE,SB_REAR,IMU,TPMS,BMS_LV,DSPACE,SB_FRONT,SCANNER,TLB_BAT
+[NODE] SB_REAR,SCANNER,TPMS,BMS_LV,DASH,EXTRA_NODE,SB_FRONT,BRUSA,DIAG_TOOL,DSPACE,TLB_BAT,IMU
 [START_DESC]
 
 [START_DESC_MSG]
@@ -636,18 +641,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-BRUSA "Brusa NLG5 charger.";
-DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_REAR "Sensorboard rear ECU";
-IMU "Inertial Measurement Unit.";
+SCANNER "Can Logger ECU";
 TPMS "Tire pressure monitoring system";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
-DSPACE "An automotive ECU";
+DASH "Dashboard ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
-SCANNER "Can Logger ECU";
+BRUSA "Brusa NLG5 charger.";
+DIAG_TOOL "Diagnostic tool";
+DSPACE "An automotive ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
+IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -690,8 +695,13 @@ TLB_BAT "TSAL-latch-board battery ECU";
 357 S BTN_2_isPressed "Steering wheel Button #2 is pressed";
 357 S BTN_3_isPressed "Steering wheel Button #3 is pressed";
 357 S BTN_4_isPressed "Steering wheel Button #4 is pressed";
+357 S BTN_5_isPressed "Steering wheel Button #5 is pressed";
+357 S BTN_6_isPressed "Steering wheel Button #6 is pressed";
+357 S BTN_7_isPressed "Steering wheel Button #7 is pressed";
+357 S BTN_8_isPressed "Steering wheel Button #8 is pressed";
 357 S ROT_SW_1_state "Rotary Switch 1 state";
 357 S ROT_SW_2_state "Rotary Switch 2 state";
+357 S ROT_SW_3_state "Rotary Switch 3 state";
 407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
 407 S DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
 407 S AS_SDC_closeCMD "Autonomous system SDC closure command";
