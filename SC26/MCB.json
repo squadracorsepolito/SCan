@@ -1191,7 +1191,7 @@
         "DASH__hmiDevicesState": {
             "message-id_dec": 22,
             "id": 357,
-            "length": 2,
+            "length": 3,
             "sender": "DASH",
             "cycle_time": 200,
             "send_type": "Cyclic",
