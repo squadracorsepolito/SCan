@@ -2923,8 +2923,8 @@
                     "min": 0,
                     "max": 1
                 },
-                "SDC_POST_DC_BUS_isClosed": {
-                    "description": "States whether the SDC post DC bus (inverter mono) is closed",
+                "ASMS_isClosed": {
+                    "description": "States whether the ASMS is closed",
                     "start_bit": 2,
                     "size": 1,
                     "endianness": "little",
