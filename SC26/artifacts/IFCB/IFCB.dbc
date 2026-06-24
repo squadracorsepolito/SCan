@@ -150,7 +150,7 @@ BO_ 650 Inverter_FR_ActualValues2: 8 Vector__XXX
 BA_DEF_ BO_ "GenMsgCycleTime" INT 0 1000;
 BA_DEF_ BO_ "GenMsgSendType" ENUM "NoMsgSendType","Cyclic","IfActive","CyclicIfActive","NotUsed";
 BA_DEF_ SG_ "GenSigSendType" ENUM "NoSigSendType","Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NotUsed";
-BA_DEF_DEF_ "GenMsgSendType" "NoMsgSendType";
 BA_DEF_DEF_ "GenMsgCycleTime" 0;
+BA_DEF_DEF_ "GenMsgSendType" "NoMsgSendType";
 BA_DEF_DEF_ "GenSigSendType" "NoSigSendType";
 
