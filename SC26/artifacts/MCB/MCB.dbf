@@ -342,17 +342,17 @@
 [END_MSG]
 
 [START_MSG] DV_system_status,1282,5,8,0,S,DSPACE
-[START_SIGNALS] ASSI_Status,3,1,0,U,5,1,1,0,1,,,DATALOGGER
+[START_SIGNALS] ASSI_Status,3,1,0,U,5,1,1,0,1,,,DATALOGGER,DASH
 [VALUE_DESCRIPTION] "AS_status_off",1
 [VALUE_DESCRIPTION] "AS_status_ready",2
 [VALUE_DESCRIPTION] "AS_status_driving",3
 [VALUE_DESCRIPTION] "AS_status_emergency",4
 [VALUE_DESCRIPTION] "AS_status_finished",5
-[START_SIGNALS] ASB_EBS_state,2,1,3,U,3,1,1,0,1,,,DATALOGGER
+[START_SIGNALS] ASB_EBS_state,2,1,3,U,3,1,1,0,1,,,DATALOGGER,DASH
 [VALUE_DESCRIPTION] "ASB_EBS_state_deactivated",1
 [VALUE_DESCRIPTION] "ASB_EBS_state_initial_checkup_passed",2
 [VALUE_DESCRIPTION] "ASB_EBS_state_activated",3
-[START_SIGNALS] AMI_state,3,1,5,U,6,1,1,0,1,,,DATALOGGER
+[START_SIGNALS] AMI_state,3,1,5,U,6,1,1,0,1,,,DATALOGGER,DASH
 [VALUE_DESCRIPTION] "AMI_state_acceleration",1
 [VALUE_DESCRIPTION] "AMI_state_skidpad",2
 [VALUE_DESCRIPTION] "AMI_state_trackdrive",3
@@ -613,7 +613,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] EXTRA_NODE,DSPACE,SB_FRONT,SB_REAR,SCANNER,TPMS,TLB_BAT,BRUSA,DATALOGGER,BMS_LV,DASH,DIAG_TOOL,IMU
+[NODE] SB_FRONT,TPMS,DATALOGGER,BMS_LV,BRUSA,DSPACE,SB_REAR,DASH,DIAG_TOOL,EXTRA_NODE,SCANNER,TLB_BAT,IMU
 [START_DESC]
 
 [START_DESC_MSG]
@@ -690,18 +690,18 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-DSPACE "An automotive ECU";
 SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
-SCANNER "Can Logger ECU";
 TPMS "Tire pressure monitoring system";
-TLB_BAT "TSAL-latch-board battery ECU";
-BRUSA "Brusa NLG5 charger.";
 DATALOGGER "DataLogger provided by race organizers";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
+BRUSA "Brusa NLG5 charger.";
+DSPACE "An automotive ECU";
+SB_REAR "Sensorboard rear ECU";
 DASH "Dashboard ECU";
 DIAG_TOOL "Diagnostic tool";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
 IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
