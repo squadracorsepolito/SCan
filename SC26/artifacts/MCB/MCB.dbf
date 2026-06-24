@@ -136,7 +136,7 @@
 [START_MSG] SB_REAR__SDCsensingStatus,755,1,4,0,S,SB_REAR
 [START_SIGNALS] SDC_POST_BSPD_isClosed,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] SDC_PRE_PUSH_BTNS_isClosed,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] SDC_POST_DC_BUS_isClosed,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ASMS_isClosed,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] SDC_POST_INV_FR_isClosed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
@@ -613,7 +613,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DASH,TPMS,IMU,EXTRA_NODE,SCANNER,SB_REAR,BRUSA,DSPACE,SB_FRONT,TLB_BAT,DATALOGGER,BMS_LV,DIAG_TOOL
+[NODE] EXTRA_NODE,DSPACE,SB_FRONT,SB_REAR,SCANNER,TPMS,TLB_BAT,BRUSA,DATALOGGER,BMS_LV,DASH,DIAG_TOOL,IMU
 [START_DESC]
 
 [START_DESC_MSG]
@@ -690,19 +690,19 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-DASH "Dashboard ECU";
-TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SCANNER "Can Logger ECU";
-SB_REAR "Sensorboard rear ECU";
-BRUSA "Brusa NLG5 charger.";
 DSPACE "An automotive ECU";
 SB_FRONT "Sensorboard front ECU";
+SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
+TPMS "Tire pressure monitoring system";
 TLB_BAT "TSAL-latch-board battery ECU";
+BRUSA "Brusa NLG5 charger.";
 DATALOGGER "DataLogger provided by race organizers";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
+DASH "Dashboard ECU";
 DIAG_TOOL "Diagnostic tool";
+IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -780,7 +780,7 @@ DIAG_TOOL "Diagnostic tool";
 737 S SDC_TSAC_finalIn_voltage "Shutdown Circuit sensing: TSAC Final Input voltage";
 755 S SDC_POST_BSPD_isClosed "States whether the SDC post BSPD is closed";
 755 S SDC_PRE_PUSH_BTNS_isClosed "States whether the SDC per push buttons (hoop right/left) is closed";
-755 S SDC_POST_DC_BUS_isClosed "States whether the SDC post DC bus (inverter mono) is closed";
+755 S ASMS_isClosed "States whether the ASMS is closed";
 755 S SDC_POST_INV_FR_isClosed "States whether the SDC post inverter front right is closed";
 770 S SDC_POST_INERTIA_isActive "States whether the SDC post inertia switch is active";
 770 S SDC_POST_BOTS_isActive "States whether the SDC post BOTS is active";
