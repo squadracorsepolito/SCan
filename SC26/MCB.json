@@ -5283,7 +5283,8 @@
                     "size": 3,  
                     "endianness": "little",  
                     "receivers": [
-                        "DATALOGGER"
+                        "DATALOGGER",
+                        "DASH"
                     ],  
                     "scale": 1,  
                     "offset": 0, 
@@ -5297,7 +5298,8 @@
                     "size": 2,  
                     "endianness": "little",  
                     "receivers": [
-                        "DATALOGGER"
+                        "DATALOGGER",
+                        "DASH"
                     ],  
                     "scale": 1,  
                     "offset": 0,  
@@ -5311,7 +5313,8 @@
                     "size": 3,  
                     "endianness": "little",  
                     "receivers": [
-                        "DATALOGGER"
+                        "DATALOGGER",
+                        "DASH"
                     ],  
                     "scale": 1,  
                     "offset": 0,  
