@@ -36,6 +36,9 @@
         },
         "BRUSA": {
             "description": "Brusa NLG5 charger."
+        },
+        "DATALOGGER": {
+            "description": "DataLogger provided by race organizers"
         }
     },
     "general_attributes": {},
@@ -55,7 +58,8 @@
             "SCANNER": 9,
             "TPMS": 10,
             "IMU": 11,
-            "BRUSA": 12
+            "BRUSA": 12,
+            "DATALOGGER": 13
         },
         "lvRlyOverrideState": {
             "LV_RLY_OVERRIDE_OFF": 0,
@@ -90,6 +94,31 @@
             "MAGENTA": 6,
             "YELLOW": 7,
             "WHITE": 8
+        },
+        "ASSI_Status_Enum": {
+            "AS_status_off": 1,
+            "AS_status_ready": 2,
+            "AS_status_driving": 3,
+            "AS_status_emergency": 4,
+            "AS_status_finished": 5
+        },
+        "ASB_EBS_States_Enum": {
+            "ASB_EBS_state_deactivated": 1,
+            "ASB_EBS_state_initial_checkup_passed": 2,
+            "ASB_EBS_state_activated": 3
+        },
+        "ASB_redundancy_States_Enum": {
+            "ASB_redundancy_state_deactivated": 1,
+            "ASB_redundancy_state_engaged": 2,
+            "ASB_redundancy_state_initial_checkup_passed": 3
+        },
+        "AMI_States_Enum": {
+            "AMI_state_acceleration": 1,
+            "AMI_state_skidpad": 2,
+            "AMI_state_trackdrive": 3,
+            "AMI_state_braketest": 4,
+            "AMI_state_inspection": 5,
+            "AMI_state_autocross": 6
         }
     },
     "messages": {
@@ -5072,6 +5101,291 @@
                     "max": 300
                 }
             }
+        },
+        "DV_driving_dynamics_1": {  
+            "id": 1280,  
+            "length": 8,  
+            "sender": "DSPACE",
+            "cycle_time": 100,
+            "send_type": "Cyclic",  
+            "signals": {  
+                "Speed_actual": {  
+                    "description": "",  
+                    "start_bit": 0,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 255  
+                },  
+                "Speed_target": {  
+                    "description": "",  
+                    "start_bit": 8,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 255  
+                },  
+                "Steering_angle_actual": {  
+                    "description": "",  
+                    "start_bit": 16,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 0.5,  
+                    "offset": 0,  
+                    "min": -64,  
+                    "max": 63.5  
+                },  
+                "Steering_angle_target": {  
+                    "description": "",  
+                    "start_bit": 24,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 0.5,  
+                    "offset": 0,  
+                    "min": -64,  
+                    "max": 63.5  
+                },  
+                "Brake_hydr_actual": {  
+                    "description": "",  
+                    "start_bit": 32,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 255  
+                },  
+                "Brake_hydr_target": {  
+                    "description": "",  
+                    "start_bit": 40,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 255  
+                },  
+                "Motor_moment_actual": {  
+                    "description": "",  
+                    "start_bit": 48,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": -128,  
+                    "max": 127  
+                },  
+                "Motor_moment_target": {  
+                    "description": "",  
+                    "start_bit": 56,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": -128,  
+                    "max": 127  
+                }  
+            }  
+        },  
+        "DV_driving_dynamics_2": {  
+            "id": 1281,  
+            "length": 6,  
+            "sender": "DSPACE",
+            "cycle_time": 100,
+            "send_type": "Cyclic",  
+            "signals": {  
+                "Acceleration_longitudinal": {  
+                    "description": "",  
+                    "start_bit": 0,  
+                    "size": 16,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 0.001953125,  
+                    "offset": 0,  
+                    "min": -64,  
+                    "max": 63.998046875  
+                },  
+                "Acceleration_lateral": {  
+                    "description": "",  
+                    "start_bit": 16,  
+                    "size": 16,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 0.001953125,  
+                    "offset": 0,  
+                    "min": -64,  
+                    "max": 63.998046875  
+                },  
+                "Yaw_rate": {  
+                    "description": "",  
+                    "start_bit": 32,  
+                    "size": 16,  
+                    "endianness": "little",  
+                    "signed": true,  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 0.0078125,  
+                    "offset": 0,  
+                    "min": -256,  
+                    "max": 255.9921875  
+                }  
+            }  
+        },  
+        "DV_system_status": {  
+            "id": 1282,  
+            "length": 5,  
+            "sender": "DSPACE",
+            "cycle_time": 100,
+            "send_type": "Cyclic",  
+            "signals": {  
+                "ASSI_Status": {  
+                    "description": "",  
+                    "start_bit": 0,  
+                    "size": 3,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0, 
+                    "enum_ref": "ASSI_Status_Enum",
+                    "min": 1,  
+                    "max": 5  
+                },  
+                "ASB_EBS_state": {  
+                    "description": "",  
+                    "start_bit": 3,  
+                    "size": 2,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "enum_ref": "ASB_EBS_States_Enum",
+                    "min": 1,  
+                    "max": 3  
+                },  
+                "AMI_state": {  
+                    "description": "",  
+                    "start_bit": 5,  
+                    "size": 3,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "enum_ref": "AMI_States_Enum",
+                    "min": 1,  
+                    "max": 6  
+                },  
+                "Steering_state": {  
+                    "description": "",  
+                    "start_bit": 8,  
+                    "size": 1,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 1  
+                },  
+                "ASB_redundancy_state": {  
+                    "description": "",  
+                    "start_bit": 9,  
+                    "size": 2,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "enum_ref": "ASB_redundancy_States_Enum",
+                    "min": 1,  
+                    "max": 3  
+                },  
+                "Lap_counter": {  
+                    "description": "",  
+                    "start_bit": 11,  
+                    "size": 4,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 15  
+                },  
+                "Cones_count_actual": {  
+                    "description": "",  
+                    "start_bit": 15,  
+                    "size": 8,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 255  
+                },  
+                "Cones_count_all": {  
+                    "description": "",  
+                    "start_bit": 23,  
+                    "size": 17,  
+                    "endianness": "little",  
+                    "receivers": [
+                        "DATALOGGER"
+                    ],  
+                    "scale": 1,  
+                    "offset": 0,  
+                    "min": 0,  
+                    "max": 131071  
+                }  
+            }  
         }
     }
 }
