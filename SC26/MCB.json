@@ -39,6 +39,9 @@
         },
         "DATALOGGER": {
             "description": "DataLogger provided by race organizers"
+        },
+        "STEERING": {
+            "description": "Steering wheel board"
         }
     },
     "general_attributes": {},
@@ -59,7 +62,8 @@
             "TPMS": 10,
             "IMU": 11,
             "BRUSA": 12,
-            "DATALOGGER": 13
+            "DATALOGGER": 13,
+            "STEERING": 14
         },
         "lvRlyOverrideState": {
             "LV_RLY_OVERRIDE_OFF": 0,
@@ -1226,7 +1230,7 @@
         "DASH__hmiDevicesState": {
             "message-id_dec": 22,
             "id": 357,
-            "length": 3,
+            "length": 1,
             "sender": "DASH",
             "cycle_time": 200,
             "send_type": "Cyclic",
@@ -1245,8 +1249,8 @@
                     "min": 0,
                     "max": 255
                 },
-                "BTN_1_isPressed": {
-                    "description": "Steering wheel Button #1 is pressed",
+                "BTN_TS_ON_isPressed": {
+                    "description": "Tractive System ON Button #1 is pressed",
                     "start_bit": 1,
                     "size": 1,
                     "endianness": "little",
@@ -1257,161 +1261,7 @@
                     "scale": 1,
                     "offset": 0,
                     "min": 0,
-                    "max": 1
-                },
-                "BTN_2_isPressed": {
-                    "description": "Steering wheel Button #2 is pressed",
-                    "start_bit": 2,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_3_isPressed": {
-                    "description": "Steering wheel Button #3 is pressed",
-                    "start_bit": 3,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_4_isPressed": {
-                    "description": "Steering wheel Button #4 is pressed",
-                    "start_bit": 4,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_5_isPressed": {
-                    "description": "Steering wheel Button #5 is pressed",
-                    "start_bit": 5,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_6_isPressed": {
-                    "description": "Steering wheel Button #6 is pressed",
-                    "start_bit": 6,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_7_isPressed": {
-                    "description": "Steering wheel Button #7 is pressed",
-                    "start_bit": 7,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_8_isPressed": {
-                    "description": "Steering wheel Button #8 is pressed",
-                    "start_bit": 8,
-                    "size": 1,
-                    "endianness": "little",
-                   "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "BTN_9_isPressed": {
-                    "description": "Steering wheel Button #9 is pressed",
-                    "start_bit": 9,
-                    "size": 1,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 1
-                },
-                "ROT_SW_1_state": {
-                    "description": "Rotary Switch 1 state",
-                    "start_bit":12,
-                    "size": 4,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 9
-                },
-                "ROT_SW_2_state": {
-                    "description": "Rotary Switch 2 state",
-                    "start_bit": 16,
-                    "size": 4,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 9
-                },
-                "ROT_SW_3_state": {
-                    "description": "Rotary Switch 3 state",
-                    "start_bit": 20,
-                    "size": 4,
-                    "endianness": "little",
-                    "receivers": [
-                        "DSPACE",
-                        "SCANNER"
-                    ],
-                    "scale": 1,
-                    "offset": 0,
-                    "min": 0,
-                    "max": 9
+                    "max": 255
                 }
             }
         },
@@ -5447,6 +5297,184 @@
                     "enum_ref": "ASB_EBS_Valves_Enum",
                     "min": 1,  
                     "max": 4  
+                }
+            }
+        },
+        "STEERING__hmiDevicesState": {
+            "message-id_dec": 22,
+            "id": 366,
+            "length": 3,
+            "sender": "STEERING",
+            "cycle_time": 200,
+            "send_type": "Cyclic",
+            "signals": {
+                "BTN_1_isPressed": {
+                    "description": "Steering wheel Button #1 is pressed",
+                    "start_bit": 0,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_2_isPressed": {
+                    "description": "Steering wheel Button #2 is pressed",
+                    "start_bit": 1,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_3_isPressed": {
+                    "description": "Steering wheel Button #3 is pressed",
+                    "start_bit": 2,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_4_isPressed": {
+                    "description": "Steering wheel Button #4 is pressed",
+                    "start_bit": 3,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_5_isPressed": {
+                    "description": "Steering wheel Button #5 is pressed",
+                    "start_bit": 4,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_6_isPressed": {
+                    "description": "Steering wheel Button #6 is pressed",
+                    "start_bit": 5,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_7_isPressed": {
+                    "description": "Steering wheel Button #7 is pressed",
+                    "start_bit": 6,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_8_isPressed": {
+                    "description": "Steering wheel Button #8 is pressed",
+                    "start_bit": 7,
+                    "size": 1,
+                    "endianness": "little",
+                   "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "BTN_9_isPressed": {
+                    "description": "Steering wheel Button #9 is pressed",
+                    "start_bit": 8,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                },
+                "ROT_SW_1_state": {
+                    "description": "Rotary Switch 1 state",
+                    "start_bit":11,
+                    "size": 4,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 9
+                },
+                "ROT_SW_2_state": {
+                    "description": "Rotary Switch 2 state",
+                    "start_bit": 15,
+                    "size": 4,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 9
+                },
+                "ROT_SW_3_state": {
+                    "description": "Rotary Switch 3 state",
+                    "start_bit": 19,
+                    "size": 4,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE",
+                        "SCANNER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 9
                 }
             }
         }
