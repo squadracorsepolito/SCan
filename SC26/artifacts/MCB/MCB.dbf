@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 71
+[NUMBER_OF_MESSAGES] 72
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -34,17 +34,19 @@
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__analogDevice,82,8,4,0,S,SB_FRONT
+[START_MSG] SB_FRONT__analogDevice,82,10,5,0,S,SB_FRONT
 [START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] BRAKE_PRESS_FRONT_PNEU_voltage,16,9,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_REAR__analogDevice,99,6,3,0,S,SB_REAR
+[START_MSG] SB_REAR__analogDevice,99,8,4,0,S,SB_REAR
 [START_SIGNALS] COOL_PRESS_LEFT_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] COOL_PRESS_RIGHT_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] BRAKE_PRESS_REAR_PNEU_voltage,16,7,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] SB_REAR__criticalPeripherals,115,1,2,0,S,SB_REAR
@@ -54,6 +56,14 @@
 
 [START_MSG] SB_REAR__coldplateCircuitPressure,131,2,1,0,S,SB_REAR
 [START_SIGNALS] COLDPLATE_CIRCUIT_PRESS_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] ASB_EBS_CMD_on,167,1,1,0,S,DSPACE
+[START_SIGNALS] ASB_VALVES_CMD,3,1,0,U,4,1,1,0,1,,,DASH
+[VALUE_DESCRIPTION] "Ollio_brakes",1
+[VALUE_DESCRIPTION] "Stanlio_brakes",2
+[VALUE_DESCRIPTION] "Both_brake",3
+[VALUE_DESCRIPTION] "No_brakes",4
 [END_MSG]
 
 [START_MSG] BMS_LV__lvBatGeneral,324,6,3,0,S,BMS_LV
@@ -613,7 +623,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] SB_FRONT,TPMS,DATALOGGER,BMS_LV,BRUSA,DSPACE,SB_REAR,DASH,DIAG_TOOL,EXTRA_NODE,SCANNER,TLB_BAT,IMU
+[NODE] EXTRA_NODE,SB_REAR,IMU,BRUSA,BMS_LV,SB_FRONT,SCANNER,TLB_BAT,DATALOGGER,DASH,DIAG_TOOL,DSPACE,TPMS
 [START_DESC]
 
 [START_DESC_MSG]
@@ -623,6 +633,7 @@
 99 S "(cycle_time: 10) (send_type: Cyclic)";
 115 S "(cycle_time: 10) (send_type: Cyclic)";
 131 S "(cycle_time: 10) (send_type: Cyclic)";
+167 S "(cycle_time: 10) (send_type: Cyclic)";
 324 S "(cycle_time: 100) (send_type: Cyclic)";
 357 S "(cycle_time: 200) (send_type: Cyclic)";
 407 S "(cycle_time: 10) (send_type: Cyclic)";
@@ -690,19 +701,19 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-SB_FRONT "Sensorboard front ECU";
-TPMS "Tire pressure monitoring system";
-DATALOGGER "DataLogger provided by race organizers";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-BRUSA "Brusa NLG5 charger.";
-DSPACE "An automotive ECU";
-SB_REAR "Sensorboard rear ECU";
-DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_REAR "Sensorboard rear ECU";
+IMU "Inertial Measurement Unit.";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+SB_FRONT "Sensorboard front ECU";
 SCANNER "Can Logger ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
-IMU "Inertial Measurement Unit.";
+DATALOGGER "DataLogger provided by race organizers";
+DASH "Dashboard ECU";
+DIAG_TOOL "Diagnostic tool";
+DSPACE "An automotive ECU";
+TPMS "Tire pressure monitoring system";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -731,12 +742,15 @@ IMU "Inertial Measurement Unit.";
 82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
 82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
 82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
+82 S BRAKE_PRESS_FRONT_PNEU_voltage "The voltage of the front brake pressure sensor (pneumatic) expressed in mV";
 99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
 99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
 99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
+99 S BRAKE_PRESS_REAR_PNEU_voltage "The voltage of the rear brake pressure sensor (pneumatic) expressed in mV";
 115 S DISCHARGE_isActive "States whether the discharge is discharging the DCBUS";
 115 S BSPD_hasError "States whether the BSPD has an error";
 131 S COLDPLATE_CIRCUIT_PRESS_voltage "The voltage of the coldplate circuit pressure sensor expressed in mV";
+167 S ASB_VALVES_CMD "Command of the ASB EBS valves (Stanlio and Ollio)";
 324 S LV_BAT_currentSensVoltage "The voltage returned by the current sensor of the LV battery expressed in mV";
 324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV";
 324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV";
@@ -1038,6 +1052,8 @@ IMU "Inertial Measurement Unit.";
 115,S,"GenMsgSendType","1"
 131,S,"GenMsgCycleTime","10"
 131,S,"GenMsgSendType","1"
+167,S,"GenMsgCycleTime","10"
+167,S,"GenMsgSendType","1"
 324,S,"GenMsgCycleTime","100"
 324,S,"GenMsgSendType","1"
 357,S,"GenMsgCycleTime","200"
