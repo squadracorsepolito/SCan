@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 72
+[NUMBER_OF_MESSAGES] 73
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -72,20 +72,24 @@
 [START_SIGNALS] LV_BAT_summedVoltage,16,5,0,U,65535,0,1,14000,0.267,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] DASH__hmiDevicesState,357,3,13,0,S,DASH
+[START_MSG] DASH__hmiDevicesState,357,1,2,0,S,DASH
 [START_SIGNALS] BTN_RTD_isPressed,1,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_1_isPressed,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_2_isPressed,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_3_isPressed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_4_isPressed,1,1,4,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_5_isPressed,1,1,5,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_6_isPressed,1,1,6,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_7_isPressed,1,1,7,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_8_isPressed,1,2,0,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] BTN_9_isPressed,1,2,1,U,1,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] ROT_SW_1_state,4,2,4,U,9,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] ROT_SW_2_state,4,3,0,U,9,0,1,0,1,,,DSPACE,SCANNER
-[START_SIGNALS] ROT_SW_3_state,4,3,4,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_TS_ON_isPressed,1,1,1,U,255,0,1,0,1,,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] STEERING__hmiDevicesState,366,3,12,0,S,STEERING
+[START_SIGNALS] BTN_1_isPressed,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_2_isPressed,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_3_isPressed,1,1,2,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_4_isPressed,1,1,3,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_5_isPressed,1,1,4,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_6_isPressed,1,1,5,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_7_isPressed,1,1,6,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_8_isPressed,1,1,7,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_9_isPressed,1,2,0,U,1,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_1_state,4,2,3,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_2_state,4,2,7,U,9,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] ROT_SW_3_state,4,3,3,U,9,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] DSPACE__peripheralsCTRL,407,3,5,0,S,DSPACE
@@ -623,7 +627,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] EXTRA_NODE,SB_REAR,IMU,BRUSA,BMS_LV,SB_FRONT,SCANNER,TLB_BAT,DATALOGGER,DASH,DIAG_TOOL,DSPACE,TPMS
+[NODE] DIAG_TOOL,DSPACE,EXTRA_NODE,STEERING,SB_FRONT,SB_REAR,DATALOGGER,SCANNER,TLB_BAT,IMU,BRUSA,BMS_LV,DASH,TPMS
 [START_DESC]
 
 [START_DESC_MSG]
@@ -636,6 +640,7 @@
 167 S "(cycle_time: 10) (send_type: Cyclic)";
 324 S "(cycle_time: 100) (send_type: Cyclic)";
 357 S "(cycle_time: 200) (send_type: Cyclic)";
+366 S "(cycle_time: 200) (send_type: Cyclic)";
 407 S "(cycle_time: 10) (send_type: Cyclic)";
 439 S "(cycle_time: 100) (send_type: Cyclic)";
 455 S "(cycle_time: 100) (send_type: Cyclic)";
@@ -701,18 +706,19 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+DIAG_TOOL "Diagnostic tool";
+DSPACE "An automotive ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+STEERING "Steering wheel board";
+SB_FRONT "Sensorboard front ECU";
 SB_REAR "Sensorboard rear ECU";
+DATALOGGER "DataLogger provided by race organizers";
+SCANNER "Can Logger ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
 IMU "Inertial Measurement Unit.";
 BRUSA "Brusa NLG5 charger.";
 BMS_LV "Battery-Management-System Low-Voltage ECU";
-SB_FRONT "Sensorboard front ECU";
-SCANNER "Can Logger ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-DATALOGGER "DataLogger provided by race organizers";
 DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
-DSPACE "An automotive ECU";
 TPMS "Tire pressure monitoring system";
 [END_DESC_NODE]
 [START_DESC_SIG]
@@ -755,18 +761,19 @@ TPMS "Tire pressure monitoring system";
 324 S LV_BAT_voltage "The total read voltage of the LV battery pack expressed in mV";
 324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV";
 357 S BTN_RTD_isPressed "Ready To Drive Button pressed";
-357 S BTN_1_isPressed "Steering wheel Button #1 is pressed";
-357 S BTN_2_isPressed "Steering wheel Button #2 is pressed";
-357 S BTN_3_isPressed "Steering wheel Button #3 is pressed";
-357 S BTN_4_isPressed "Steering wheel Button #4 is pressed";
-357 S BTN_5_isPressed "Steering wheel Button #5 is pressed";
-357 S BTN_6_isPressed "Steering wheel Button #6 is pressed";
-357 S BTN_7_isPressed "Steering wheel Button #7 is pressed";
-357 S BTN_8_isPressed "Steering wheel Button #8 is pressed";
-357 S BTN_9_isPressed "Steering wheel Button #9 is pressed";
-357 S ROT_SW_1_state "Rotary Switch 1 state";
-357 S ROT_SW_2_state "Rotary Switch 2 state";
-357 S ROT_SW_3_state "Rotary Switch 3 state";
+357 S BTN_TS_ON_isPressed "Tractive System ON Button #1 is pressed";
+366 S BTN_1_isPressed "Steering wheel Button #1 is pressed";
+366 S BTN_2_isPressed "Steering wheel Button #2 is pressed";
+366 S BTN_3_isPressed "Steering wheel Button #3 is pressed";
+366 S BTN_4_isPressed "Steering wheel Button #4 is pressed";
+366 S BTN_5_isPressed "Steering wheel Button #5 is pressed";
+366 S BTN_6_isPressed "Steering wheel Button #6 is pressed";
+366 S BTN_7_isPressed "Steering wheel Button #7 is pressed";
+366 S BTN_8_isPressed "Steering wheel Button #8 is pressed";
+366 S BTN_9_isPressed "Steering wheel Button #9 is pressed";
+366 S ROT_SW_1_state "Rotary Switch 1 state";
+366 S ROT_SW_2_state "Rotary Switch 2 state";
+366 S ROT_SW_3_state "Rotary Switch 3 state";
 407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
 407 S DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
 407 S AS_SDC_closeCMD "Autonomous system SDC closure command";
@@ -1058,6 +1065,8 @@ TPMS "Tire pressure monitoring system";
 324,S,"GenMsgSendType","1"
 357,S,"GenMsgCycleTime","200"
 357,S,"GenMsgSendType","1"
+366,S,"GenMsgCycleTime","200"
+366,S,"GenMsgSendType","1"
 407,S,"GenMsgCycleTime","10"
 407,S,"GenMsgSendType","1"
 439,S,"GenMsgCycleTime","100"
