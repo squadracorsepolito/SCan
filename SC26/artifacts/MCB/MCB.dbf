@@ -34,19 +34,19 @@
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__analogDevice,82,10,5,0,S,SB_FRONT
+[START_MSG] SB_FRONT__analogDevice,82,12,6,0,S,SB_FRONT
 [START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] BRAKE_PRESS_FRONT_PNEU_voltage,16,9,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,9,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,11,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_REAR__analogDevice,99,8,4,0,S,SB_REAR
+[START_MSG] SB_REAR__analogDevice,99,6,3,0,S,SB_REAR
 [START_SIGNALS] COOL_PRESS_LEFT_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] COOL_PRESS_RIGHT_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] BRAKE_PRESS_REAR_PNEU_voltage,16,7,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] SB_REAR__criticalPeripherals,115,1,2,0,S,SB_REAR
@@ -627,7 +627,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] BMS_LV,DASH,DIAG_TOOL,EXTRA_NODE,SCANNER,BRUSA,SB_REAR,TLB_BAT,TPMS,IMU,DATALOGGER,DSPACE,SB_FRONT,STEERING
+[NODE] DATALOGGER,IMU,SB_FRONT,SB_REAR,TLB_BAT,TPMS,BRUSA,STEERING,DIAG_TOOL,DASH,DSPACE,EXTRA_NODE,SCANNER,BMS_LV
 [START_DESC]
 
 [START_DESC_MSG]
@@ -706,20 +706,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SCANNER "Can Logger ECU";
-BRUSA "Brusa NLG5 charger.";
+DATALOGGER "DataLogger provided by race organizers";
+IMU "Inertial Measurement Unit.";
+SB_FRONT "Sensorboard front ECU";
 SB_REAR "Sensorboard rear ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
 TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
-DATALOGGER "DataLogger provided by race organizers";
-DSPACE "An automotive ECU";
-SB_FRONT "Sensorboard front ECU";
+BRUSA "Brusa NLG5 charger.";
 STEERING "Steering wheel board";
+DIAG_TOOL "Diagnostic tool";
+DASH "Dashboard ECU";
+DSPACE "An automotive ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SCANNER "Can Logger ECU";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -748,11 +748,11 @@ STEERING "Steering wheel board";
 82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
 82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
 82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
-82 S BRAKE_PRESS_FRONT_PNEU_voltage "The voltage of the front brake pressure sensor (pneumatic) expressed in mV";
+82 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
+82 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
 99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
 99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
 99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
-99 S BRAKE_PRESS_REAR_PNEU_voltage "The voltage of the rear brake pressure sensor (pneumatic) expressed in mV";
 115 S DISCHARGE_isActive "States whether the discharge is discharging the DCBUS";
 115 S BSPD_hasError "States whether the BSPD has an error";
 131 S COLDPLATE_CIRCUIT_PRESS_voltage "The voltage of the coldplate circuit pressure sensor expressed in mV";
