@@ -5315,7 +5315,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5329,7 +5330,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5343,7 +5345,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5357,7 +5360,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5371,7 +5375,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5385,7 +5390,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5399,7 +5405,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5413,7 +5420,8 @@
                     "endianness": "little",
                    "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5427,7 +5435,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5441,7 +5450,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5455,7 +5465,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
@@ -5469,7 +5480,8 @@
                     "endianness": "little",
                     "receivers": [
                         "DSPACE",
-                        "SCANNER"
+                        "SCANNER",
+                        "DASH"
                     ],
                     "scale": 1,
                     "offset": 0,
