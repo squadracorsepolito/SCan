@@ -5515,6 +5515,28 @@
                     "max": 9
                 }
             }
+        },
+        "Rolling_not_commuted": {
+            "message-id_dec": 23,
+            "id": 373,
+            "length": 1,
+            "sender": "DASH",
+            "send_type": "IfActive",
+            "signals": {
+                "No_counter_change_notify": {
+                    "description": "Dashboard response to the counter for EBS test procedure (rolling counter not changing)",
+                    "start_bit": 0,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DSPACE"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 1
+                }
+            }
         }
     }
 }
