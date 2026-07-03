@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 74
+[NUMBER_OF_MESSAGES] 75
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -34,13 +34,16 @@
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__analogDevice,82,12,6,0,S,SB_FRONT
+[START_MSG] SB_FRONT__analogDevice,82,8,4,0,S,SB_FRONT
 [START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,9,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,11,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] SB_FRONT_emergency_brake_sensors,83,4,2,0,S,SB_FRONT
+[START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] SB_REAR__analogDevice,99,6,3,0,S,SB_REAR
@@ -633,13 +636,14 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DATALOGGER,DASH,DIAG_TOOL,SB_REAR,TPMS,BRUSA,DSPACE,SCANNER,IMU,STEERING,BMS_LV,TLB_BAT,EXTRA_NODE,SB_FRONT
+[NODE] BMS_LV,DIAG_TOOL,STEERING,SB_REAR,DATALOGGER,DASH,SB_FRONT,TLB_BAT,BRUSA,DSPACE,EXTRA_NODE,SCANNER,TPMS,IMU
 [START_DESC]
 
 [START_DESC_MSG]
 23 S "(cycle_time: 10) (send_type: Cyclic)";
 65 S "(cycle_time: 10) (send_type: Cyclic)";
 82 S "(cycle_time: 10) (send_type: Cyclic)";
+83 S "(cycle_time: 10) (send_type: Cyclic)";
 99 S "(cycle_time: 10) (send_type: Cyclic)";
 115 S "(cycle_time: 10) (send_type: Cyclic)";
 131 S "(cycle_time: 10) (send_type: Cyclic)";
@@ -713,20 +717,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DIAG_TOOL "Diagnostic tool";
+STEERING "Steering wheel board";
+SB_REAR "Sensorboard rear ECU";
 DATALOGGER "DataLogger provided by race organizers";
 DASH "Dashboard ECU";
-DIAG_TOOL "Diagnostic tool";
-SB_REAR "Sensorboard rear ECU";
-TPMS "Tire pressure monitoring system";
+SB_FRONT "Sensorboard front ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
 BRUSA "Brusa NLG5 charger.";
 DSPACE "An automotive ECU";
-SCANNER "Can Logger ECU";
-IMU "Inertial Measurement Unit.";
-STEERING "Steering wheel board";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SB_FRONT "Sensorboard front ECU";
+SCANNER "Can Logger ECU";
+TPMS "Tire pressure monitoring system";
+IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -755,8 +759,8 @@ SB_FRONT "Sensorboard front ECU";
 82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
 82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
 82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
-82 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
-82 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
+83 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
+83 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
 99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
 99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
 99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
@@ -1063,6 +1067,8 @@ SB_FRONT "Sensorboard front ECU";
 65,S,"GenMsgSendType","1"
 82,S,"GenMsgCycleTime","10"
 82,S,"GenMsgSendType","1"
+83,S,"GenMsgCycleTime","10"
+83,S,"GenMsgSendType","1"
 99,S,"GenMsgCycleTime","10"
 99,S,"GenMsgSendType","1"
 115,S,"GenMsgCycleTime","10"
