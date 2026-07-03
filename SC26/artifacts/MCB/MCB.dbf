@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 73
+[NUMBER_OF_MESSAGES] 74
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -92,6 +92,10 @@
 [START_SIGNALS] ROT_SW_1_state,4,2,3,U,9,0,1,0,1,,,DSPACE,SCANNER,DASH
 [START_SIGNALS] ROT_SW_2_state,4,2,7,U,9,0,1,0,1,,,DSPACE,SCANNER,DASH
 [START_SIGNALS] ROT_SW_3_state,4,3,3,U,9,0,1,0,1,,,DSPACE,SCANNER,DASH
+[END_MSG]
+
+[START_MSG] Rolling_not_commuted,373,1,1,0,S,DASH
+[START_SIGNALS] No_counter_change_notify,1,1,0,U,1,0,1,0,1,,,DSPACE
 [END_MSG]
 
 [START_MSG] DSPACE__peripheralsCTRL,407,3,5,0,S,DSPACE
@@ -629,7 +633,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] DSPACE,TPMS,IMU,DASH,EXTRA_NODE,BMS_LV,DATALOGGER,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BRUSA,STEERING,DIAG_TOOL
+[NODE] DATALOGGER,DASH,DIAG_TOOL,SB_REAR,TPMS,BRUSA,DSPACE,SCANNER,IMU,STEERING,BMS_LV,TLB_BAT,EXTRA_NODE,SB_FRONT
 [START_DESC]
 
 [START_DESC_MSG]
@@ -643,6 +647,7 @@
 324 S "(cycle_time: 100) (send_type: Cyclic)";
 357 S "(cycle_time: 200) (send_type: Cyclic)";
 366 S "(cycle_time: 200) (send_type: Cyclic)";
+373 S "(send_type: IfActive)";
 407 S "(cycle_time: 10) (send_type: Cyclic)";
 439 S "(cycle_time: 100) (send_type: Cyclic)";
 455 S "(cycle_time: 100) (send_type: Cyclic)";
@@ -708,20 +713,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-DSPACE "An automotive ECU";
-TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
-DASH "Dashboard ECU";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
 DATALOGGER "DataLogger provided by race organizers";
-SB_FRONT "Sensorboard front ECU";
-SB_REAR "Sensorboard rear ECU";
-SCANNER "Can Logger ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-BRUSA "Brusa NLG5 charger.";
-STEERING "Steering wheel board";
+DASH "Dashboard ECU";
 DIAG_TOOL "Diagnostic tool";
+SB_REAR "Sensorboard rear ECU";
+TPMS "Tire pressure monitoring system";
+BRUSA "Brusa NLG5 charger.";
+DSPACE "An automotive ECU";
+SCANNER "Can Logger ECU";
+IMU "Inertial Measurement Unit.";
+STEERING "Steering wheel board";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+TLB_BAT "TSAL-latch-board battery ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+SB_FRONT "Sensorboard front ECU";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -778,6 +783,7 @@ DIAG_TOOL "Diagnostic tool";
 366 S ROT_SW_1_state "Rotary Switch 1 state";
 366 S ROT_SW_2_state "Rotary Switch 2 state";
 366 S ROT_SW_3_state "Rotary Switch 3 state";
+373 S No_counter_change_notify "Dashboard response to the counter for EBS test procedure (rolling counter not changing)";
 407 S BRAKE_LIGHT_activeCMD "The command to turn on the brake light (0 inactive - 1 active)";
 407 S DASH_SDC_RLY_closeCMD "The command to close the SDC relay (0 open - 1 close)";
 407 S AS_SDC_closeCMD "Autonomous system SDC closure command";
@@ -1071,6 +1077,7 @@ DIAG_TOOL "Diagnostic tool";
 357,S,"GenMsgSendType","1"
 366,S,"GenMsgCycleTime","200"
 366,S,"GenMsgSendType","1"
+373,S,"GenMsgSendType","2"
 407,S,"GenMsgCycleTime","10"
 407,S,"GenMsgSendType","1"
 439,S,"GenMsgCycleTime","100"
