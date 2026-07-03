@@ -5297,6 +5297,32 @@
                     "enum_ref": "ASB_EBS_Valves_Enum",
                     "min": 1,  
                     "max": 4  
+                },
+                "Rolling_counter":{
+                    "description": "Counter to implement the emergency brake watchdog",
+                    "start_bit": 3,
+                    "size": 3,
+                    "endianness": "little",
+                    "receivers": [
+                        "DASH"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max" : 7
+                },
+                "TEST_EBS": {
+                    "description": "A boolean for the pre-start EBS valves check",
+                    "start_bit": 6,
+                    "size": 1,
+                    "endianness": "little",
+                    "receivers": [
+                        "DASH"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max" : 1
                 }
             }
         },
