@@ -2170,7 +2170,7 @@
         },
         "SB_FRONT__analogDevice": {
             "message-id_dec": 5,
-            "id": 1297,
+            "id": 82,
             "length": 8,
             "sender": "SB_FRONT",
             "cycle_time": 10,
@@ -2240,7 +2240,7 @@
         },
         "SB_FRONT_emergency_brake_sensors": {
             "message-id_dec": 5,
-            "id": 1298,
+            "id": 83,
             "length": 4,
             "sender": "SB_FRONT",
             "cycle_time": 10,
@@ -2490,7 +2490,7 @@
         },
         "SB_REAR__analogDevice": {
             "message-id_dec": 6,
-            "id": 1299,
+            "id": 99,
             "length": 6,
             "sender": "SB_REAR",
             "cycle_time": 10,
@@ -5559,6 +5559,75 @@
                     "offset": 0,
                     "min": 0,
                     "max": 1
+                }
+            }
+        },
+        "DSPACE__redundancy_EBS": {
+            "id": 1297,
+            "length": 8,
+            "sender": "DSPACE",
+            "cycle_time": 100,
+            "send_type": "Cyclic",
+            "signals": {
+                "BRAKE_PRESS_FRONT_voltage": {
+                    "description": "The voltage of the front brake pressure sensor expressed in mV",
+                    "start_bit": 0,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "mV",
+                    "receivers": [
+                        "SB_FRONT",
+                        "DATALOGGER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 8192
+                },
+                "EMERGENCY_BRAKE_PRESS_PNEU_voltage": {
+                    "description": "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV",
+                    "start_bit": 16,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "mV",
+                    "receivers": [
+                        "SB_FRONT",
+                        "DATALOGGER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
+                },
+                "REDUNDANCY_BRAKE_PRESS_PNEU_voltage": {
+                    "description": "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV",
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "mV",
+                    "receivers": [
+                        "SB_FRONT",
+                        "DATALOGGER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
+                },
+                "BRAKE_PRESS_REAR_voltage": {
+                    "description": "The voltage of the rear brake pressure sensor expressed in mV",
+                    "start_bit": 32,
+                    "size": 16,
+                    "endianness": "little",
+                    "unit": "mV",
+                    "receivers": [
+                        "SB_REAR",
+                        "DATALOGGER"
+                    ],
+                    "scale": 1,
+                    "offset": 0,
+                    "min": 0,
+                    "max": 65535
                 }
             }
         }
