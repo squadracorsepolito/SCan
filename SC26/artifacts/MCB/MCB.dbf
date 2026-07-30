@@ -34,24 +34,6 @@
 [START_SIGNALS] AIR_NEG_STG_mechStateSignal_isActive,1,2,6,U,1,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__analogDevice,82,8,4,0,S,SB_FRONT
-[START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
-[END_MSG]
-
-[START_MSG] SB_FRONT_emergency_brake_sensors,83,4,2,0,S,SB_FRONT
-[START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[END_MSG]
-
-[START_MSG] SB_REAR__analogDevice,99,6,3,0,S,SB_REAR
-[START_SIGNALS] COOL_PRESS_LEFT_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] COOL_PRESS_RIGHT_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
-[END_MSG]
-
 [START_MSG] SB_REAR__criticalPeripherals,115,1,2,0,S,SB_REAR
 [START_SIGNALS] DISCHARGE_isActive,1,1,0,U,1,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BSPD_hasError,1,1,1,U,1,0,1,0,1,,,DSPACE,SCANNER
@@ -77,9 +59,10 @@
 [START_SIGNALS] LV_BAT_summedVoltage,16,5,0,U,65535,0,1,14000,0.267,mV,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] DASH__hmiDevicesState,357,1,2,0,S,DASH
+[START_MSG] DASH__hmiDevicesState,357,1,3,0,S,DASH
 [START_SIGNALS] BTN_RTD_isPressed,1,1,0,U,255,0,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] BTN_TS_ON_isPressed,1,1,1,U,255,0,1,0,1,,,DSPACE,SCANNER
+[START_SIGNALS] BTN_MIS_SEL_isPressed,1,1,2,U,255,0,1,0,1,,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] STEERING__hmiDevicesState,366,3,12,0,S,STEERING
@@ -405,6 +388,24 @@
 [START_SIGNALS] TIRE_FR_pressure,8,8,0,U,18.5354,0.0729741,1,-0.7035,13.7035,mB,,DSPACE,SCANNER
 [END_MSG]
 
+[START_MSG] SB_FRONT__analogDevice,1297,8,4,0,S,SB_FRONT
+[START_SIGNALS] APPS_0_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] APPS_1_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] STEER_RME_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,7,0,U,8192,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] SB_FRONT_emergency_brake_sensors,1298,4,2,0,S,SB_FRONT
+[START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] SB_REAR__analogDevice,1299,6,3,0,S,SB_REAR
+[START_SIGNALS] COOL_PRESS_LEFT_voltage,16,1,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] COOL_PRESS_RIGHT_voltage,16,3,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,5,0,U,65535,0,1,0,1,mV,,DSPACE,SCANNER
+[END_MSG]
+
 [START_MSG] TPMS__rearWheelsPressure,1306,8,10,0,S,TPMS
 [START_SIGNALS] TIRE_RL_sensID,8,1,0,U,255,1,1,0,1,,,DSPACE,SCANNER
 [START_SIGNALS] TIRE_RL_statusIsSpinning,1,2,2,U,1,0,1,0,1,,,DSPACE,SCANNER
@@ -636,15 +637,12 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] BMS_LV,DIAG_TOOL,STEERING,SB_REAR,DATALOGGER,DASH,SB_FRONT,TLB_BAT,BRUSA,DSPACE,EXTRA_NODE,SCANNER,TPMS,IMU
+[NODE] SCANNER,TLB_BAT,DASH,DSPACE,EXTRA_NODE,SB_FRONT,SB_REAR,DIAG_TOOL,BRUSA,BMS_LV,TPMS,IMU,DATALOGGER,STEERING
 [START_DESC]
 
 [START_DESC_MSG]
 23 S "(cycle_time: 10) (send_type: Cyclic)";
 65 S "(cycle_time: 10) (send_type: Cyclic)";
-82 S "(cycle_time: 10) (send_type: Cyclic)";
-83 S "(cycle_time: 10) (send_type: Cyclic)";
-99 S "(cycle_time: 10) (send_type: Cyclic)";
 115 S "(cycle_time: 10) (send_type: Cyclic)";
 131 S "(cycle_time: 10) (send_type: Cyclic)";
 167 S "(cycle_time: 10) (send_type: Cyclic)";
@@ -691,6 +689,9 @@
 1281 S "(cycle_time: 100) (send_type: Cyclic)";
 1282 S "(cycle_time: 100) (send_type: Cyclic)";
 1290 S "(send_type: CyclicIfActive)";
+1297 S "(cycle_time: 10) (send_type: Cyclic)";
+1298 S "(cycle_time: 10) (send_type: Cyclic)";
+1299 S "(cycle_time: 10) (send_type: Cyclic)";
 1306 S "(send_type: CyclicIfActive)";
 1552 S "(cycle_time: 100)";
 1553 S "(cycle_time: 100)";
@@ -717,20 +718,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DIAG_TOOL "Diagnostic tool";
-STEERING "Steering wheel board";
-SB_REAR "Sensorboard rear ECU";
-DATALOGGER "DataLogger provided by race organizers";
-DASH "Dashboard ECU";
-SB_FRONT "Sensorboard front ECU";
+SCANNER "Can Logger ECU";
 TLB_BAT "TSAL-latch-board battery ECU";
-BRUSA "Brusa NLG5 charger.";
+DASH "Dashboard ECU";
 DSPACE "An automotive ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-SCANNER "Can Logger ECU";
+SB_FRONT "Sensorboard front ECU";
+SB_REAR "Sensorboard rear ECU";
+DIAG_TOOL "Diagnostic tool";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
 TPMS "Tire pressure monitoring system";
 IMU "Inertial Measurement Unit.";
+DATALOGGER "DataLogger provided by race organizers";
+STEERING "Steering wheel board";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -755,15 +756,6 @@ IMU "Inertial Measurement Unit.";
 65 S IMP_DCBUS_isActive "States whether the DCBUS Implausibility is active (DCBUS Less then 60V and TS is active)";
 65 S AIR_POS_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR POS mechanical state signal is active";
 65 S AIR_NEG_STG_mechStateSignal_isActive "States whether a Short To Gnd on AIR NEG mechanical state signal is active";
-82 S APPS_0_voltage "The voltage of the APPS #0 expressed in mV";
-82 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
-82 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
-82 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
-83 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
-83 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
-99 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
-99 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
-99 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
 115 S DISCHARGE_isActive "States whether the discharge is discharging the DCBUS";
 115 S BSPD_hasError "States whether the BSPD has an error";
 131 S COLDPLATE_CIRCUIT_PRESS_voltage "The voltage of the coldplate circuit pressure sensor expressed in mV";
@@ -775,6 +767,7 @@ IMU "Inertial Measurement Unit.";
 324 S LV_BAT_summedVoltage "The total voltage of the LV battery pack calculated by summing each cell voltage expressed in mV";
 357 S BTN_RTD_isPressed "Ready To Drive Button pressed";
 357 S BTN_TS_ON_isPressed "Tractive System ON Button #1 is pressed";
+357 S BTN_MIS_SEL_isPressed "Mission selection Button pressed";
 366 S BTN_1_isPressed "Steering wheel Button #1 is pressed";
 366 S BTN_2_isPressed "Steering wheel Button #2 is pressed";
 366 S BTN_3_isPressed "Steering wheel Button #3 is pressed";
@@ -886,6 +879,15 @@ IMU "Inertial Measurement Unit.";
 1290 S TIRE_FR_statusIsVbattNotOk "Vbatt bit of Front Right tire status register: TPMS battery is below 2.2V (1) or above (0)";
 1290 S TIRE_FR_temperature "The temperature of the Front Right tire";
 1290 S TIRE_FR_pressure "The pressure of the Front Right tire";
+1297 S APPS_0_voltage "The voltage of the APPS #0 expressed in mV";
+1297 S APPS_1_voltage "The voltage of the APPS #1 expressed in mV";
+1297 S STEER_RME_voltage "The voltage of the Steering Wheel RME (rotary magnetic encoder) sensor expressed in mV";
+1297 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
+1298 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
+1298 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
+1299 S COOL_PRESS_LEFT_voltage "The voltage of the left cooling pressure sensor expressed in mV";
+1299 S COOL_PRESS_RIGHT_voltage "The voltage of the right cooling pressure sensor expressed in mV";
+1299 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
 1306 S TIRE_RL_sensID "The sensor id of the Rear Left tire";
 1306 S TIRE_RL_statusIsSpinning "Acc bit of Rear Left tire status register: wheel is spinning (1) or not (0)";
 1306 S TIRE_RL_statusIsVbattNotOk "Vbatt bit of Rear Left tire status register: TPMS battery is below 2.2V (1) or above (0)";
@@ -1065,12 +1067,6 @@ IMU "Inertial Measurement Unit.";
 23,S,"GenMsgSendType","1"
 65,S,"GenMsgCycleTime","10"
 65,S,"GenMsgSendType","1"
-82,S,"GenMsgCycleTime","10"
-82,S,"GenMsgSendType","1"
-83,S,"GenMsgCycleTime","10"
-83,S,"GenMsgSendType","1"
-99,S,"GenMsgCycleTime","10"
-99,S,"GenMsgSendType","1"
 115,S,"GenMsgCycleTime","10"
 115,S,"GenMsgSendType","1"
 131,S,"GenMsgCycleTime","10"
@@ -1136,6 +1132,12 @@ IMU "Inertial Measurement Unit.";
 1282,S,"GenMsgCycleTime","100"
 1282,S,"GenMsgSendType","1"
 1290,S,"GenMsgSendType","3"
+1297,S,"GenMsgCycleTime","10"
+1297,S,"GenMsgSendType","1"
+1298,S,"GenMsgCycleTime","10"
+1298,S,"GenMsgSendType","1"
+1299,S,"GenMsgCycleTime","10"
+1299,S,"GenMsgSendType","1"
 1306,S,"GenMsgSendType","3"
 1552,S,"GenMsgCycleTime","100"
 1553,S,"GenMsgCycleTime","100"
