@@ -5616,7 +5616,7 @@
                 },
                 "BRAKE_PRESS_REAR_voltage": {
                     "description": "The voltage of the rear brake pressure sensor expressed in mV",
-                    "start_bit": 32,
+                    "start_bit": 48,
                     "size": 16,
                     "endianness": "little",
                     "unit": "mV",
