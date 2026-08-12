@@ -5585,34 +5585,34 @@
                     "max": 200
                 },
                 "EMERGENCY_BRAKE_PRESS_PNEU_voltage": {
-                    "description": "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV",
+                    "description": "Emergency brake pressure sensor (pneumatic) expressed in bar",
                     "start_bit": 16,
                     "size": 16,
                     "endianness": "little",
-                    "unit": "mV",
+                    "unit": "bar",
                     "receivers": [
                         "SB_FRONT",
                         "DATALOGGER"
                     ],
-                    "scale": 1,
-                    "offset": 0,
+                    "scale": 0.025,
+                    "offset": -12.5,
                     "min": 0,
-                    "max": 65535
+                    "max": 200
                 },
                 "REDUNDANCY_BRAKE_PRESS_PNEU_voltage": {
-                    "description": "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV",
+                    "description": "Redundancy brake pressure sensor (pneumatic) expressed in bar",
                     "start_bit": 32,
                     "size": 16,
                     "endianness": "little",
-                    "unit": "mV",
+                    "unit": "bar",
                     "receivers": [
                         "SB_FRONT",
                         "DATALOGGER"
                     ],
-                    "scale": 1,
-                    "offset": 0,
+                    "scale": 0.025,
+                    "offset": -12.5,
                     "min": 0,
-                    "max": 65535
+                    "max": 200
                 },
                 "BRAKE_PRESS_REAR_voltage": {
                     "description": "Rear brake pressure expressed in bar",
