@@ -407,10 +407,10 @@
 [END_MSG]
 
 [START_MSG] DSPACE__redundancy_EBS,1297,8,4,0,S,DSPACE
-[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,1,0,U,8192,0,1,0,1,mV,,SB_FRONT,DATALOGGER
+[START_SIGNALS] BRAKE_PRESS_FRONT_voltage,16,1,0,U,8000,0,1,-12.5,0.025,bar,,SB_FRONT,DATALOGGER
 [START_SIGNALS] EMERGENCY_BRAKE_PRESS_PNEU_voltage,16,3,0,U,65535,0,1,0,1,mV,,SB_FRONT,DATALOGGER
 [START_SIGNALS] REDUNDANCY_BRAKE_PRESS_PNEU_voltage,16,5,0,U,65535,0,1,0,1,mV,,SB_FRONT,DATALOGGER
-[START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,7,0,U,65535,0,1,0,1,mV,,SB_REAR,DATALOGGER
+[START_SIGNALS] BRAKE_PRESS_REAR_voltage,16,7,0,U,8000,0,1,-12.5,0.025,bar,,SB_REAR,DATALOGGER
 [END_MSG]
 
 [START_MSG] TPMS__rearWheelsPressure,1306,8,10,0,S,TPMS
@@ -644,7 +644,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] SB_FRONT,SB_REAR,TLB_BAT,STEERING,DSPACE,DIAG_TOOL,SCANNER,BRUSA,DATALOGGER,DASH,EXTRA_NODE,IMU,BMS_LV,TPMS
+[NODE] TLB_BAT,IMU,BRUSA,BMS_LV,DSPACE,STEERING,SCANNER,DATALOGGER,TPMS,DASH,SB_FRONT,SB_REAR,DIAG_TOOL,EXTRA_NODE
 [START_DESC]
 
 [START_DESC_MSG]
@@ -726,20 +726,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
+TLB_BAT "TSAL-latch-board battery ECU";
+IMU "Inertial Measurement Unit.";
+BRUSA "Brusa NLG5 charger.";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DSPACE "An automotive ECU";
+STEERING "Steering wheel board";
+SCANNER "Can Logger ECU";
+DATALOGGER "DataLogger provided by race organizers";
+TPMS "Tire pressure monitoring system";
+DASH "Dashboard ECU";
 SB_FRONT "Sensorboard front ECU";
 SB_REAR "Sensorboard rear ECU";
-TLB_BAT "TSAL-latch-board battery ECU";
-STEERING "Steering wheel board";
-DSPACE "An automotive ECU";
 DIAG_TOOL "Diagnostic tool";
-SCANNER "Can Logger ECU";
-BRUSA "Brusa NLG5 charger.";
-DATALOGGER "DataLogger provided by race organizers";
-DASH "Dashboard ECU";
 EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
-IMU "Inertial Measurement Unit.";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-TPMS "Tire pressure monitoring system";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -896,10 +896,10 @@ TPMS "Tire pressure monitoring system";
 1290 S TIRE_FR_statusIsVbattNotOk "Vbatt bit of Front Right tire status register: TPMS battery is below 2.2V (1) or above (0)";
 1290 S TIRE_FR_temperature "The temperature of the Front Right tire";
 1290 S TIRE_FR_pressure "The pressure of the Front Right tire";
-1297 S BRAKE_PRESS_FRONT_voltage "The voltage of the front brake pressure sensor expressed in mV";
+1297 S BRAKE_PRESS_FRONT_voltage "Front brake pressure expressed in bar";
 1297 S EMERGENCY_BRAKE_PRESS_PNEU_voltage "The voltage of the emergency brake pressure sensor (pneumatic) expressed in mV";
 1297 S REDUNDANCY_BRAKE_PRESS_PNEU_voltage "The voltage of the redundancy brake pressure sensor (pneumatic) expressed in mV";
-1297 S BRAKE_PRESS_REAR_voltage "The voltage of the rear brake pressure sensor expressed in mV";
+1297 S BRAKE_PRESS_REAR_voltage "Rear brake pressure expressed in bar";
 1306 S TIRE_RL_sensID "The sensor id of the Rear Left tire";
 1306 S TIRE_RL_statusIsSpinning "Acc bit of Rear Left tire status register: wheel is spinning (1) or not (0)";
 1306 S TIRE_RL_statusIsVbattNotOk "Vbatt bit of Rear Left tire status register: TPMS battery is below 2.2V (1) or above (0)";
