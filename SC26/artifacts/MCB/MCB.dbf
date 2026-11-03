@@ -5,7 +5,7 @@
 [PROTOCOL] CAN
 
 [BUSMASTER_VERSION] [3.2.2]
-[NUMBER_OF_MESSAGES] 76
+[NUMBER_OF_MESSAGES] 78
 [START_MSG] DSPACE__timeAndDate,23,6,7,0,S,DSPACE
 [START_SIGNALS] DATETIME_year,8,1,0,U,255,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
 [START_SIGNALS] DATETIME_month,4,2,0,U,11,0,1,0,1,,,DASH,SB_FRONT,SB_REAR,SCANNER,TLB_BAT,BMS_LV
@@ -580,22 +580,28 @@
 [START_SIGNALS] LV_CELL_NTC_11_resistance,10,7,2,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_FRONT__ntcResistance,1650,8,6,0,S,SB_FRONT
-[START_SIGNALS] JACKET_FL_NTC_resistance,10,1,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] JACKET_FR_NTC_resistance,10,2,2,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] COLDPLATE_L_NTC_resistance,10,3,4,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] COLDPLATE_R_NTC_resistance,10,4,6,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] SPARE_NTC_0_resistance,10,6,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] SPARE_NTC_1_resistance,10,7,2,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_MSG] SB_FRONT__ntcResistance_LEFT,1650,8,3,0,S,SB_FRONT
+[START_SIGNALS] COLDPLATE_L_NTC_resistance,20,1,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] JACKET_FL_NTC_resistance,20,3,4,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] SPARE_NTC_0_resistance,20,6,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
 [END_MSG]
 
-[START_MSG] SB_REAR__ntcResistance,1667,8,6,0,S,SB_REAR
-[START_SIGNALS] JACKET_RL_NTC_resistance,10,1,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] JACKET_RR_NTC_resistance,10,2,2,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] RAD_RL_IN_NTC_resistance,10,3,4,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] RAD_RL_OUT_NTC_resistance,10,4,6,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] RAD_RR_IN_NTC_resistance,10,6,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
-[START_SIGNALS] RAD_RR_OUT_NTC_resistance,10,7,2,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_MSG] SB_FRONT__ntcResistance_RIGHT,1651,8,3,0,S,SB_FRONT
+[START_SIGNALS] COLDPLATE_R_NTC_resistance,20,1,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] JACKET_FR_NTC_resistance,20,3,4,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] SPARE_NTC_1_resistance,20,6,0,U,1023,0,1,1000,31.25,Ohm,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] SB_REAR__ntcResistance_LEFT,1667,8,3,0,S,SB_REAR
+[START_SIGNALS] JACKET_RL_NTC_resistance,20,1,0,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] RAD_RL_IN_NTC_resistance,20,3,4,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] RAD_RL_OUT_NTC_resistance,20,6,0,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
+[END_MSG]
+
+[START_MSG] SB_REAR__ntcResistance_RIGHT,1668,8,3,0,S,SB_REAR
+[START_SIGNALS] JACKET_RR_NTC_resistance,20,1,0,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] RAD_RR_IN_NTC_resistance,20,3,4,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
+[START_SIGNALS] RAD_RR_OUT_NTC_resistance,20,6,0,U,1023,0,1,0,31.25,Ohm,,DSPACE,SCANNER
 [END_MSG]
 
 [START_MSG] DASH__appsRangeLimits,1685,8,4,0,S,DASH
@@ -644,7 +650,7 @@
 [START_SIGNALS] LAD_D_ParamRp,64,8,0,U,0,0,0,0,1,,,BRUSA,SCANNER
 [END_MSG]
 
-[NODE] TLB_BAT,EXTRA_NODE,SB_FRONT,DIAG_TOOL,SCANNER,SB_REAR,TPMS,IMU,BMS_LV,DSPACE,DATALOGGER,STEERING,DASH,BRUSA
+[NODE] SB_FRONT,STEERING,TPMS,DATALOGGER,BMS_LV,DIAG_TOOL,SB_REAR,SCANNER,EXTRA_NODE,TLB_BAT,BRUSA,DASH,DSPACE,IMU
 [START_DESC]
 
 [START_DESC_MSG]
@@ -716,7 +722,9 @@
 1620 S "(cycle_time: 2000) (send_type: Cyclic)";
 1636 S "(cycle_time: 2000) (send_type: Cyclic)";
 1650 S "(cycle_time: 500) (send_type: Cyclic)";
+1651 S "(cycle_time: 500) (send_type: Cyclic)";
 1667 S "(cycle_time: 500) (send_type: Cyclic)";
+1668 S "(cycle_time: 500) (send_type: Cyclic)";
 1685 S "(send_type: IfActive)";
 1701 S "(send_type: IfActive)";
 1719 S "(cycle_time: 200) (send_type: Cyclic)";
@@ -726,20 +734,20 @@
 1818 S "";
 [END_DESC_MSG]
 [START_DESC_NODE]
-TLB_BAT "TSAL-latch-board battery ECU";
-EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
 SB_FRONT "Sensorboard front ECU";
-DIAG_TOOL "Diagnostic tool";
-SCANNER "Can Logger ECU";
-SB_REAR "Sensorboard rear ECU";
-TPMS "Tire pressure monitoring system";
-IMU "Inertial Measurement Unit.";
-BMS_LV "Battery-Management-System Low-Voltage ECU";
-DSPACE "An automotive ECU";
-DATALOGGER "DataLogger provided by race organizers";
 STEERING "Steering wheel board";
-DASH "Dashboard ECU";
+TPMS "Tire pressure monitoring system";
+DATALOGGER "DataLogger provided by race organizers";
+BMS_LV "Battery-Management-System Low-Voltage ECU";
+DIAG_TOOL "Diagnostic tool";
+SB_REAR "Sensorboard rear ECU";
+SCANNER "Can Logger ECU";
+EXTRA_NODE "Extra CAN BUS-Nodes not permanent or temporary";
+TLB_BAT "TSAL-latch-board battery ECU";
 BRUSA "Brusa NLG5 charger.";
+DASH "Dashboard ECU";
+DSPACE "An automotive ECU";
+IMU "Inertial Measurement Unit.";
 [END_DESC_NODE]
 [START_DESC_SIG]
 23 S DATETIME_year "Current year expressed as an offset from 1970";
@@ -1022,18 +1030,18 @@ BRUSA "Brusa NLG5 charger.";
 1636 S LV_CELL_NTC_09_resistance "The resistance of the NTC #9 in the battery pack expressed in Ohm";
 1636 S LV_CELL_NTC_10_resistance "The resistance of the NTC #10 in the battery pack expressed in Ohm";
 1636 S LV_CELL_NTC_11_resistance "The resistance of the NTC #11 in the battery pack expressed in Ohm";
-1650 S JACKET_FL_NTC_resistance "The resistance of the front left jacket NTC expressed in Ohm";
-1650 S JACKET_FR_NTC_resistance "The resistance of the front right jacket NTC expressed in Ohm";
 1650 S COLDPLATE_L_NTC_resistance "The resistance of the left coldplate NTC expressed in Ohm";
-1650 S COLDPLATE_R_NTC_resistance "The resistance of the right coldplate NTC expressed in Ohm";
+1650 S JACKET_FL_NTC_resistance "The resistance of the front left jacket NTC expressed in Ohm";
 1650 S SPARE_NTC_0_resistance "The resistance of the spare NTC #0 expressed in Ohm";
-1650 S SPARE_NTC_1_resistance "The resistance of the spare NTC #1 expressed in Ohm";
+1651 S COLDPLATE_R_NTC_resistance "The resistance of the right coldplate NTC expressed in Ohm";
+1651 S JACKET_FR_NTC_resistance "The resistance of the front right jacket NTC expressed in Ohm";
+1651 S SPARE_NTC_1_resistance "The resistance of the spare NTC #1 expressed in Ohm";
 1667 S JACKET_RL_NTC_resistance "The resistance of the rear left jacket NTC expressed in Ohm";
-1667 S JACKET_RR_NTC_resistance "The resistance of the rear right jacket NTC expressed in Ohm";
 1667 S RAD_RL_IN_NTC_resistance "The resistance of the rear left IN radiator NTC expressed in Ohm";
 1667 S RAD_RL_OUT_NTC_resistance "The resistance of the rear left OUT radiator NTC expressed in Ohm";
-1667 S RAD_RR_IN_NTC_resistance "The resistance of the rear right IN radiator NTC expressed in Ohm";
-1667 S RAD_RR_OUT_NTC_resistance "The resistance of the rear right OUT radiator NTC expressed in Ohm";
+1668 S JACKET_RR_NTC_resistance "The resistance of the rear right jacket NTC expressed in Ohm";
+1668 S RAD_RR_IN_NTC_resistance "The resistance of the rear right IN radiator NTC expressed in Ohm";
+1668 S RAD_RR_OUT_NTC_resistance "The resistance of the rear right OUT radiator NTC expressed in Ohm";
 1685 S APPS_0_voltageRangeMin "APPS channel #0 minimum range expressed in mV";
 1685 S APPS_0_voltageRangeMax "APPS channel #0 maximum range expressed in mV";
 1685 S APPS_1_voltageRangeMin "APPS channel #1 minimum range expressed in mV";
@@ -1171,8 +1179,12 @@ BRUSA "Brusa NLG5 charger.";
 1636,S,"GenMsgSendType","1"
 1650,S,"GenMsgCycleTime","500"
 1650,S,"GenMsgSendType","1"
+1651,S,"GenMsgCycleTime","500"
+1651,S,"GenMsgSendType","1"
 1667,S,"GenMsgCycleTime","500"
 1667,S,"GenMsgSendType","1"
+1668,S,"GenMsgCycleTime","500"
+1668,S,"GenMsgSendType","1"
 1685,S,"GenMsgSendType","2"
 1701,S,"GenMsgSendType","2"
 1719,S,"GenMsgCycleTime","200"
